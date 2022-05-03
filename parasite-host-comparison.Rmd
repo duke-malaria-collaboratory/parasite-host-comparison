@@ -1,0 +1,948 @@
+---
+title: "Bottleneck exploratory data analysis"
+author: "Zena Lapp"
+date: "9/1/2021"
+output: 
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, collapse = TRUE, fig.align = 'center')
+```
+
+```{r}
+# load libraries
+library(gamlss)
+library(tidyverse)
+library(ape)
+library(iNEXT.4steps)
+library(iNEXT.3D)
+library(cowplot)
+library(scales)
+library(ggtext)
+library(pegas)
+library(ggtree)
+
+# set plotting theme
+theme_set(theme_bw() + 
+            theme(text = element_text(size = 15),
+                  strip.background = element_rect(fill = 'white', color = 'white')))
+
+# mosquito pcr data
+mosq_dat <- read_csv('data/mosquito-pcr-data.csv')
+
+# human pcr data
+human_dat <- read_csv('data/human-pcr-data.csv') %>% mutate(sample_type = 'Human')
+
+# haplotype reads
+ama_reads <- read_csv('data/ama-reads.csv') %>% select(-haplotype) %>% data.frame()
+csp_reads <- read_csv('data/csp-reads.csv') %>% select(-haplotype) %>% data.frame()
+
+ama_reads_raw <- read_csv('data/ama-reads.csv') %>% select(-haplotype) %>% data.frame()
+csp_reads_raw <- read_csv('data/csp-reads.csv') %>% select(-haplotype) %>% data.frame()
+
+# read in the data set of csp haplotypes within each sample
+csp_haplotype_summary <- read_csv('data/csp-haplotype-summary.csv')
+ama_haplotype_summary <- read_csv('data/ama-haplotype-summary.csv')
+
+pcr_results <- bind_rows(human_dat,
+  mosq_dat %>% 
+  pivot_longer(c(pf_pcr_infection_status_sample_level_a, pf_pcr_infection_status_sample_level_h),
+               names_to = 'sample_type', values_to = 'pf_pcr_infection_status') %>% 
+  mutate(sample_type = ifelse(grepl('a$',sample_type), 'Abdomen','Head'),
+         sample_name_dbs = ifelse(sample_type == 'Abdomen', gsub(' ', ' A', sample_id_mosquito),
+                                  gsub(' ', ' H', sample_id_mosquito))) %>% 
+  select(sample_name_dbs, collection_date, sample_type, pf_pcr_infection_status)) %>% 
+  mutate(pf_pcr_infection_status = str_to_sentence(pf_pcr_infection_status)) %>% 
+  left_join(csp_haplotype_summary) %>% 
+  rename(csp_haplotype_number = haplotype_number, csp_haplotype_list = haplotype_list,
+         csp_haplotype_reads = haplotype_reads) %>% 
+  select(-c(date, unq_memID)) %>% #, month)) %>% 
+  left_join(ama_haplotype_summary) %>% 
+  rename(ama_haplotype_number = haplotype_number, ama_haplotype_list = haplotype_list,
+         ama_haplotype_reads = haplotype_reads) %>% 
+  filter(!is.na(pf_pcr_infection_status)) %>% 
+  mutate(csp_seq = ifelse(!is.na(csp_haplotype_number), 'csp only', ''),
+         ama_seq = ifelse(!is.na(ama_haplotype_number), 'ama only', ''),
+         seq = ifelse(csp_seq == 'csp only' & ama_seq == 'ama only', 'both', 'neither'),
+         seq = ifelse(csp_seq == 'csp only' & ama_seq == '', 'csp only', seq),
+         seq = ifelse(csp_seq == '' & ama_seq == 'ama only', 'ama only', seq),
+         pcr_seq = paste(pf_pcr_infection_status, seq),
+         seq = factor(seq, levels = c('neither', 'ama only', 'csp only', 'both'))) 
+
+# create combined version of dataset
+all_haps_summary <- bind_rows(csp_haplotype_summary %>% 
+                                mutate(marker='*csp*', haplotype_list = gsub('H','csp_H',haplotype_list)), 
+                              ama_haplotype_summary %>% 
+                                mutate(marker='*ama1*', haplotype_list = gsub('H','ama_H',haplotype_list))) %>% 
+  mutate(hh_id = gsub(' .*|-.*', '', sample_name_dbs)) %>% 
+  filter(sample_name_dbs %in% pcr_results$sample_name_dbs[pcr_results$pf_pcr_infection_status == 'Positive']) # only keep ones that were pcr+
+
+all_haps_long <- all_haps_summary %>% 
+  separate_rows(haplotype_list, sep = ',') %>% 
+  rename(haplotype = haplotype_list)
+
+# haplotype sequences
+ama_seqs <- read.dna('data/ama-seqs.fasta', format = 'fasta')
+csp_seqs <- read.dna('data/csp-seqs.fasta', format = 'fasta')
+
+# amino acid sequences
+ama_aa_seqs <- as.character(trans(ama_seqs, code = 1, codonstart = 3))
+csp_aa_seqs <- as.character(trans(complement(csp_seqs), code = 1, codonstart = 3))
+
+pop_prev <- bind_rows(all_haps_summary, all_haps_summary %>% filter(sample_type != 'Human') %>% 
+    mutate(sample_type = 'Mosquito')) %>% 
+    group_by(sample_type, marker) %>%
+    mutate(n_samps = n()) %>% 
+    separate_rows(haplotype_list, sep = ',') %>% rename(haplotype = haplotype_list) %>%
+    group_by(sample_type, marker) %>%
+    mutate(n_haps = n()) %>% 
+    group_by(sample_type, marker, haplotype) %>% 
+    summarize(n_samp = n(), frac_samp = n_samp/n_samps) %>% 
+    unique() %>% 
+    group_by(sample_type, marker) 
+
+set.seed(0)
+pop_prev_boot <- lapply(1:100, function(x){
+  bind_rows(all_haps_summary, all_haps_summary %>% filter(sample_type != 'Human') %>% mutate(sample_type = 'Mosquito')) %>% 
+    group_by(sample_type, marker) %>%
+    mutate(n_samps = n()) %>% 
+    sample_n(n(), replace = TRUE) %>%
+    separate_rows(haplotype_list, sep = ',') %>% rename(haplotype = haplotype_list) %>%
+    group_by(sample_type, marker) %>%
+    mutate(n_haps = n()) %>% 
+    group_by(sample_type, marker, haplotype, n_samps) %>% 
+    summarize(n_samp = n()) %>% 
+    mutate(frac_samp = n_samp/n_samps,
+           perm = x) 
+}) %>% bind_rows() %>% suppressMessages()
+
+pop_prev_boot_summary <- full_join(pop_prev, pop_prev_boot %>% 
+  group_by(sample_type, marker, haplotype) %>% 
+  summarize(min_frac_samp = min(frac_samp),
+            max_frac_samp = max(frac_samp),
+            q025 = quantile(frac_samp, 0.025),
+            q975 = quantile(frac_samp, 0.975))) %>%
+  mutate(n_samp = ifelse(is.na(n_samp), 0, n_samp),
+         frac_samp = ifelse(is.na(frac_samp), 0, frac_samp)) %>% 
+  group_by(sample_type %in% c('Human', 'Mosquito')) %>% 
+  mutate(thresh = 0.05*n()) %>% 
+  group_by(haplotype, sample_type %in% c('Human', 'Mosquito')) %>%
+  mutate(under_thresh = sum(n_samp) < thresh) %>%
+  ungroup() 
+
+# colors
+compartment_colors <- c(Human = '#D90368', Abdomen = '#7EC2DE', Head = '#9AC77B')
+host_colors <- c(Human = "#D90368", Mosquito = "#4C67BD")
+
+# grob plotting function to plot panel colors
+# p is plot, fills is colors you want for strip labels
+plot_panel_cols <- function(p, fills){
+  gt <- ggplot_gtable(ggplot_build(p))
+  strip_both <- which(grepl('strip-', gt$layout$name))
+  k <- 1
+  for (i in strip_both) {
+    j <- which(grepl('rect', gt$grobs[[i]]$grobs[[1]]$childrenOrder))
+    gt$grobs[[i]]$grobs[[1]]$children[[j]]$gp$fill <- fills[k]
+    k <- k+1
+  }
+  ggplotify::as.ggplot(gt)
+}
+```
+
+## Overview of PCR results
+
+```{r}
+pcr_results %>% filter(!is.na(pf_pcr_infection_status)) %>% 
+  group_by(sample_type, pf_pcr_infection_status) %>% summarize(count = n()) %>% 
+  group_by(sample_type) %>% 
+  mutate(tot = sum(count), perc_pos = round(count/sum(count), 3)*100) %>% 
+  filter(pf_pcr_infection_status == 'Positive')
+
+pcr_results %>% filter(pf_pcr_infection_status != 'Negative') %>% 
+  group_by(sample_type, seq != 'neither') %>% summarize(count = n()) %>% 
+  group_by(sample_type) %>% 
+  mutate(tot = sum(count), perc_pos = round(count/sum(count), 3)*100)
+
+all_haps_summary %>% 
+  mutate(unq_memID = ifelse(is.na(unq_memID), gsub(' A| H', '', sample_name_dbs), unq_memID)) %>% 
+  mutate(hum = ifelse(sample_type == 'Human', 'Human', 'Mosquito')) %>% 
+  select(sample_name_dbs, unq_memID, hum) %>% 
+  unique() %>% group_by(hum) %>% summarize(n_inf = n(), n_ind = n_distinct(unq_memID))
+
+cat('# households\n')
+length(unique(all_haps_summary$hh_id))
+```
+
+### Figure S1: Overview of sample infection status
+
+```{r}
+pcr_plot <- pcr_results %>% 
+  mutate(pcr_seq = ifelse(grepl('Negative', pcr_seq), 'Uninfected', gsub('Positive ', 'Infected (', pcr_seq)),
+         pcr_seq = gsub('csp', '*csp*', pcr_seq),
+         pcr_seq = gsub('ama', '*ama1*', pcr_seq),
+         pcr_seq = gsub('both','*ama1* and *csp*', pcr_seq),
+         pcr_seq = ifelse(grepl('Infected', pcr_seq), paste0(pcr_seq, ')'), pcr_seq),
+         pcr_seq = factor(pcr_seq, levels = c('Uninfected','Infected (neither)', 'Infected (*ama1* only)',
+                                              'Infected (*csp* only)', 'Infected (*ama1* and *csp*)')),
+         sample_type = ifelse(sample_type == 'Human', paste0(sample_type), paste0('Mosquito\n', tolower(sample_type)))) %>% 
+  ggplot(aes(x = sample_type, fill = pcr_seq)) +
+  geom_bar(fill = 'white', col = 'darkgrey', alpha = 1) +
+  geom_bar() +
+  labs(x = 'Compartment', y = 'Number of samples', fill = 'Infection status\n(sequenced markers)') +
+  scale_fill_grey(start = 1, end = 0) +
+  guides(fill = guide_legend(reverse=TRUE, override.aes = list(col = c(grey.colors(5, start = 0, end = 1)[1:4], 'darkgrey')))) +
+  facet_grid(~sample_type, scales = 'free_x', switch = 'x') +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), legend.text = element_markdown())
+
+pcr_plot <- plot_panel_cols(pcr_plot, adjustcolor(compartment_colors, alpha.f = 0.5))
+
+ggsave(plot = pcr_plot, filename = 'figures/FigS1.png', width = 6, height = 4)
+```
+
+## Mosquito abdomen head comparison
+
+```{r}
+mosq_pcr_summary <- mosq_dat %>% 
+  group_by(pf_pcr_infection_status_sample_level_a, pf_pcr_infection_status_sample_level_h) %>% 
+  summarize(count = n()) %>% 
+  filter(!is.na(pf_pcr_infection_status_sample_level_h) & !is.na(pf_pcr_infection_status_sample_level_a) &
+           !(pf_pcr_infection_status_sample_level_h == 'negative' & 
+               pf_pcr_infection_status_sample_level_a == 'negative')) %>% 
+  mutate(pcr_status = paste0(ifelse(pf_pcr_infection_status_sample_level_a == 'positive', 'A+', 'A-'), '/',
+                ifelse(pf_pcr_infection_status_sample_level_h == 'positive', 'H+', 'H-')),
+         pcr_status = factor(pcr_status, levels = c('A+/H-','A+/H+','A-/H+')))
+
+# shared haplotypes between abdomens and heads from the same mosquito
+ah_csp <- all_haps_summary %>% filter(sample_type != 'Human') %>% 
+  mutate(sample_name_dbs = gsub(' H| A', ' ', sample_name_dbs)) %>% 
+  select(sample_name_dbs, sample_type, marker, haplotype_list) %>% 
+  filter(marker == '*csp*') %>% 
+  pivot_wider(names_from = sample_type, values_from = haplotype_list) 
+
+ah_ama <- all_haps_summary %>% filter(sample_type != 'Human') %>% 
+  mutate(sample_name_dbs = gsub(' H| A', ' ', sample_name_dbs)) %>% 
+  select(sample_name_dbs, sample_type, marker, haplotype_list) %>% 
+  filter(marker == '*ama1*') %>% 
+  pivot_wider(names_from = sample_type, values_from = haplotype_list) 
+
+ah_pairs <- bind_rows(ah_csp, ah_ama) %>% filter(!is.na(Abdomen) & !is.na(Head)) 
+
+ah_hap_cts <- sapply(1:nrow(ah_pairs), function(x){
+  h <- strsplit(ah_pairs$Head, ',')[[x]]
+  a <- strsplit(ah_pairs$Abdomen, ',')[[x]]
+  marker <- ah_pairs$marker[[x]]
+  sample_name_dbs <- ah_pairs$sample_name_dbs[[x]]
+  c(sample_name_dbs = sample_name_dbs, marker = marker, 
+    n_abd = length(a), n_head = length(h), 
+    n_both = length(intersect(h,a)), 
+    n_union = length(union(a, h)), 
+    prop_both = length(intersect(h,a))/length(union(a, h)))
+}) %>% t() %>% data.frame() %>% 
+  mutate(n_abd = as.numeric(n_abd), n_head = as.numeric(n_head), 
+         n_both = as.numeric(n_both), prop_both = as.numeric(prop_both),
+         n_abd_only = n_abd - as.numeric(n_both),
+         n_head_only = n_head - as.numeric(n_both),
+         prop_abd_only = n_abd_only/as.numeric(n_union),
+         prop_head_only = n_head_only/as.numeric(n_union)) 
+
+all_ah_hap_props <- sapply(ah_pairs$Abdomen, function(a){
+  a <- strsplit(a, ',')[[1]]
+  jaccards <- sapply(ah_pairs$Head, function(h){
+    h <- strsplit(h, ',')[[1]]
+    length(intersect(a, h))/length(union(a, h))
+  })
+}) 
+diag(all_ah_hap_props) <- paste0('p', diag(all_ah_hap_props))
+all_ah_hap_props <- all_ah_hap_props %>% reshape2::melt() %>% 
+  mutate(marker = gsub('_.*','',Var1),
+         marker = ifelse(marker == 'ama', '*ama1*', '*csp*')) %>%
+  mutate(pair = ifelse(grepl('p', value), 'yes', 'no'),
+         value = as.numeric(gsub('p', '', value)))
+
+```
+
+```{r}
+sum(mosq_pcr_summary$count) 
+mosq_pcr_summary %>% 
+  ungroup() %>% 
+  mutate(tot = sum(count), 
+         percent = round(count/tot*100, 1))
+```
+### Figure 1: Mosquito abdomens and heads do not contain similar infections
+
+```{r}
+pcr_compare <- mosq_pcr_summary %>% ungroup() %>% 
+  mutate(pcr_status = factor(pcr_status, 
+                             labels = c('A+/H-' = 'Abdomen\nonly', 'A+/H+' = 'Abdomen\n& head', 'A-/H+' = 'Head\nonly')),
+         pcr_status = factor(pcr_status, levels = rev(levels(pcr_status)))) %>% 
+  ggplot(aes(x = pcr_status, y = count)) +
+  geom_col(fill = 'grey90', col = 'grey50') + 
+  geom_text(aes(y = count - c(8, 10, 8), label = count), col = 'grey15', size = 5) +
+  labs(x = 'Infected parts', y = 'Number of infected\nmosquitoes') + 
+  coord_flip()
+
+mosq_comp_compare <- ah_hap_cts %>% 
+  group_by(marker) %>% 
+  summarize(mean_abd = mean(prop_abd_only), 
+            mean_head = mean(prop_head_only), 
+            mean_both = mean(prop_both)) %>% 
+  pivot_longer(c(mean_abd, mean_head, mean_both)) %>% 
+  mutate(name = case_when(name == 'mean_abd' ~ 'Abdomen\nonly',
+                          name == 'mean_both' ~ 'Both',
+                          name == 'mean_head' ~ 'Head\nonly'),
+         name = factor(name, levels = rev(c('Abdomen\nonly', 'Both', 'Head\nonly'))),
+         marker = factor(marker, levels = c('*csp*', '*ama1*'))) %>% 
+  ggplot(aes(y = marker, x = value, fill = name)) +
+  geom_col() +
+  labs(y = 'Marker', x = 'Mean proportion of haplotypes in\nabdomens and heads from the same mosquito', 
+       fill = 'Haplotype\npresent in:') +
+  scale_fill_manual(values = (c(unname(compartment_colors['Head']), 'grey50', unname(compartment_colors['Abdomen'])))) +
+  guides(fill = guide_legend(rev = TRUE)) +
+  theme(axis.text.y = element_markdown())
+  
+mosq_pop_compare <- pop_prev_boot_summary %>% 
+  filter(sample_type %in% c('Abdomen', 'Head')) %>% 
+  select(-n_samp) %>% 
+  pivot_wider(names_from = sample_type, values_from = c(frac_samp, min_frac_samp, max_frac_samp, q025, q975), values_fill = 0) %>% 
+  mutate(expected_frac_samp = (frac_samp_Abdomen + frac_samp_Head)/2,
+         diff = ifelse(q025_Abdomen > expected_frac_samp & q975_Head < expected_frac_samp, 
+                       'Higher in Abdomen', 'No difference'),
+         diff = ifelse(q025_Head > expected_frac_samp & q975_Abdomen < expected_frac_samp, 
+                       'Higher in Head', diff),
+         diff = ifelse(under_thresh, 'Under threshold', diff)) %>% 
+  ggplot(aes(x = frac_samp_Abdomen, y = frac_samp_Head)) +
+  geom_abline(intercept = 0, col = 'grey80') +
+  geom_errorbar(aes(ymin = q025_Head, ymax = q975_Head), alpha = 0.2) +
+  geom_errorbarh(aes(xmin = q025_Abdomen, xmax = q975_Abdomen), alpha = 0.2) +
+  geom_point(aes(shape = marker), alpha = 0.3, size = 3) +
+  geom_text(aes(x = 0.82, y = 0.78, label = 'y=x'), check_overlap = TRUE) +
+  labs(x = 'Haplotype prevalence in\nmosquito abdomen samples',
+       y = 'Haplotype prevalence in\nmosquito head samples',
+       shape = 'Marker') +
+  theme(legend.text = element_markdown())
+
+f1 <- plot_grid(pcr_compare, mosq_comp_compare, mosq_pop_compare, 
+                labels = 'AUTO',  nrow = 1, rel_widths = c(0.75, 1, 1)) 
+
+ggsave(plot = f1, filename = 'figures/Fig1.png', width = 13, height = 3.5)
+```
+
+### Figure S2: Summary of haplotypes found in the mosquito abdomen, mosquito head, or both compartments
+
+```{r}
+mosq_hap_union <- ah_hap_cts %>% 
+  mutate(n_abd_only = n_abd - as.numeric(n_both),
+         n_head_only = n_head - as.numeric(n_both)) %>% 
+  pivot_longer(c(n_abd_only, n_both, n_head_only)) %>%
+  arrange(-as.numeric(n_union)) %>%
+  mutate(sample_name_dbs = factor(sample_name_dbs, levels = unique(sample_name_dbs)),
+         name = case_when(name == 'n_abd_only' ~ 'Abdomen only',
+                          name == 'n_both' ~ 'Both',
+                          name == 'n_head_only' ~ 'Head only'),
+         name = factor(name, levels = rev(unique(name)))) %>% 
+  ggplot(aes(x = sample_name_dbs, y = value, fill = name)) +
+  geom_col() +
+  facet_grid(marker~.) +
+  theme(axis.text.x = element_blank()) +
+  scale_fill_manual(values = c(unname(compartment_colors['Head']), "darkgrey", unname(compartment_colors['Abdomen']))) +
+  guides(fill = guide_legend(reverse = TRUE)) +
+  labs(x = 'Mosquito sample', y = 'Size of set of haplotypes in\nabdomen and head', fill = 'Present in:') +
+  theme(strip.text.y = element_markdown())
+
+jaccard_plot <- ah_hap_cts %>% 
+  ggplot(aes(x = prop_both, fill = factor(n_union, levels = 1:31))) + #levels = 0:10))) +
+  geom_histogram(bins = 30, fill = 'white') +
+  geom_histogram(bins = 30) +
+  facet_grid(marker~.) + #, scales = 'free') +
+  scale_fill_viridis_d(option = 'magma', begin = 0, end = 0.95, direction = -1, alpha = 0.75,
+                       breaks = seq(5,30,5), drop = FALSE) +
+  scale_y_continuous(breaks = scales::pretty_breaks()) +
+  scale_x_continuous(breaks = pretty_breaks()) +
+  labs(x = 'Jaccard distance (intersect/union) of haplotypes in\nabdomens and heads from the same mosquito', 
+       y = 'Number of mosquitoes', fill = 'Total\nnumber of\nhaplotypes') +
+  theme(strip.text.y = element_markdown())
+  
+jaccard_compare <- all_ah_hap_props %>%  
+  mutate(pair = ifelse(pair == 'yes', 'Same\nmosquito', 'Different\nmosquito'),
+         pair = factor(pair, levels = c('Same\nmosquito', 'Different\nmosquito'))) %>% 
+  ggplot(aes(y = value, x = pair)) +
+  geom_violin() +
+  stat_summary(fun=median, geom="point", size=2) +
+  facet_grid(~marker) +
+  labs(x = 'Abomen and head pair type', y = 'Jaccard distance') +
+  theme(strip.text.x = element_markdown())
+
+fs2 <- plot_grid(mosq_hap_union, jaccard_plot, jaccard_compare, nrow = 1, rel_widths = c(1.2, 0.9, 0.8), labels = 'AUTO')
+
+ggsave(plot = fs2, filename = 'figures/FigS2.png', width = 15, height = 4)
+```
+
+```{r}
+cat('KS test p for ama1 comparison\n')
+ks.test(all_ah_hap_props %>% reshape2::melt() %>% filter(marker == '*ama1*' & !grepl('p', value)) %>% mutate(value = as.numeric(value)) %>% pull(value), 
+        ah_hap_cts %>% filter(marker == '*ama1*') %>% pull(prop_both))$p.value %>% suppressWarnings()
+cat('KS test p for csp comparison\n')
+ks.test(all_ah_hap_props %>% reshape2::melt() %>% filter(marker == '*csp*' & !grepl('p', value)) %>% mutate(value = as.numeric(value)) %>% pull(value), 
+        ah_hap_cts %>% filter(marker == '*csp*') %>% pull(prop_both))$p.value %>% suppressWarnings()
+```
+
+```{r}
+ah_hap_cts %>% 
+  mutate(n_abd_only = n_abd - as.numeric(n_both),
+         n_head_only = n_head - as.numeric(n_both),
+         n_union = as.numeric(n_union)) %>% 
+  group_by(marker) %>% 
+  summarize(mean_prop_abd = mean(n_abd_only/n_union),
+            mean_prop_both = mean(prop_both),
+            mean_prop_head = mean(n_head_only/n_union)) 
+```
+## Population-level diversity
+
+```{r}
+cat('# unique ama seqs\n')
+nrow(ama_seqs)
+cat('# unique csp seqs\n')
+nrow(csp_seqs)
+```
+
+### Figure S3: Haplotype richness and evenness across host compartments
+
+```{r}
+compartments_present <- pop_prev %>% select(sample_type, marker, haplotype, n_samp) %>% 
+  filter(sample_type %in% c('Human', 'Mosquito')) %>% 
+  group_by(sample_type, marker, haplotype) %>% 
+  summarize(n_samp = sum(n_samp)) %>% 
+  ungroup() %>% 
+  pivot_wider(names_from = sample_type, values_from = n_samp, values_fill = 0) %>% 
+  mutate(Total = Human + Mosquito,
+         compartments_present = case_when(Human > 0 & Mosquito == 0 ~ 'Human only',
+                                          Human == 0 & Mosquito > 0 ~ 'Mosquito only',
+                                          Human > 0 & Mosquito > 0 ~ 'Both')) %>% 
+  filter(Total != 0) %>% 
+  group_by(marker, compartments_present) %>% 
+  summarize(n_distinct = n(),
+            n_occurrence = sum(Total)) %>%
+  group_by(marker) %>% 
+  mutate(tot_distinct = sum(n_distinct),
+            tot_occurrence = sum(n_occurrence))
+```
+
+
+```{r}
+hap_abundance_plot <- compartments_present %>% 
+    pivot_longer(c(n_distinct, n_occurrence), names_to = 'type', values_to = 'count') %>% 
+  mutate(compartments_present = factor(gsub(' ', '\n', compartments_present),
+                                       levels = c('Human\nonly', 'Mosquito\nonly', 'Both')),
+         type = ifelse(type == 'n_distinct', 'Haplotype\nrichness', 'Haplotype\nprevalence'),
+         type = factor(type, levels = c('Haplotype\nrichness', 'Haplotype\nprevalence'))) %>%
+  group_by(type, marker) %>% 
+  mutate(n = sum(count)) %>% 
+  ggplot(aes(x = marker, y = count, fill = compartments_present)) +
+  geom_col(position = 'fill') +
+  geom_text(aes(y = 1.05, label = round(n)), check_overlap = T) +
+  scale_fill_manual(values = c('Human\nonly' = host_colors['Human'], Both = '#999999', 'Mosquito\nonly' = host_colors['Mosquito']) ) +
+  facet_grid(~type, scales = 'free', space = 'free') +
+  labs(x = '\n', y = 'Relative haplotype abundance', fill = 'Haplotype\npresent in:') +
+  theme(axis.text.x = element_markdown())
+
+ggsave(plot = hap_abundance_plot, filename = 'figures/FigS3.png', width = 7, height = 5)
+```
+
+### Figure S4: Randomized minimum spanning trees for nucleotide haplotype sequences
+
+```{r}
+hap_info <- pop_prev %>% 
+  filter(sample_type %in% c('Human', 'Mosquito')) %>% 
+  group_by(marker, haplotype) %>% 
+  summarize(count = sum(n_samp),
+            comp_pres = paste0(unique(sample_type), collapse = ',')) %>% 
+  mutate(comp_pres = paste0(comp_pres, ' only'),
+         comp_pres = ifelse(grepl('Human,Mosquito', comp_pres), 'Both', comp_pres))
+
+plot_rmst_tr <- function(seqs, marker){
+  mst_phylo <- seqs %>% dist.dna() %>% rmst(quiet = TRUE) %>% as.phylo
+  count <- hap_info$count[hap_info$marker == marker]
+  names(count) <- hap_info$haplotype[hap_info$marker == marker]
+  color <- hap_info$comp_pres[hap_info$marker == marker]
+  names(color) <- hap_info$haplotype[hap_info$marker == marker]
+  rmst_plot <- ggtree(mst_phylo) + 
+    geom_nodepoint(aes(size = count, col = color), alpha = 0.75) +
+    geom_tippoint(aes(size = count, col = color), alpha = 0.75) +
+    scale_color_manual(values = c('Human only' = host_colors['Human'], Both = '#999999', 'Mosquito only' = host_colors['Mosquito'])) +
+    labs(size = 'Prevalence', col = 'Haplotype\npresent in:', title = marker) +
+    theme(plot.title = element_markdown(hjust = 0.1))
+}
+
+set.seed(0)
+ama_rmst <- plot_rmst_tr(ama_seqs, '*ama1*')
+csp_rmst <- plot_rmst_tr(csp_seqs, '*csp*')
+
+ggsave(plot_grid(ama_rmst, csp_rmst, labels = 'AUTO'), filename = 'figures/FigS4.png', width = 15, height = 10)
+```
+
+### Figure 2 & S6: The mosquito _P. falciparum_ population is more diverse than the human P. falciparum population.
+
+```{r}
+pop_freq_plot <- pop_prev_boot_summary %>% 
+  filter(sample_type %in% c('Human', 'Mosquito')) %>% 
+  select(-c(n_samp)) %>%
+  pivot_wider(names_from = sample_type, values_from = c(frac_samp, min_frac_samp, max_frac_samp, q025, q975), values_fill = 0) %>%
+  ungroup() %>% 
+  mutate(expected_frac_samp = (frac_samp_Human + frac_samp_Mosquito)/2,
+       diff = ifelse(q025_Human > expected_frac_samp & q975_Mosquito < expected_frac_samp, 
+                     'Higher in humans', 'No difference'),
+       diff = ifelse(q025_Mosquito > expected_frac_samp & q975_Human < expected_frac_samp, 
+                     'Higher in mosquitoes', diff),
+       diff = ifelse(under_thresh, 'Under threshold', diff),
+         hap_lab = ifelse(haplotype == 'csp_H1', "RTS,S/AS01\nvaccine haplotype", NA),
+         hap_lab2 = ifelse(haplotype == 'ama_H1', "italic('ama1')*A", NA)) %>%
+  group_by(diff) %>% 
+  mutate(diff = paste0(diff, '<br>(n = ', n(), ')')) %>% 
+  ggplot(aes(x = frac_samp_Human, y = frac_samp_Mosquito, col = diff)) +
+  geom_abline(intercept = 0, col = 'grey80') +
+  geom_errorbar(aes(ymin = q025_Mosquito, ymax = q975_Mosquito), alpha = 0.5) +
+  geom_errorbarh(aes(xmin = q025_Human, xmax = q975_Human), alpha = 0.5) +
+  geom_point(aes(shape = marker), alpha = 0.5, size = 3) +
+  geom_text(aes(x = 0.82, y = 0.78, label = 'y=x'), col = 'black', check_overlap = TRUE, show.legend = FALSE) +
+  geom_text(aes(label = hap_lab), color = 'black', position = position_nudge(y = -0.055)) + #, hjust = 0) +
+  geom_text(aes(label = hap_lab2), color = 'black', position = position_nudge(x = 0.01, y = -0.03), parse = TRUE) +
+  scale_color_manual(values = c('#D90368', '#4C67BD', '#8F8F8F', 'lightgrey')) +
+  scale_shape_manual(values = c(17, 19)) +
+  labs(x = 'Haplotype prevalence in human samples', y = 'Haplotype prevalence in mosquito samples',
+       shape = 'Marker', col = 'Prevalence\ncategory') +
+  coord_cartesian(xlim = c(0,0.82), ylim = c(0,0.82)) + 
+  facet_grid(~'') +
+  theme(legend.text = element_markdown())
+```
+
+```{r}
+ama_maj <- apply(ama_aa_seqs, 2, function(x) names(table(x))[which.max(table(x))])
+ama_min_list <- sapply(apply(ama_aa_seqs, 1, function(x){ 
+  bin <- as.numeric(x != ama_maj)
+  pos <- which(bin == TRUE)
+  allele <- x[pos]
+  paste0(pos, allele)
+}), function(x) paste0(x, collapse = ',')) %>% enframe(name = 'haplotype', value = 'minor_allele')
+
+csp_maj <- apply(csp_aa_seqs, 2, function(x) names(table(x))[which.max(table(x))])
+csp_min_list <- sapply(apply(csp_aa_seqs, 1, function(x){ 
+  bin <- as.numeric(x != csp_maj)
+  pos <- which(bin == TRUE)
+  allele <- x[pos]
+  paste0(pos, allele)
+}), function(x) paste0(x, collapse = ',')) %>% enframe(name = 'haplotype', value = 'minor_allele')
+
+hap_minor_info_long <- pop_prev %>% 
+  filter(sample_type %in% c('Human', 'Mosquito')) %>% 
+  select(sample_type, marker, haplotype, n_samp) %>%
+  group_by(sample_type, marker, haplotype) %>%
+  summarize(n_samp = sum(n_samp)) %>%
+  ungroup() %>%
+  pivot_wider(names_from = sample_type, values_from = n_samp, values_fill = 0) %>%
+  mutate(Total = Human + Mosquito,
+         compartments_present = case_when(Human > 0 & Mosquito == 0 ~ 'Human only',
+                                          Human == 0 & Mosquito > 0 ~ 'Mosquito only',
+                                          Human > 0 & Mosquito > 0 ~ 'Both')) %>% 
+  left_join(bind_rows(ama_min_list, csp_min_list)) %>% 
+  rename(hap_compartments_present = compartments_present) %>% 
+  separate_rows(minor_allele, sep = ',') %>% 
+  mutate(minor_pos = as.numeric(gsub('[A-Z]|\\*','',minor_allele))) %>% 
+  group_by(minor_pos) %>% 
+  mutate(pos_compartments_present = ifelse(any(hap_compartments_present == 'Both'), 'Both', unique(hap_compartments_present)),
+         pos_compartments_present = factor(pos_compartments_present,
+                                       levels = c('Human only', 'Mosquito only', 'Both')),
+         hap_compartments_present = factor(hap_compartments_present,
+                                       levels = c('Human only', 'Mosquito only', 'Both')))
+
+haps_w_var_at_pos_in_one_host <- hap_minor_info_long %>% 
+  filter(hap_compartments_present != 'Both') %>% 
+  group_by(marker, haplotype, Total, hap_compartments_present) %>% 
+  summarize(prop_both = mean(pos_compartments_present == 'Both')) %>%
+  filter(prop_both != 1) %>% 
+  pull(haplotype)
+```
+
+```{r}
+get_inc_dat <- function(haps_long, marker_hap, return_haps = FALSE){
+  haps_long <- haps_long %>% filter(marker == marker_hap) %>% 
+    mutate(sample_type = ifelse(sample_type == 'Human', 'Human', 'Mosquito'))
+  tot_cts <- haps_long %>% 
+    group_by(sample_type) %>% 
+    summarize(count = n_distinct(sample_name_dbs)) %>% 
+    pivot_wider(names_from = sample_type, values_from = count, values_fill = 0)
+  hap_cts <- haps_long %>% 
+    group_by(sample_type, haplotype) %>% 
+    summarize(count = n()) %>% 
+    pivot_wider(names_from = sample_type, values_from = count, values_fill = 0)
+  all_cts <- bind_rows(tot_cts, hap_cts)
+  if(return_haps){ all_cts %>% pull(haplotype)
+  }else{ all_cts %>% select(-haplotype) %>% data.frame() }
+}
+
+# full dataset (in main text)
+ama_inc_dat <- all_haps_long %>% get_inc_dat(marker_hap = '*ama1*')
+csp_inc_dat <- all_haps_long %>% get_inc_dat(marker_hap = '*csp*') 
+
+# one sample from each person
+set.seed(0)
+all_haps_long_subsamp <- all_haps_summary %>%
+  mutate(unq_memID = ifelse(is.na(unq_memID), gsub(' H| A', '', sample_name_dbs), unq_memID)) %>% 
+  group_by(marker, unq_memID) %>% 
+  sample_n(1) %>% 
+  separate_rows(haplotype_list, sep = ',') %>% 
+  rename(haplotype = haplotype_list) 
+
+ama_inc_dat_subsamp <- all_haps_long_subsamp %>% get_inc_dat(marker_hap = '*ama1*')
+csp_inc_dat_subsamp <- all_haps_long_subsamp %>% get_inc_dat(marker_hap = '*csp*') 
+
+# same number of samples for each week
+n_weeks <- ceiling((max(all_haps_summary$date) - min(all_haps_summary$date))/7) %>% as.numeric()
+date_range <- max(all_haps_summary$date) - min(all_haps_summary$date)
+
+week_df <- bind_cols(date = seq(min(all_haps_summary$date), max(all_haps_summary$date), by = 1), 
+          week = sort(rep(1:n_weeks, 7))[1:(date_range + 1)])
+
+all_haps_summary_sub <- all_haps_summary %>% left_join(week_df) %>% 
+  mutate(sample_type = ifelse(sample_type == 'Human', 'Human', 'Mosquito')) %>% 
+  group_by(marker, week) %>% 
+  mutate(min_count = min(sum(sample_type == 'Human'), sum(sample_type == 'Mosquito')),
+         unq_memID = ifelse(is.na(unq_memID), gsub(' H| A', '', sample_name_dbs), unq_memID))
+
+set.seed(0)
+all_haps_sub_long <- lapply(unique(all_haps_summary_sub$marker), function(x){
+  lapply(unique(all_haps_summary_sub$week), function(y){
+    all_haps_summary_sub_tmp <- all_haps_summary_sub %>% filter(marker == !!x & week == y) 
+    min_count <- all_haps_summary_sub_tmp%>% pull(min_count) %>% unique()
+    if(length(min_count) == 0){ return(NULL)
+    }else if(min_count < 1){ return(NULL)
+    }else{ all_haps_summary_sub_tmp %>% group_by(sample_type) %>% slice_sample(n = min_count) }
+  }) %>% bind_rows() %>% mutate(marker = x)
+}) %>% bind_rows()  %>% 
+  separate_rows(haplotype_list, sep = ',') %>% 
+  rename(haplotype = haplotype_list)
+
+ama_inc_dat_subsamp2 <- all_haps_sub_long %>% get_inc_dat(marker_hap = '*ama1*')
+csp_inc_dat_subsamp2 <- all_haps_sub_long %>% get_inc_dat(marker_hap = '*csp*')
+
+# haplotypes corresponding to rows in ama_inc_dat and csp_inc_dat
+ama_inc_dat_haps <- all_haps_long %>% get_inc_dat(marker_hap = '*ama1*', return_haps = TRUE)
+csp_inc_dat_haps <- all_haps_long %>% get_inc_dat(marker_hap = '*csp*', return_haps = TRUE)
+```
+
+```{r}
+get_div <- function(dat, datatype = 'incidence_freq', nboot = 100, estimate = TRUE){
+  if(estimate){ estimate3D(dat, diversity = 'TD', q = seq(0, 2, by = 0.25), datatype, base = "coverage", level = NULL, nboot = nboot)}
+  else{ asy3D(dat, diversity = 'TD', q = seq(0, 2, by = 0.25), datatype, nboot = 100) }
+  
+}
+
+ama_est3D <- get_div(ama_inc_dat)
+csp_est3D <- get_div(csp_inc_dat)
+
+ama_est3D_subsamp <- get_div(ama_inc_dat_subsamp)
+csp_est3D_subsamp <- get_div(csp_inc_dat_subsamp)
+
+ama_est3D_subsamp2 <- get_div(ama_inc_dat_subsamp2)
+csp_est3D_subsamp2 <- get_div(csp_inc_dat_subsamp2)
+
+ama_est3D_abund <- get_div(ama_inc_dat %>% slice(-1), 'abundance')
+csp_est3D_abund <- get_div(csp_inc_dat %>% slice(-1), 'abundance')
+
+ama_est3D_both_vars <- get_div(ama_inc_dat[!ama_inc_dat_haps %in% haps_w_var_at_pos_in_one_host,])
+csp_est3D_both_vars <- get_div(csp_inc_dat[!csp_inc_dat_haps %in% haps_w_var_at_pos_in_one_host,])
+
+ama_asy3D <- get_div(ama_inc_dat, estimate = FALSE)
+csp_asy3D <- get_div(csp_inc_dat, estimate = FALSE)
+
+ama_iNEXT <- iNEXT3D(ama_inc_dat, diversity = 'TD', q = seq(0, 2, by = 0.25), 'incidence_freq', nboot = 100)
+csp_iNEXT <- iNEXT3D(csp_inc_dat, diversity = 'TD', q = seq(0, 2, by = 0.25), 'incidence_freq', nboot = 100)
+
+ama_evenness <- Evenness(ama_inc_dat, q = seq(0, 2, by = 0.25), datatype = 'incidence_freq', 
+                         method = "Estimated", nboot = 100, conf = 0.95, E.class = 3)
+ama_Cmax = ama_evenness$Coverage
+csp_evenness <- Evenness(csp_inc_dat, q = seq(0, 2, by = 0.25), datatype = 'incidence_freq', 
+                         method = "Estimated", nboot = 100, conf = 0.95, E.class = 3)
+csp_Cmax = csp_evenness$Coverage
+
+ama_Cmax
+csp_Cmax
+```
+
+```{r}
+diversity_plot <- bind_rows(ama_est3D %>% mutate(marker = '*ama1*'), csp_est3D %>% mutate(marker = '*csp*')) %>% 
+  ggplot(aes(x = Order.q, y = qD, col = Assemblage, fill = Assemblage, shape = marker)) +
+  geom_point(size = 3) +
+  geom_line() +
+  geom_ribbon(aes(ymin = qD.LCL, ymax = qD.UCL), alpha = 0.2, linetype = 0) +
+  scale_fill_manual(values = host_colors) +
+  scale_color_manual(values = host_colors) +
+  scale_y_log10() +
+  scale_shape_manual(values = c(17, 19), guide = 'none') +
+  facet_grid(marker~'') +
+  theme(axis.title.y = element_markdown(), strip.text.y = element_markdown()) +
+  labs(x = 'Order (q)', y = 'Population-level haplotype diversity (^q D)', fill = 'Host', col = 'Host', shape = 'Marker')
+
+diversity_plot_supp <- bind_rows(
+  bind_rows(ama_est3D_subsamp %>% mutate(marker = '*ama1*'), 
+            csp_est3D_subsamp %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'One sample per individual'),
+  bind_rows(ama_est3D_subsamp2 %>% mutate(marker = '*ama1*'), 
+            csp_est3D_subsamp2 %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'Same number of weekly samples per host'),
+  bind_rows(ama_est3D_abund %>% mutate(marker = '*ama1*'), 
+            csp_est3D_abund %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'Accounting for differences in MOI'),
+  bind_rows(ama_est3D_both_vars %>% mutate(marker = '*ama1*'), 
+            csp_est3D_both_vars %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'Haplotypes with variant positions common to both hosts'),
+  bind_rows(ama_asy3D %>% mutate(marker = '*ama1*'), 
+            csp_asy3D %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'True diversity (asymptotic)') %>% 
+    filter(Order.q >= 1)) %>% 
+    ggplot(aes(x = Order.q, y = qD, col = Assemblage, fill = Assemblage, shape = samp_set)) +
+    geom_point(size = 2) +
+    geom_line() +
+    geom_ribbon(aes(ymin = qD.LCL, ymax = qD.UCL), alpha = 0.2, linetype = 0) +
+    scale_fill_manual(values = host_colors) +
+    scale_color_manual(values = host_colors) +
+    scale_y_log10() +
+    facet_grid(''~marker) +
+    theme(axis.title.y = element_markdown(), strip.text.x = element_markdown()) +
+    labs(x = 'Order (q)', y = 'Population-level<br>haplotype diversity (^q D)', fill = 'Host', col = 'Host', shape = 'Sample set')
+
+raref_dat <- bind_rows(ama_iNEXT$iNextEst$size_based %>% mutate(marker = '*ama1*'), 
+          csp_iNEXT$iNextEst$size_based %>% mutate(marker = '*csp*')) %>% 
+  filter(Order.q %in% c(0, 0.5, 1, 1.5, 2)) %>% 
+  mutate(Order.q = paste0('q = ', Order.q))
+
+raref_plot <- raref_dat %>%
+  filter(Method != 'Observed') %>% 
+  mutate(Method = factor(Method, levels = c('Rarefaction', 'Extrapolation'))) %>% 
+  ggplot(aes(x = nt, y = qD, fill = Assemblage)) +
+  geom_line(aes(col = Assemblage, linetype = Method)) +
+  geom_ribbon(aes(ymin = qD.LCL, ymax = qD.UCL), alpha = 0.2) +
+  geom_point(data = raref_dat %>% filter(Method == 'Observed'), aes(col = Assemblage), size = 2) +
+  scale_fill_manual(values = host_colors) +
+  scale_color_manual(values = host_colors) +
+  scale_x_continuous(breaks = pretty_breaks()) +
+  scale_y_log10() +
+  facet_grid(marker~Order.q, scales = 'free') +
+  theme(axis.title.y = element_markdown(), axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+        strip.text.y = element_markdown()) +
+  labs(x = 'Number of samples', y = 'Population-level<br>haplotype diversity (^q D)', col = 'Host', fill = 'Host')
+
+# evenness equation: (qD - 1)/(S - 1)
+evenness_plot <- bind_rows(ama_evenness$E3 %>% mutate(marker = '*ama1*'), csp_evenness$E3 %>% mutate(marker = '*csp*')) %>%
+  filter(Order.q %in% c(1, 2)) %>% 
+  ggplot(aes(x = as.character(Order.q), y = Evenness, ymin = Even.LCL, ymax = Even.UCL, 
+             col = Assemblage, fill = Assemblage, shape = marker)) +
+  geom_pointrange(position = position_dodge(width = 0.5), size = 0.75) +
+  scale_color_manual(values = host_colors) +
+  scale_shape_manual(values = c(17, 19), guide = 'none') +
+  facet_grid(marker~'') +
+  theme(axis.title.y = element_markdown(), strip.text.y = element_markdown()) +
+  labs(x = 'Order (q)', y = 'Population-level haplotype evenness (^q E)', fill = 'Host', col = 'Host', shape = 'Marker') 
+```
+
+```{r}
+fig_div <- plot_grid(pop_freq_plot, diversity_plot, evenness_plot + theme(legend.position = 'none'),
+                     labels = 'AUTO', nrow = 1, rel_widths = c(1, 0.75, 0.3))
+ggsave(plot = fig_div, filename = 'figures/Fig2.png', width = 15, height = 5)
+```
+
+```{r}
+fig_div_supp <- plot_grid(raref_plot, diversity_plot_supp, labels = c('A', 'B'), nrow = 2)
+ggsave(plot = fig_div_supp, filename = 'figures/FigS6.png', width = 12, height = 7)
+```
+
+## Haplotype evenness within samples
+
+### Figure 3, S5 & S7 
+
+```{r}
+ama_reads_est3D <- get_div(ama_reads,  'abundance', nboot = 0)
+csp_reads_est3D <- get_div(csp_reads, 'abundance', nboot = 0)
+
+ama_reads_evenness <- Evenness(ama_reads, q = 1, datatype = 'abundance', method = "Estimated", nboot = 0, E.class = 3)
+ama_reads_Cmax = ama_reads_evenness$Coverage
+csp_reads_evenness <- Evenness(csp_reads, q = 1, datatype = 'abundance', method = "Estimated", nboot = 0, E.class = 3)
+csp_reads_Cmax = csp_reads_evenness$Coverage
+
+ama_reads_evenness_raw <- Evenness(ama_reads_raw, q = 1, datatype = 'abundance', method = "Estimated", nboot = 0, E.class = 3)
+ama_reads_Cmax_raw = ama_reads_evenness_raw$Coverage
+csp_reads_evenness_raw <- Evenness(csp_reads_raw, q = 1, datatype = 'abundance', method = "Estimated", nboot = 0, E.class = 3)
+csp_reads_Cmax_raw = csp_reads_evenness_raw$Coverage
+```
+
+```{r}
+# evenness equation: (qD - 1)/(S - 1)
+read_evenness <- bind_rows(ama_reads_evenness$E3 %>% mutate(marker = '*ama1*'), 
+          csp_reads_evenness$E3 %>% mutate(marker = '*csp*')) %>% 
+  mutate(Compartment = gsub('\\..*','', Assemblage),
+         Evenness = ifelse(is.na(Evenness), 0, Evenness),
+         Order.q = paste0('q = ', Order.q),
+         sample_name_dbs = gsub('Human\\.|Mosquito\\.', '', Assemblage),
+         sample_name_dbs = ifelse(Compartment == 'Mosquito', gsub('\\.',' ', sample_name_dbs),
+                                  gsub('\\.','-', sample_name_dbs))) %>% 
+  left_join(all_haps_summary) %>% 
+  mutate(unq_memID = ifelse(is.na(unq_memID),
+                            gsub(' H| A', '', sample_name_dbs),
+                            unq_memID)) %>% 
+  select(sample_name_dbs, unq_memID, Order.q, marker, Compartment, Evenness, haplotype_reads) 
+
+read_evenness_raw <- bind_rows(ama_reads_evenness_raw$E3 %>% mutate(marker = '*ama1*'), 
+          csp_reads_evenness_raw$E3 %>% mutate(marker = '*csp*')) %>% 
+  mutate(Compartment = gsub('\\..*','', Assemblage),
+         Evenness = ifelse(is.na(Evenness), 0, Evenness),
+         Order.q = paste0('q = ', Order.q),
+         sample_name_dbs = gsub('Human\\.|Mosquito\\.', '', Assemblage),
+         sample_name_dbs = ifelse(Compartment == 'Mosquito', gsub('\\.',' ', sample_name_dbs),
+                                  gsub('\\.','-', sample_name_dbs))) %>% 
+  left_join(all_haps_summary %>% select(-haplotype_reads)) %>% 
+  left_join(bind_rows(colSums(ama_reads_raw) %>% enframe(name = 'Assemblage', value = 'haplotype_reads') %>% 
+              mutate(marker = '*ama1*'),
+              colSums(csp_reads_raw) %>% enframe(name = 'Assemblage', value = 'haplotype_reads') %>% 
+              mutate(marker = '*csp*'))) %>% 
+  mutate(unq_memID = ifelse(is.na(unq_memID) ,gsub(' H| A', '', sample_name_dbs), unq_memID),
+         unq_memID = ifelse(Compartment == 'Human', 
+                             paste(substr(unq_memID, 1, 3), 
+                                   gsub('.*-', '', gsub('-R', '', sample_name_dbs), -1)),
+                             unq_memID),
+         unq_memID = ifelse(grepl('^R', sample_name_dbs), 
+                            substr(sample_name_dbs, nchar(sample_name_dbs) - 4,
+                                   nchar(sample_name_dbs)), unq_memID),
+         unq_memID = gsub('-', ' ', unq_memID)) %>% 
+  filter(!is.na(haplotype_reads)) %>% 
+  select(sample_name_dbs, unq_memID, Order.q, marker, Compartment, Evenness, haplotype_reads) 
+```
+
+```{r}
+within_div <- bind_rows(ama_reads_est3D %>% mutate(marker = '*ama1*'),
+          csp_reads_est3D %>% mutate(marker = '*csp*')) %>%
+  filter(Order.q %in% c(0, 1, 2)) %>%
+  mutate(Compartment = gsub('\\..*','', Assemblage)) %>%
+  ggplot(aes(x = as.character(Order.q), y = qD, col = Compartment)) +
+  geom_boxplot() +
+  scale_color_manual(values = host_colors) +
+  facet_grid(~marker) +
+  labs(x = 'Order (q)', y = 'Within-sample diversity (^q D)', col = 'Host') +
+  theme(strip.text.x = element_markdown(), axis.title.y = element_markdown())
+
+moi_bin <- all_haps_summary %>% 
+  mutate(moi1 = haplotype_number == 1,
+         sample_type = ifelse(sample_type == 'Human', 'Human', 'Mosquito')) %>% 
+  group_by(sample_type, marker, moi1) %>% 
+  summarize(count = n()) %>% 
+  mutate(moi1 = ifelse(moi1, 'Monoclonal', 'Polyclonal'),
+         moi1 = factor(moi1, c('Polyclonal', 'Monoclonal'))) %>% 
+  ggplot(aes(x = sample_type, y = count, fill = moi1)) +
+  geom_col(position = 'fill') +
+  geom_text(aes(label = count), position = 'fill', col = 'white', vjust = 1.2) +
+  scale_fill_grey(start = 0.7, end = 0.3, guide=guide_legend(reverse=T)) +
+  facet_grid(~marker) +
+  labs(x = 'Host', y = 'Proportion of samples', fill = 'Infection') +
+  theme(legend.position = 'right', strip.text.x = element_markdown())
+
+read_dominance_plot <- 
+  read_evenness %>% 
+  ggplot(aes(x = Compartment, y = Evenness)) +
+  geom_point(aes(col = Compartment), alpha = 0.1, position = position_jitter(width = 0.1, height = 0)) +
+  geom_boxplot(alpha = 0, width = 0.1) +
+  scale_color_manual(values = host_colors) +
+  facet_grid(~marker) +
+  labs(x = 'Host', y = 'Within-sample<br>haplotype evenness (^1 E)') +
+  theme(legend.position = 'none', strip.text.x = element_markdown(), axis.title.y = element_markdown())
+
+max_even <- read_evenness %>% 
+  group_by(sample_name_dbs, unq_memID, Compartment) %>% 
+  summarize(Evenness = max(Evenness),
+            haplotype_reads = haplotype_reads[which.max(Evenness)]) %>% 
+  mutate(marker = 'Maximum')
+
+read_dominance_plot_comb <- max_even %>% 
+  ggplot(aes(x = Compartment, y = Evenness)) +
+  geom_point(aes(col = Compartment), alpha = 0.1, position = position_jitter(width = 0.1, height = 0)) +
+  geom_boxplot(alpha = 0, width = 0.1) + 
+  scale_color_manual(values = host_colors) +
+  facet_grid(~marker) +
+  labs(x = 'Host', y = 'Within-sample<br>haplotype evenness (^1 E)') +
+  theme(legend.position = 'none', strip.text.x = element_markdown(), axis.title.y = element_markdown())
+
+read_dominance_plot_raw <- 
+  read_evenness_raw %>% 
+  ggplot(aes(x = Compartment, y = Evenness)) +
+  geom_point(aes(col = Compartment), alpha = 0.1, position = position_jitter(width = 0.1, height = 0)) +
+  geom_boxplot(alpha = 0, width = 0.1) + 
+  scale_color_manual(values = host_colors) +
+  facet_grid(~marker) +
+  labs(x = 'Host', y = 'Pre-censored within-sample<br>haplotype evenness (^1 E)') +
+  theme(legend.position = 'none', strip.text.x = element_markdown(), axis.title.y = element_markdown())
+```
+
+```{r}
+ggsave(plot = within_div, filename = 'figures/FigS5.png', width = 7, height = 5)
+
+f_within <- plot_grid(moi_bin, read_dominance_plot, labels = 'AUTO', rel_widths = c(1, 0.8)) #, rel_heights = c(0.75, 1))
+
+ggsave(plot = f_within, filename = 'figures/Fig3.png', width = 10, height = 3.5)
+
+ggsave(plot = plot_grid(read_dominance_plot_comb, read_dominance_plot_raw, rel_widths = c(0.6, 1), labels = 'AUTO'), 
+       filename = 'figures/FigS7.png', width = 8, height = 4)
+```
+
+```{r}
+moi_dat <- all_haps_summary %>% 
+  mutate(moi1 = haplotype_number == 1,
+         sample_type = ifelse(sample_type == 'Human', 'Human', 'Mosquito')) %>% 
+  group_by(sample_type, marker, moi1) %>% 
+  summarize(count = n()) 
+
+get_mono_pval <- function(marker_hap){
+  (moi_dat %>% 
+  filter(marker == marker_hap) %>% 
+  pivot_wider(names_from = moi1, values_from = count) %>%
+  ungroup() %>% 
+  select(-c(marker, sample_type)) %>% 
+  fisher.test())$p.value
+}
+
+get_mono_pval('*ama1*')
+get_mono_pval('*csp*')
+```
+
+```{r}
+read_evenness %>% 
+  group_by(Compartment, marker) %>% 
+  summarize(median(Evenness))
+```
+
+```{r}
+even_ama_reg <- gamlss(Evenness ~ Compartment + log2(haplotype_reads) + 1 + re(random = ~ 1|unq_memID), 
+                       data = read_evenness %>% dplyr::filter(marker == '*ama1*' & !is.na(haplotype_reads)), family=BEINF) %>% 
+  suppressMessages()
+even_csp_reg <- gamlss(Evenness ~ Compartment + log2(haplotype_reads) + 1 + re(random = ~ 1|unq_memID), 
+                       data = read_evenness %>% dplyr::filter(marker == '*csp*' & !is.na(haplotype_reads)), family=BEINF) %>% 
+  suppressMessages() 
+
+summary(even_ama_reg)
+summary(even_csp_reg)
+
+even_max_reg <- gamlss(Evenness ~ Compartment + log2(haplotype_reads) + 1 + re(random = ~ 1|unq_memID), 
+                       data = max_even %>% dplyr::filter(!is.na(haplotype_reads)), family=BEINF) 
+
+summary(even_max_reg)
+
+even_ama_reg_raw <- gamlss(Evenness ~ Compartment + log2(haplotype_reads) + 1 + re(random = ~ 1|unq_memID), 
+                       data = read_evenness_raw %>% dplyr::filter(marker == '*ama1*' & !is.na(haplotype_reads)), family=BEINF) 
+even_csp_reg_raw <- gamlss(Evenness ~ Compartment + log2(haplotype_reads) + 1 + re(random = ~ 1|unq_memID), 
+                       data = read_evenness_raw %>% dplyr::filter(marker == '*csp*' & !is.na(haplotype_reads)), family=BEINF) 
+
+summary(even_ama_reg_raw)
+summary(even_csp_reg_raw)
+```
+
+
+
+
