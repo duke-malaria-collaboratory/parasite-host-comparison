@@ -1,5 +1,5 @@
 ---
-title: "Bottleneck exploratory data analysis"
+title: "_Plasmodium falciparum_ genetic diversity in coincident human and mosquito hosts"
 author: "Zena Lapp"
 date: "9/1/2021"
 output: 
