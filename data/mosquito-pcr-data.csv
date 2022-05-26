@@ -1,1495 +1,1495 @@
-sample_id_mosquito,collection_date,pf_pcr_infection_status_sample_level_a,pf_pcr_infection_status_sample_level_h
-K01 00001,2017-06-19,negative,positive
-K01 00002,2017-06-19,negative,negative
-K01 00003,2017-06-19,negative,negative
-K01 00004,2017-06-19,negative,negative
-K01 00005,2017-06-19,negative,negative
-K01 00006,2017-06-19,positive,negative
-K01 00007,2017-06-19,positive,negative
-K01 00008,2017-06-19,negative,negative
-K01 00009,2017-06-19,negative,negative
-K14 00001,2017-06-19,negative,negative
-K02 00001,2017-06-19,negative,negative
-K02 00002,2017-06-19,negative,negative
-K07 00001,2017-06-19,negative,negative
-K07 00002,2017-06-19,negative,negative
-K07 00003,2017-06-19,positive,positive
-K07 00004,2017-06-19,negative,negative
-K05 00001,2017-06-19,negative,negative
-K09 00001,2017-06-19,negative,negative
-K09 00002,2017-06-19,negative,negative
-K12 00001,2017-06-19,negative,negative
-K12 00002,2017-06-19,negative,negative
-K12 00003,2017-06-19,negative,negative
-K12 00004,2017-06-19,negative,negative
-K12 00005,2017-06-19,negative,negative
-K13 00001,2017-06-19,negative,negative
-M13 00001,2017-06-20,positive,NA
-M13 00002,2017-06-20,positive,positive
-M13 00003,2017-06-20,positive,positive
-M13 00004,2017-06-20,positive,positive
-M13 00005,2017-06-20,negative,negative
-M13 00006,2017-06-20,negative,negative
-M07 00017,2017-06-20,positive,negative
-M06 00001,2017-06-20,negative,negative
-M06 00002,2017-06-20,negative,negative
-M06 00003,2017-06-20,negative,negative
-M06 00004,2017-06-20,negative,negative
-M06 00005,2017-06-20,negative,negative
-M06 00006,2017-06-20,negative,negative
-M06 00007,2017-06-20,negative,negative
-M06 00008,2017-06-20,positive,positive
-M06 00009,2017-06-20,negative,negative
-M06 00010,2017-06-20,negative,negative
-M07 00001,2017-06-20,positive,negative
-M07 00002,2017-06-20,negative,negative
-M07 00003,2017-06-20,negative,negative
-M07 00004,2017-06-20,negative,positive
-M07 00005,2017-06-20,negative,positive
-M07 00006,2017-06-20,negative,negative
-M07 00007,2017-06-20,positive,negative
-M07 00008,2017-06-20,positive,negative
-M07 00009,2017-06-20,negative,negative
-M07 00010,2017-06-20,positive,negative
-M07 00011,2017-06-20,positive,negative
-M07 00012,2017-06-20,negative,negative
-M07 00013,2017-06-20,negative,negative
-M07 00014,2017-06-20,negative,negative
-M07 00015,2017-06-20,negative,positive
-M07 00016,2017-06-20,negative,negative
-M03 00001,2017-06-20,negative,negative
-M03 00002,2017-06-20,negative,negative
-M03 00003,2017-06-20,NA,negative
-M05 00001,2017-06-20,negative,negative
-M05 00003,2017-06-20,negative,negative
-M09 00001,2017-06-20,negative,negative
-M09 00002,2017-06-20,positive,negative
-M09 00003,2017-06-20,negative,negative
-M09 00004,2017-06-20,negative,negative
-M09 00005,2017-06-20,negative,negative
-M09 00006,2017-06-20,positive,negative
-M09 00007,2017-06-20,negative,negative
-M01 00001,2017-06-20,NA,NA
-M01 00002,2017-06-20,NA,NA
-M01 00003,2017-06-20,NA,NA
-M15 00001,2017-06-20,negative,negative
-M15 00002,2017-06-20,positive,negative
-M15 00003,2017-06-20,negative,negative
-M15 00004,2017-06-20,negative,negative
-M15 00005,2017-06-20,positive,positive
-M15 00006,2017-06-20,negative,negative
-M15 00007,2017-06-20,negative,negative
-M14 00001,2017-06-20,negative,positive
-M14 00002,2017-06-20,negative,negative
-S04 00001,2017-06-21,negative,negative
-S03 00001,2017-06-21,negative,negative
-S09 00001,2017-06-21,negative,negative
-S02 00001,2017-06-21,NA,negative
-S02 00002,2017-06-21,negative,negative
-S02 00003,2017-06-21,negative,negative
-S02 00004,2017-06-21,negative,negative
-S08 00001,2017-06-21,negative,negative
-S08 00002,2017-06-21,positive,negative
-S05 00001,2017-06-21,negative,negative
-S05 00002,2017-06-21,negative,negative
-S07 00001,2017-06-21,negative,negative
-S11 00001,2017-06-21,negative,negative
-S11 00002,2017-06-21,positive,positive
-S10 00001,2017-06-21,negative,negative
-S01 00001,2017-06-21,negative,negative
-S01 00002,2017-06-21,negative,negative
-K10 00001,2017-06-27,NA,negative
-K02 00003,2017-06-27,negative,negative
-K02 00004,2017-06-27,negative,NA
-K02 00005,2017-06-27,positive,negative
-K02 00006,2017-06-27,negative,positive
-K03 00002,2017-06-27,negative,negative
-K03 00003,2017-06-27,negative,negative
-K01 00010,2017-06-27,positive,positive
-K01 00011,2017-06-27,positive,negative
-K01 00012,2017-06-27,positive,positive
-K01 00013,2017-06-27,positive,positive
-K01 00014,2017-06-27,negative,negative
-K01 00015,2017-06-27,negative,negative
-M14 00003,2017-06-28,positive,negative
-M14 00004,2017-06-28,negative,negative
-M14 00005,2017-06-28,negative,negative
-M14 00006,2017-06-28,positive,negative
-M14 00007,2017-06-28,negative,negative
-M03 00004,2017-06-28,negative,negative
-M03 00005,2017-06-28,negative,negative
-M03 00006,2017-06-28,negative,negative
-M13 00007,2017-06-28,positive,positive
-M13 00008,2017-06-28,negative,negative
-M13 00009,2017-06-28,positive,positive
-M13 00010,2017-06-28,positive,negative
-M13 00011,2017-06-28,negative,negative
-M13 00012,2017-06-28,positive,positive
-M06 00011,2017-06-28,negative,negative
-M06 00012,2017-06-28,negative,negative
-M06 00013,2017-06-28,negative,negative
-M09 00008,2017-06-28,positive,negative
-M09 00009,2017-06-28,negative,negative
-M09 00010,2017-06-28,NA,negative
-M09 00011,2017-06-28,positive,negative
-M09 00012,2017-06-28,positive,negative
-M09 00013,2017-06-28,negative,negative
-M09 00014,2017-06-28,negative,negative
-M09 00015,2017-06-28,negative,negative
-M09 00016,2017-06-28,negative,negative
-M09 00017,2017-06-28,positive,negative
-M09 00018,2017-06-28,positive,negative
-M07 00018,2017-06-28,negative,negative
-M07 00019,2017-06-28,negative,negative
-M07 00020,2017-06-28,negative,negative
-M04 00001,2017-06-28,negative,negative
-M04 00002,2017-06-28,positive,negative
-M04 00003,2017-06-28,negative,positive
-M12 00001,2017-06-28,negative,negative
-M01 00004,2017-06-28,NA,NA
-M01 00005,2017-06-28,NA,NA
-M01 00006,2017-06-28,NA,NA
-M11 00001,2017-06-28,negative,negative
-S01 00003,2017-06-29,negative,negative
-S03 00002,2017-06-29,negative,negative
-S08 00003,2017-06-29,negative,negative
-S06 00001,2017-06-29,negative,negative
-S06 00002,2017-06-29,negative,negative
-S06 00003,2017-06-29,negative,negative
-S12 00001,2017-06-29,negative,negative
-S12 00002,2017-06-29,negative,negative
-S12 00003,2017-06-29,negative,negative
-S11 00003,2017-06-29,negative,negative
-K05 00003,2017-07-03,negative,negative
-K05 00004,2017-07-03,positive,negative
-K05 00006,2017-07-03,positive,positive
-K05 00007,2017-07-03,negative,negative
-K05 00005,2017-07-03,positive,positive
-K14 00002,2017-07-03,negative,negative
-K14 00003,2017-07-03,positive,positive
-K14 00004,2017-07-03,positive,positive
-K05 00002,2017-07-03,negative,negative
-K07 00005,2017-07-03,negative,negative
-K07 00006,2017-07-03,negative,negative
-K07 00007,2017-07-03,positive,negative
-K07 00008,2017-07-03,negative,negative
-M11 00002,2017-07-04,negative,negative
-M07 00021,2017-07-04,negative,negative
-M07 00022,2017-07-04,negative,negative
-M07 00023,2017-07-04,negative,negative
-M07 00024,2017-07-04,negative,negative
-M07 00025,2017-07-04,negative,negative
-M07 00026,2017-07-04,negative,negative
-M07 00027,2017-07-04,negative,negative
-M07 00028,2017-07-04,negative,NA
-M07 00029,2017-07-04,negative,positive
-M07 00030,2017-07-04,negative,negative
-M07 00031,2017-07-04,negative,negative
-M07 00032,2017-07-04,negative,negative
-M07 00033,2017-07-04,negative,negative
-M07 00034,2017-07-04,negative,negative
-M07 00035,2017-07-04,negative,negative
-M07 00036,2017-07-04,negative,negative
-M14 00008,2017-07-04,positive,negative
-M14 00009,2017-07-04,positive,positive
-M14 00010,2017-07-04,negative,negative
-M14 00011,2017-07-04,negative,negative
-M14 00012,2017-07-04,negative,negative
-M14 00013,2017-07-04,negative,negative
-M14 00014,2017-07-04,negative,negative
-M14 00015,2017-07-04,negative,negative
-M14 00016,2017-07-04,negative,negative
-M14 00017,2017-07-04,negative,negative
-M14 00018,2017-07-04,positive,negative
-M14 00019,2017-07-04,negative,negative
-M14 00020,2017-07-04,negative,negative
-M09 00019,2017-07-04,negative,negative
-M09 00020,2017-07-04,negative,negative
-M09 00021,2017-07-04,negative,negative
-M09 00022,2017-07-04,negative,negative
-M09 00023,2017-07-04,positive,negative
-M09 00024,2017-07-04,positive,positive
-M09 00025,2017-07-04,negative,negative
-M09 00026,2017-07-04,positive,positive
-M09 00027,2017-07-04,NA,negative
-M15 00008,2017-07-04,negative,negative
-M15 00009,2017-07-04,negative,negative
-M15 00010,2017-07-04,negative,negative
-M15 00011,2017-07-04,negative,negative
-M15 00012,2017-07-04,negative,negative
-M15 00013,2017-07-04,negative,positive
-M15 00014,2017-07-04,negative,negative
-M15 00015,2017-07-04,negative,negative
-M05 00002,2017-07-04,negative,negative
-M06 00014,2017-07-04,negative,negative
-M06 00015,2017-07-04,positive,positive
-M06 00016,2017-07-04,positive,negative
-M13 00013,2017-07-04,negative,negative
-M15 00016,2017-07-04,negative,negative
-M04 00004,2017-07-04,negative,positive
-M01 00007,2017-07-04,positive,positive
-M01 00008,2017-07-04,negative,negative
-M01 00009,2017-07-04,negative,positive
-M01 00010,2017-07-04,negative,positive
-S01 00004,2017-07-05,positive,negative
-S12 00004,2017-07-05,negative,negative
-S05 00003,2017-07-05,negative,negative
-S06 00004,2017-07-05,negative,negative
-S06 00005,2017-07-05,negative,negative
-S06 00006,2017-07-05,negative,negative
-S02 00005,2017-07-05,negative,negative
-S02 00006,2017-07-05,positive,negative
-S02 00007,2017-07-05,negative,negative
-S02 00008,2017-07-05,negative,negative
-S03 00003,2017-07-05,negative,negative
-S03 00004,2017-07-05,negative,negative
-S10 00002,2017-07-05,negative,negative
-S04 00002,2017-07-05,negative,negative
-S04 00003,2017-07-05,positive,positive
-K01 00016,2017-07-10,positive,positive
-K01 00017,2017-07-10,positive,positive
-K01 00018,2017-07-10,positive,negative
-K01 00019,2017-07-10,positive,positive
-K01 00020,2017-07-10,negative,negative
-K01 00021,2017-07-10,positive,positive
-K01 00022,2017-07-10,positive,negative
-K01 00023,2017-07-10,positive,positive
-K01 00024,2017-07-10,positive,positive
-K01 00025,2017-07-10,positive,positive
-K01 00026,2017-07-10,negative,positive
-K01 00027,2017-07-10,negative,positive
-K01 00028,2017-07-10,positive,positive
-K14 00005,2017-07-10,positive,positive
-K14 00006,2017-07-10,NA,positive
-K14 00007,2017-07-10,negative,negative
-K14 00008,2017-07-10,negative,negative
-K14 00009,2017-07-10,negative,negative
-K07 00009,2017-07-10,negative,negative
-K11 00001,2017-07-10,negative,negative
-K02 00007,2017-07-10,negative,negative
-K05 00008,2017-07-10,negative,negative
-K05 00009,2017-07-10,negative,negative
-K05 00010,2017-07-10,negative,negative
-K05 00011,2017-07-10,negative,negative
-K05 00012,2017-07-10,negative,negative
-M14 00021,2017-07-11,negative,negative
-M14 00022,2017-07-11,positive,negative
-M14 00023,2017-07-11,negative,negative
-M14 00024,2017-07-11,negative,negative
-M14 00025,2017-07-11,negative,negative
-M14 00026,2017-07-11,negative,positive
-M14 00027,2017-07-11,negative,negative
-M14 00028,2017-07-11,negative,negative
-M14 00029,2017-07-11,negative,negative
-M14 00030,2017-07-11,negative,negative
-M14 00031,2017-07-11,negative,negative
-M11 00003,2017-07-11,negative,negative
-M11 00004,2017-07-11,negative,negative
-M11 00005,2017-07-11,negative,negative
-M11 00006,2017-07-11,negative,negative
-M15 00017,2017-07-11,positive,positive
-M06 00017,2017-07-11,negative,negative
-M05 00004,2017-07-11,negative,negative
-M05 00005,2017-07-11,negative,negative
-M05 00006,2017-07-11,negative,negative
-M05 00007,2017-07-11,negative,negative
-M05 00008,2017-07-11,negative,negative
-M04 00005,2017-07-11,negative,negative
-M01 00011,2017-07-11,negative,NA
-M01 00013,2017-07-11,NA,negative
-M01 00012,2017-07-11,positive,negative
-M13 00014,2017-07-11,positive,positive
-M09 00028,2017-07-11,negative,negative
-M09 00029,2017-07-11,negative,negative
-M09 00030,2017-07-11,positive,negative
-M09 00031,2017-07-11,negative,negative
-M09 00032,2017-07-11,negative,negative
-M09 00033,2017-07-11,negative,negative
-M09 00034,2017-07-11,negative,negative
-M09 00035,2017-07-11,positive,positive
-M09 00036,2017-07-11,positive,positive
-M09 00037,2017-07-11,positive,positive
-M09 00038,2017-07-11,positive,positive
-M09 00039,2017-07-11,positive,positive
-M09 00040,2017-07-11,positive,positive
-M07 00037,2017-07-11,negative,negative
-M07 00038,2017-07-11,negative,negative
-M07 00039,2017-07-11,negative,negative
-M07 00040,2017-07-11,negative,negative
-M07 00041,2017-07-11,negative,negative
-M07 00042,2017-07-11,negative,negative
-M07 00043,2017-07-11,negative,negative
-M07 00044,2017-07-11,negative,negative
-M07 00045,2017-07-11,negative,negative
-M07 00046,2017-07-11,NA,negative
-M07 00047,2017-07-11,negative,negative
-M07 00048,2017-07-11,negative,negative
-M07 00049,2017-07-11,negative,negative
-M07 00050,2017-07-11,negative,negative
-M07 00051,2017-07-11,negative,negative
-M03 00008,2017-07-11,negative,negative
-M03 00009,2017-07-11,negative,negative
-M03 00010,2017-07-11,negative,negative
-M03 00007,2017-07-11,NA,NA
-S12 00005,2017-07-12,negative,negative
-S08 00004,2017-07-12,negative,negative
-S10 00003,2017-07-12,negative,negative
-S04 00004,2017-07-12,positive,negative
-S04 00005,2017-07-12,negative,negative
-S04 00006,2017-07-12,negative,negative
-S04 00007,2017-07-12,negative,negative
-S04 00008,2017-07-12,negative,negative
-S04 00009,2017-07-12,negative,negative
-S05 00004,2017-07-12,negative,negative
-S05 00005,2017-07-12,negative,negative
-S02 00009,2017-07-12,positive,positive
-S02 00010,2017-07-12,positive,positive
-S06 00007,2017-07-12,negative,negative
-K03 00004,2017-07-17,negative,negative
-K03 00005,2017-07-17,negative,negative
-K03 00006,2017-07-17,negative,negative
-K11 00002,2017-07-17,negative,negative
-K11 00003,2017-07-17,negative,negative
-K13 00002,2017-07-17,negative,negative
-K05 00013,2017-07-17,negative,negative
-K01 00029,2017-07-17,NA,NA
-K01 00030,2017-07-17,NA,NA
-K01 00031,2017-07-17,NA,NA
-K14 00010,2017-07-17,negative,negative
-K14 00011,2017-07-17,negative,negative
-K14 00012,2017-07-17,negative,negative
-K14 00013,2017-07-17,negative,negative
-K07 00010,2017-07-17,positive,positive
-M05 00009,2017-07-18,negative,negative
-M13 00015,2017-07-18,negative,negative
-M13 00016,2017-07-18,negative,negative
-M13 00017,2017-07-18,positive,negative
-M13 00018,2017-07-18,negative,negative
-M13 00019,2017-07-18,NA,negative
-M07 00068,2017-07-18,negative,negative
-M07 00069,2017-07-18,negative,negative
-M07 00070,2017-07-18,negative,negative
-M07 00071,2017-07-18,negative,negative
-M12 00002,2017-07-18,negative,negative
-M12 00003,2017-07-18,negative,negative
-M12 00004,2017-07-18,negative,negative
-M12 00005,2017-07-18,negative,negative
-M15 00018,2017-07-18,positive,negative
-M15 00019,2017-07-18,negative,positive
-M15 00020,2017-07-18,negative,negative
-M15 00021,2017-07-18,negative,negative
-M15 00022,2017-07-18,negative,negative
-M15 00023,2017-07-18,negative,negative
-M15 00024,2017-07-18,negative,negative
-M15 00025,2017-07-18,negative,positive
-M03 00011,2017-07-18,negative,negative
-M03 00012,2017-07-18,negative,negative
-M03 00013,2017-07-18,negative,negative
-M09 00041,2017-07-18,negative,negative
-M09 00042,2017-07-18,NA,NA
-M09 00043,2017-07-18,negative,negative
-M09 00044,2017-07-18,positive,positive
-M09 00045,2017-07-18,positive,positive
-M07 00052,2017-07-18,negative,negative
-M07 00053,2017-07-18,negative,negative
-M07 00054,2017-07-18,negative,negative
-M07 00055,2017-07-18,negative,negative
-M07 00056,2017-07-18,negative,negative
-M07 00057,2017-07-18,negative,negative
-M07 00058,2017-07-18,negative,negative
-M07 00059,2017-07-18,negative,negative
-M07 00060,2017-07-18,negative,negative
-M07 00061,2017-07-18,negative,negative
-M07 00062,2017-07-18,negative,negative
-M07 00063,2017-07-18,negative,negative
-M07 00064,2017-07-18,negative,negative
-M07 00065,2017-07-18,negative,negative
-M07 00066,2017-07-18,negative,negative
-M07 00067,2017-07-18,negative,negative
-M06 00018,2017-07-18,negative,positive
-M06 00019,2017-07-18,positive,negative
-M06 00020,2017-07-18,negative,negative
-M06 00021,2017-07-18,positive,negative
-M06 00022,2017-07-18,negative,negative
-M06 00023,2017-07-18,positive,negative
-M06 00024,2017-07-18,positive,negative
-M06 00025,2017-07-18,negative,negative
-M01 00018,2017-07-18,negative,negative
-M01 00017,2017-07-18,negative,negative
-M01 00016,2017-07-18,positive,negative
-M01 00015,2017-07-18,negative,negative
-M01 00014,2017-07-18,positive,negative
-S02 00011,2017-07-19,negative,negative
-S04 00010,2017-07-19,negative,negative
-S12 00006,2017-07-19,NA,negative
-S12 00007,2017-07-19,negative,negative
-S01 00005,2017-07-19,negative,negative
-S01 00006,2017-07-19,negative,positive
-S01 00007,2017-07-19,NA,positive
-S06 00008,2017-07-19,negative,negative
-S07 00002,2017-07-19,negative,negative
-S10 00004,2017-07-19,negative,negative
-S03 00005,2017-07-19,negative,negative
-K01 00032,2017-07-24,NA,NA
-K14 00014,2017-07-24,negative,negative
-K13 00003,2017-07-24,negative,negative
-K03 00007,2017-07-24,negative,negative
-M14 00032,2017-07-25,negative,negative
-M14 00033,2017-07-25,negative,negative
-M09 00046,2017-07-25,positive,negative
-M09 00047,2017-07-25,negative,negative
-M09 00048,2017-07-25,negative,negative
-M15 00026,2017-07-25,positive,negative
-M15 00027,2017-07-25,negative,negative
-M15 00028,2017-07-25,positive,negative
-M15 00029,2017-07-25,negative,negative
-M15 00030,2017-07-25,positive,negative
-M15 00031,2017-07-25,negative,negative
-M01 00020,2017-07-25,negative,negative
-M01 00021,2017-07-25,negative,negative
-M01 00022,2017-07-25,negative,negative
-M01 00023,2017-07-25,negative,negative
-M01 00019,2017-07-25,negative,negative
-M07 00072,2017-07-25,negative,negative
-M07 00073,2017-07-25,negative,negative
-M07 00074,2017-07-25,negative,negative
-M07 00075,2017-07-25,negative,negative
-M07 00076,2017-07-25,negative,negative
-M07 00077,2017-07-25,negative,negative
-M07 00078,2017-07-25,negative,negative
-M07 00079,2017-07-25,negative,negative
-M07 00080,2017-07-25,negative,negative
-M07 00081,2017-07-25,negative,negative
-M03 00014,2017-07-25,negative,negative
-M03 00015,2017-07-25,negative,negative
-M05 00010,2017-07-25,negative,negative
-M13 00020,2017-07-25,negative,negative
-M13 00021,2017-07-25,negative,positive
-M13 00022,2017-07-25,negative,negative
-M13 00023,2017-07-25,negative,negative
-M13 00024,2017-07-25,negative,negative
-M13 00025,2017-07-25,negative,negative
-M06 00026,2017-07-25,negative,negative
-M06 00027,2017-07-25,negative,negative
-M06 00028,2017-07-25,negative,negative
-M06 00029,2017-07-25,negative,negative
-M06 00030,2017-07-25,negative,negative
-M06 00031,2017-07-25,negative,negative
-M06 00032,2017-07-25,negative,negative
-M06 00033,2017-07-25,negative,negative
-S06 00009,2017-07-26,negative,negative
-S04 00011,2017-07-26,negative,negative
-S04 00012,2017-07-26,positive,negative
-S01 00008,2017-07-26,negative,negative
-S01 00009,2017-07-26,negative,negative
-K01 00033,2017-07-31,negative,negative
-K01 00034,2017-07-31,negative,negative
-K10 00003,2017-07-31,negative,negative
-K05 00014,2017-07-31,negative,negative
-K09 00003,2017-07-31,negative,negative
-K13 00004,2017-07-31,negative,negative
-K13 00005,2017-07-31,negative,negative
-M03 00016,2017-08-01,negative,negative
-M07 00082,2017-08-01,negative,negative
-M07 00083,2017-08-01,negative,negative
-M07 00084,2017-08-01,negative,negative
-M07 00085,2017-08-01,negative,negative
-M07 00086,2017-08-01,NA,negative
-M07 00087,2017-08-01,negative,negative
-M07 00088,2017-08-01,negative,negative
-M07 00089,2017-08-01,negative,negative
-M07 00090,2017-08-01,negative,negative
-M07 00091,2017-08-01,negative,negative
-M07 00092,2017-08-01,negative,negative
-M07 00093,2017-08-01,negative,negative
-M07 00094,2017-08-01,negative,negative
-M07 00095,2017-08-01,negative,negative
-M07 00096,2017-08-01,negative,negative
-M07 00097,2017-08-01,negative,negative
-M04 00006,2017-08-01,negative,negative
-M04 00007,2017-08-01,negative,negative
-M04 00008,2017-08-01,negative,negative
-M04 00009,2017-08-01,negative,negative
-M04 00010,2017-08-01,positive,negative
-M04 00011,2017-08-01,negative,negative
-M04 00012,2017-08-01,negative,negative
-M04 00013,2017-08-01,positive,positive
-M04 00014,2017-08-01,positive,negative
-M14 00034,2017-08-01,negative,negative
-M14 00035,2017-08-01,negative,negative
-M07 00098,2017-08-01,negative,negative
-M15 00032,2017-08-01,negative,negative
-M15 00033,2017-08-01,negative,negative
-M15 00034,2017-08-01,negative,negative
-M15 00035,2017-08-01,positive,negative
-M09 00049,2017-08-01,negative,negative
-M09 00050,2017-08-01,negative,negative
-M09 00051,2017-08-01,negative,negative
-M09 00052,2017-08-01,negative,negative
-M09 00053,2017-08-01,negative,negative
-M09 00054,2017-08-01,negative,negative
-M09 00055,2017-08-01,positive,negative
-M06 00034,2017-08-01,positive,positive
-M06 00035,2017-08-01,negative,negative
-M06 00036,2017-08-01,negative,negative
-M06 00037,2017-08-01,positive,negative
-M13 00026,2017-08-01,NA,NA
-M13 00027,2017-08-01,NA,NA
-M01 00024,2017-08-01,negative,negative
-S02 00012,2017-08-02,negative,negative
-S09 00002,2017-08-02,NA,negative
-S01 00010,2017-08-02,negative,negative
-S10 00005,2017-08-02,negative,negative
-S05 00006,2017-08-02,negative,negative
-K03 00008,2017-08-09,negative,negative
-K07 00011,2017-08-09,negative,negative
-K13 00007,2017-08-09,NA,negative
-K01 00035,2017-08-09,positive,positive
-K01 00036,2017-08-09,positive,negative
-K01 00037,2017-08-09,positive,negative
-K01 00038,2017-08-09,positive,positive
-K01 00039,2017-08-09,positive,negative
-K01 00040,2017-08-09,positive,positive
-K02 00051,2017-08-09,negative,negative
-K14 00015,2017-08-09,negative,negative
-K14 00016,2017-08-09,positive,positive
-K14 00017,2017-08-09,negative,negative
-K14 00018,2017-08-09,negative,negative
-K14 00019,2017-08-09,positive,negative
-K14 00020,2017-08-09,positive,positive
-K05 00015,2017-08-09,positive,negative
-M12 00006,2017-08-10,negative,negative
-M12 00007,2017-08-10,negative,negative
-M12 00008,2017-08-10,negative,negative
-M01 00025,2017-08-10,negative,negative
-M07 00099,2017-08-10,negative,negative
-M07 00100,2017-08-10,negative,positive
-M07 00101,2017-08-10,negative,negative
-M07 00102,2017-08-10,negative,negative
-M07 00103,2017-08-10,positive,negative
-M07 00104,2017-08-10,negative,negative
-M07 00105,2017-08-10,negative,negative
-M07 00106,2017-08-10,negative,negative
-M07 00107,2017-08-10,negative,negative
-M07 00108,2017-08-10,negative,negative
-M07 00109,2017-08-10,negative,negative
-M07 00110,2017-08-10,positive,negative
-M05 00011,2017-08-10,negative,negative
-M05 00012,2017-08-10,negative,negative
-M05 00013,2017-08-10,negative,negative
-M15 00036,2017-08-10,positive,positive
-M15 00037,2017-08-10,positive,negative
-M15 00038,2017-08-10,negative,negative
-M15 00039,2017-08-10,positive,negative
-M15 00040,2017-08-10,negative,negative
-M03 00017,2017-08-10,negative,negative
-M03 00018,2017-08-10,negative,negative
-M03 00019,2017-08-10,negative,negative
-M13 00028,2017-08-10,positive,negative
-M13 00029,2017-08-10,negative,negative
-M13 00030,2017-08-10,positive,positive
-S03 00006,2017-08-11,negative,negative
-S10 00006,2017-08-11,negative,negative
-S04 00013,2017-08-11,negative,negative
-S04 00014,2017-08-11,negative,negative
-S04 00015,2017-08-11,negative,negative
-K07 00013,2017-08-14,negative,negative
-K07 00012,2017-08-14,negative,negative
-K13 00008,2017-08-14,negative,negative
-K14 00021,2017-08-14,positive,positive
-K14 00022,2017-08-14,positive,negative
-K05 00016,2017-08-14,negative,negative
-K05 00017,2017-08-14,negative,negative
-K05 00018,2017-08-14,negative,negative
-K05 00019,2017-08-14,negative,negative
-K05 00020,2017-08-14,negative,negative
-K12 00006,2017-08-14,negative,negative
-K12 00007,2017-08-14,negative,negative
-K12 00008,2017-08-14,negative,negative
-K12 00009,2017-08-14,negative,negative
-K12 00010,2017-08-14,negative,negative
-K01 00041,2017-08-14,positive,positive
-K01 00042,2017-08-14,negative,negative
-K01 00043,2017-08-14,positive,positive
-K01 00044,2017-08-14,negative,negative
-K01 00045,2017-08-14,negative,negative
-K01 00046,2017-08-14,negative,negative
-M09 00056,2017-08-15,negative,negative
-M09 00057,2017-08-15,positive,negative
-M09 00058,2017-08-15,negative,negative
-M09 00059,2017-08-15,negative,negative
-M09 00060,2017-08-15,negative,negative
-M09 00061,2017-08-15,positive,negative
-M09 00062,2017-08-15,negative,negative
-M09 00063,2017-08-15,negative,negative
-M12 00009,2017-08-15,negative,negative
-M11 00007,2017-08-15,negative,negative
-M07 00111,2017-08-15,NA,negative
-M04 00015,2017-08-15,negative,negative
-M01 00026,2017-08-15,negative,positive
-M01 00027,2017-08-15,positive,negative
-M01 00028,2017-08-15,negative,negative
-M15 00041,2017-08-15,negative,negative
-M15 00042,2017-08-15,negative,negative
-M15 00043,2017-08-15,negative,negative
-M15 00044,2017-08-15,negative,negative
-M15 00045,2017-08-15,positive,negative
-M15 00046,2017-08-15,negative,negative
-M15 00047,2017-08-15,negative,negative
-M15 00048,2017-08-15,positive,negative
-M15 00049,2017-08-15,positive,negative
-S01 00011,2017-08-16,negative,negative
-S12 00008,2017-08-16,negative,negative
-K05 00021,2017-08-21,NA,negative
-K05 00022,2017-08-21,negative,negative
-K05 00023,2017-08-21,negative,negative
-K05 00024,2017-08-21,negative,negative
-K01 00047,2017-08-21,NA,NA
-K01 00048,2017-08-21,NA,NA
-M12 00051,2017-08-22,negative,negative
-M09 00064,2017-08-22,negative,negative
-M09 00065,2017-08-22,positive,positive
-M09 00066,2017-08-22,negative,negative
-M09 00067,2017-08-22,negative,negative
-M01 00036,2017-08-22,negative,negative
-M04 00016,2017-08-22,positive,negative
-M04 00017,2017-08-22,negative,negative
-M04 00018,2017-08-22,negative,negative
-M04 00019,2017-08-22,positive,negative
-M04 00020,2017-08-22,positive,negative
-M04 00021,2017-08-22,NA,positive
-M04 00022,2017-08-22,positive,positive
-M04 00023,2017-08-22,negative,negative
-M04 00024,2017-08-22,negative,negative
-M07 00112,2017-08-22,negative,negative
-M07 00113,2017-08-22,negative,negative
-M07 00114,2017-08-22,negative,negative
-M07 00115,2017-08-22,negative,negative
-M07 00116,2017-08-22,negative,negative
-M07 00117,2017-08-22,negative,negative
-M05 00014,2017-08-22,negative,negative
-M15 00050,2017-08-22,positive,negative
-M15 00051,2017-08-22,negative,negative
-M15 00052,2017-08-22,positive,positive
-M15 00053,2017-08-22,negative,negative
-M15 00054,2017-08-22,negative,negative
-M14 00036,2017-08-22,negative,negative
-M14 00037,2017-08-22,negative,negative
-M14 00038,2017-08-22,negative,negative
-M14 00039,2017-08-22,negative,negative
-M14 00040,2017-08-22,negative,negative
-S01 00012,2017-08-23,negative,negative
-S07 00004,2017-08-23,negative,negative
-K10 00004,2017-08-28,negative,negative
-K14 00023,2017-08-28,negative,negative
-K14 00024,2017-08-28,positive,negative
-K09 00004,2017-08-28,negative,negative
-K01 00049,2017-08-28,NA,NA
-M12 00010,2017-08-29,positive,positive
-M05 00015,2017-08-29,negative,negative
-M14 00041,2017-08-29,negative,negative
-M14 00042,2017-08-29,negative,negative
-M14 00043,2017-08-29,negative,negative
-M15 00055,2017-08-29,negative,negative
-M15 00056,2017-08-29,negative,NA
-M04 00025,2017-08-29,negative,negative
-M01 00029,2017-08-29,negative,negative
-M03 00021,2017-08-29,negative,negative
-M16 00001,2017-08-29,negative,negative
-M06 00039,2017-08-29,positive,negative
-M06 00040,2017-08-29,positive,positive
-M06 00041,2017-08-29,positive,positive
-M13 00031,2017-08-29,negative,negative
-M13 00032,2017-08-29,negative,negative
-M13 00033,2017-08-29,negative,negative
-M13 00034,2017-08-29,negative,negative
-M13 00035,2017-08-29,negative,negative
-M07 00118,2017-08-29,negative,negative
-M07 00119,2017-08-29,negative,negative
-M07 00120,2017-08-29,positive,negative
-M07 00121,2017-08-29,negative,negative
-M07 00122,2017-08-29,negative,negative
-M07 00123,2017-08-29,negative,negative
-M07 00124,2017-08-29,negative,negative
-M07 00125,2017-08-29,positive,positive
-M07 00126,2017-08-29,positive,negative
-M07 00127,2017-08-29,negative,negative
-M07 00128,2017-08-29,negative,negative
-M09 00068,2017-08-29,negative,negative
-M09 00069,2017-08-29,negative,negative
-S03 00007,2017-08-30,negative,negative
-S10 00007,2017-08-30,negative,negative
-S06 00010,2017-08-30,negative,negative
-K11 00004,2017-09-04,negative,negative
-K11 00005,2017-09-04,negative,negative
-K12 00011,2017-09-04,negative,negative
-K12 00012,2017-09-04,negative,positive
-K12 00013,2017-09-04,negative,negative
-K12 00014,2017-09-04,negative,negative
-K01 00050,2017-09-04,negative,negative
-K01 00051,2017-09-04,negative,negative
-K14 00025,2017-09-04,negative,NA
-K13 00009,2017-09-04,negative,negative
-K07 00014,2017-09-04,negative,negative
-K05 00025,2017-09-04,negative,negative
-K09 00005,2017-09-04,negative,negative
-M14 00051,2017-09-05,negative,negative
-M14 00052,2017-09-05,negative,negative
-M14 00053,2017-09-05,negative,negative
-M14 00054,2017-09-05,negative,negative
-M07 00129,2017-09-05,negative,negative
-M07 00130,2017-09-05,negative,negative
-M07 00131,2017-09-05,negative,positive
-M07 00132,2017-09-05,negative,negative
-M07 00133,2017-09-05,negative,negative
-M07 00134,2017-09-05,negative,negative
-M07 00135,2017-09-05,negative,negative
-M07 00136,2017-09-05,negative,negative
-M16 00002,2017-09-05,negative,negative
-M01 00052,2017-09-05,negative,negative
-M01 00053,2017-09-05,negative,negative
-M01 00054,2017-09-05,negative,negative
-M04 00026,2017-09-05,negative,negative
-M04 00027,2017-09-05,negative,negative
-M04 00028,2017-09-05,positive,negative
-M04 00029,2017-09-05,negative,negative
-M05 00016,2017-09-05,negative,negative
-M05 00017,2017-09-05,negative,negative
-M09 00070,2017-09-05,negative,negative
-M09 00071,2017-09-05,negative,positive
-M09 00072,2017-09-05,negative,negative
-M09 00073,2017-09-05,negative,negative
-M09 00074,2017-09-05,negative,negative
-S07 00003,2017-09-06,negative,negative
-K05 00026,2017-09-11,negative,negative
-K13 00010,2017-09-11,negative,negative
-K13 00011,2017-09-11,negative,negative
-K13 00012,2017-09-11,negative,negative
-K09 00006,2017-09-11,negative,negative
-K14 00026,2017-09-11,negative,negative
-K14 00027,2017-09-11,negative,negative
-K14 00028,2017-09-11,negative,negative
-K14 00029,2017-09-11,positive,negative
-K12 00015,2017-09-11,negative,negative
-K12 00016,2017-09-11,negative,negative
-K12 00017,2017-09-11,negative,negative
-M04 00030,2017-09-12,negative,negative
-M16 00003,2017-09-12,negative,negative
-M03 00022,2017-09-12,negative,negative
-M13 00036,2017-09-12,negative,negative
-M13 00037,2017-09-12,negative,negative
-M14 00044,2017-09-12,negative,negative
-M14 00048,2017-09-12,negative,negative
-M14 00046,2017-09-12,negative,negative
-M14 00045,2017-09-12,negative,negative
-M14 00047,2017-09-12,negative,negative
-M09 00076,2017-09-12,negative,negative
-M09 00075,2017-09-12,positive,negative
-M09 00077,2017-09-12,negative,negative
-M09 00078,2017-09-12,positive,negative
-M01 00030,2017-09-12,negative,negative
-M01 00031,2017-09-12,positive,negative
-M01 00032,2017-09-12,negative,negative
-S07 00005,2017-09-13,positive,negative
-K05 00027,2017-09-18,negative,negative
-K05 00028,2017-09-18,negative,negative
-K01 00052,2017-09-18,negative,negative
-K01 00053,2017-09-18,NA,negative
-K02 00024,2017-09-18,positive,positive
-M01 00033,2017-09-19,negative,negative
-M07 00137,2017-09-19,positive,positive
-M12 00011,2017-09-19,negative,negative
-M05 00018,2017-09-19,negative,negative
-M15 00058,2017-09-19,positive,positive
-M15 00057,2017-09-19,negative,negative
-M14 00049,2017-09-19,negative,negative
-S12 00009,2017-09-20,negative,negative
-S11 00004,2017-09-20,negative,negative
-S10 00008,2017-09-20,negative,negative
-K01 00054,2017-09-25,negative,negative
-K01 00055,2017-09-25,negative,negative
-K01 00056,2017-09-25,negative,negative
-K01 00057,2017-09-25,negative,negative
-K01 00058,2017-09-25,negative,negative
-K01 00059,2017-09-25,negative,negative
-K01 00060,2017-09-25,negative,negative
-K07 00015,2017-09-25,negative,negative
-K13 00014,2017-09-25,negative,negative
-K13 00013,2017-09-25,negative,negative
-K03 00009,2017-09-25,negative,negative
-K02 00025,2017-09-25,negative,negative
-K02 00026,2017-09-25,positive,positive
-K02 00027,2017-09-25,negative,negative
-M05 00019,2017-09-26,negative,negative
-M06 00038,2017-09-26,negative,negative
-M09 00079,2017-09-26,positive,positive
-M15 00059,2017-09-26,negative,negative
-M13 00038,2017-09-26,negative,negative
-M01 00034,2017-09-26,positive,negative
-S01 00013,2017-09-27,negative,negative
-S01 00014,2017-09-27,negative,negative
-S05 00007,2017-09-27,negative,negative
-S05 00008,2017-09-27,negative,negative
-S05 00009,2017-09-27,negative,negative
-S04 00016,2017-09-27,negative,negative
-S04 00017,2017-09-27,negative,negative
-K12 00018,2017-10-02,negative,negative
-K12 00019,2017-10-02,negative,negative
-K14 00030,2017-10-02,negative,negative
-K14 00031,2017-10-02,negative,negative
-K11 00006,2017-10-02,negative,negative
-K13 00015,2017-10-02,negative,negative
-K04 00001,2017-10-02,negative,negative
-K01 00061,2017-10-02,negative,negative
-K10 00005,2017-10-02,negative,negative
-M01 00035,2017-10-03,positive,NA
-M06 00042,2017-10-03,negative,negative
-M06 00043,2017-10-03,negative,negative
-M06 00044,2017-10-03,negative,negative
-M15 00060,2017-10-03,positive,negative
-M09 00080,2017-10-03,negative,negative
-M09 00081,2017-10-03,negative,negative
-M14 00050,2017-10-03,negative,negative
-M13 00039,2017-10-03,negative,negative
-M07 00138,2017-10-03,negative,negative
-S08 00005,2017-10-04,negative,negative
-K01 00068,2017-10-09,negative,negative
-K01 00069,2017-10-09,negative,negative
-K11 00007,2017-10-09,negative,negative
-K14 00032,2017-10-09,negative,negative
-K12 00020,2017-10-09,negative,negative
-M01 00037,2017-10-10,negative,negative
-M01 00038,2017-10-10,negative,negative
-M01 00039,2017-10-10,negative,negative
-M01 00040,2017-10-10,negative,negative
-M07 00139,2017-10-10,NA,negative
-M16 00004,2017-10-10,negative,negative
-M16 00005,2017-10-10,negative,negative
-M16 00006,2017-10-10,negative,negative
-M13 00040,2017-10-10,negative,negative
-M13 00041,2017-10-10,negative,negative
-M09 00082,2017-10-10,negative,negative
-S05 00010,2017-10-11,negative,negative
-S02 00013,2017-10-11,negative,negative
-S10 00009,2017-10-11,negative,negative
-K09 00007,2017-10-16,negative,negative
-K11 00008,2017-10-16,positive,negative
-M14 00055,2017-10-17,negative,negative
-M06 00045,2017-10-17,positive,negative
-M05 00020,2017-10-17,negative,negative
-M01 00041,2017-10-17,negative,negative
-M03 00023,2017-10-17,negative,negative
-M16 00007,2017-10-17,negative,negative
-S04 00018,2017-10-18,negative,negative
-S10 00010,2017-10-18,negative,negative
-S10 00011,2017-10-18,negative,negative
-S02 00014,2017-10-18,negative,positive
-K03 00010,2017-10-23,negative,negative
-M04 00031,2017-10-24,negative,negative
-M07 00140,2017-10-24,positive,negative
-M13 00042,2017-10-24,negative,negative
-M13 00043,2017-10-24,negative,negative
-M12 00012,2017-10-31,negative,negative
-M06 00046,2017-10-31,negative,negative
-M04 00032,2017-10-31,negative,negative
-K07 00016,2017-11-02,negative,negative
-K14 00033,2017-11-02,negative,negative
-K14 00034,2017-11-02,positive,positive
-M09 00083,2017-11-07,negative,negative
-M05 00021,2017-11-07,negative,negative
-S06 00011,2017-11-08,negative,negative
-S06 00012,2017-11-08,negative,negative
-S01 00015,2017-11-15,negative,negative
-S06 00013,2017-11-15,negative,negative
-K14 00035,2017-11-20,negative,negative
-M15 00061,2017-11-21,negative,negative
-K14 00036,2017-11-27,negative,negative
-K10 00006,2017-11-27,negative,negative
-S01 00016,2017-11-29,negative,negative
-M06 00047,2017-11-30,negative,negative
-M16 00008,2017-12-05,negative,negative
-M01 00042,2017-12-05,negative,negative
-S01 00017,2017-12-06,negative,negative
-K09 00008,2017-12-11,negative,negative
-S10 00012,2017-12-13,negative,negative
-S04 00019,2017-12-13,negative,negative
-M16 00009,2017-12-14,negative,negative
-M14 00056,2017-12-14,negative,negative
-M03 00024,2017-12-14,negative,negative
-M04 00033,2018-01-02,negative,negative
-K05 00029,2018-01-08,negative,negative
-M16 00010,2018-01-09,negative,negative
-M13 00044,2018-01-09,negative,negative
-M13 00045,2018-01-09,negative,negative
-M03 00025,2018-01-09,negative,negative
-M07 00141,2018-01-09,negative,negative
-M15 00063,2018-01-09,negative,negative
-M15 00062,2018-01-09,negative,negative
-S07 00006,2018-01-10,negative,negative
-K10 00007,2018-01-15,negative,negative
-K10 00008,2018-01-15,negative,negative
-M07 00142,2018-01-16,negative,negative
-M15 00064,2018-01-16,negative,negative
-M14 00057,2018-01-16,negative,negative
-M14 00058,2018-01-16,negative,negative
-M14 00059,2018-01-16,negative,negative
-M09 00084,2018-01-16,negative,negative
-M05 00022,2018-01-16,positive,negative
-K01 00070,2018-01-22,negative,negative
-M07 00143,2018-01-23,negative,negative
-M07 00144,2018-01-23,negative,negative
-M05 00023,2018-01-23,negative,negative
-M09 00085,2018-01-23,negative,negative
-M15 00065,2018-01-23,negative,negative
-M01 00043,2018-01-23,negative,negative
-S04 00020,2018-01-24,positive,negative
-S05 00011,2018-01-24,negative,negative
-K09 00009,2018-01-29,negative,negative
-M03 00026,2018-02-06,negative,negative
-K14 00037,2018-02-12,positive,negative
-M03 00027,2018-02-13,negative,negative
-M01 00044,2018-02-13,negative,negative
-M06 00048,2018-02-13,negative,negative
-M16 00011,2018-02-13,negative,negative
-K03 00011,2018-02-19,negative,negative
-M15 00066,2018-02-20,negative,negative
-M15 00067,2018-02-20,negative,negative
-M09 00086,2018-02-20,negative,negative
-S10 00013,2018-02-21,negative,negative
-S10 00014,2018-02-21,negative,negative
-S05 00012,2018-02-21,negative,negative
-S05 00013,2018-02-21,negative,negative
-S06 00014,2018-02-21,negative,positive
-K14 00038,2018-02-26,positive,negative
-K14 00039,2018-02-26,positive,negative
-K14 00040,2018-02-26,negative,negative
-K13 00017,2018-02-26,negative,negative
-K13 00016,2018-02-26,negative,negative
-M05 00024,2018-02-27,negative,negative
-M01 00055,2018-02-27,negative,negative
-S05 00014,2018-02-28,negative,negative
-S06 00015,2018-02-28,NA,negative
-S01 00018,2018-02-28,negative,negative
-K02 00028,2018-03-05,negative,negative
-K07 00017,2018-03-05,negative,negative
-M05 00025,2018-03-06,negative,positive
-M01 00056,2018-03-06,negative,negative
-M16 00012,2018-03-06,negative,negative
-M16 00013,2018-03-06,negative,negative
-M16 00014,2018-03-06,negative,negative
-S10 00015,2018-03-07,negative,negative
-S03 00008,2018-03-07,negative,negative
-K14 00041,2018-03-12,negative,negative
-K13 00018,2018-03-12,negative,negative
-K09 00010,2018-03-12,negative,negative
-M07 00145,2018-03-13,negative,negative
-M13 00046,2018-03-13,negative,negative
-M13 00047,2018-03-13,negative,negative
-M04 00034,2018-03-13,negative,negative
-M16 00015,2018-03-13,positive,positive
-M16 00016,2018-03-13,negative,negative
-M16 00017,2018-03-13,negative,negative
-S02 00015,2018-03-14,negative,negative
-S09 00004,2018-03-14,negative,negative
-S05 00015,2018-03-14,negative,negative
-S05 00016,2018-03-14,negative,negative
-S01 00019,2018-03-14,negative,negative
-K14 00042,2018-03-19,negative,negative
-K01 00062,2018-03-19,negative,negative
-K13 00019,2018-03-19,negative,negative
-M03 00028,2018-03-20,negative,negative
-M14 00060,2018-03-20,negative,negative
-M16 00018,2018-03-20,negative,negative
-M09 00087,2018-03-20,negative,negative
-S06 00016,2018-03-21,negative,negative
-S05 00017,2018-03-21,negative,negative
-K10 00009,2018-03-26,negative,negative
-K07 00018,2018-03-26,negative,negative
-K14 00043,2018-03-26,positive,negative
-M16 00019,2018-03-27,negative,negative
-M16 00020,2018-03-27,negative,negative
-M01 00057,2018-03-27,negative,negative
-M05 00026,2018-03-27,negative,negative
-S06 00017,2018-03-28,negative,negative
-M01 00058,2018-04-03,NA,negative
-M09 00088,2018-04-03,negative,negative
-M09 00089,2018-04-03,negative,negative
-M16 00021,2018-04-03,negative,negative
-M03 00029,2018-04-03,negative,negative
-M03 00030,2018-04-03,negative,negative
-S02 00016,2018-04-04,negative,negative
-S11 00005,2018-04-04,negative,negative
-S09 00005,2018-04-04,negative,negative
-S09 00006,2018-04-04,negative,negative
-S01 00020,2018-04-04,negative,negative
-S01 00021,2018-04-04,negative,negative
-S10 00016,2018-04-04,negative,negative
-S08 00006,2018-04-04,negative,negative
-K13 00020,2018-04-05,negative,negative
-M06 00049,2018-04-10,negative,negative
-M16 00022,2018-04-10,positive,positive
-M04 00035,2018-04-10,negative,negative
-M15 00068,2018-04-10,negative,positive
-M07 00146,2018-04-10,negative,negative
-M07 00147,2018-04-10,negative,negative
-M03 00031,2018-04-10,negative,negative
-M09 00090,2018-04-10,negative,negative
-S01 00023,2018-04-11,negative,negative
-S01 00022,2018-04-11,negative,negative
-S06 00018,2018-04-11,negative,negative
-S04 00021,2018-04-11,negative,negative
-S04 00022,2018-04-11,negative,negative
-S02 00017,2018-04-11,negative,negative
-K05 00030,2018-04-16,negative,negative
-K02 00029,2018-04-16,negative,negative
-K09 00011,2018-04-16,negative,negative
-K14 00044,2018-04-16,positive,positive
-M16 00023,2018-04-17,positive,positive
-M16 00024,2018-04-17,positive,positive
-M16 00025,2018-04-17,negative,negative
-M16 00026,2018-04-17,negative,negative
-M16 00027,2018-04-17,negative,negative
-M16 00028,2018-04-17,positive,positive
-M16 00029,2018-04-17,positive,negative
-M16 00030,2018-04-17,negative,negative
-M16 00031,2018-04-17,negative,negative
-M09 00091,2018-04-17,negative,negative
-M13 00048,2018-04-17,negative,negative
-M13 00049,2018-04-17,negative,negative
-M05 00027,2018-04-17,negative,negative
-M07 00148,2018-04-17,negative,negative
-M07 00149,2018-04-17,negative,negative
-M07 00150,2018-04-17,negative,negative
-M07 00151,2018-04-17,negative,negative
-M07 00152,2018-04-17,negative,negative
-M15 00069,2018-04-17,negative,NA
-M15 00070,2018-04-17,negative,negative
-S04 00023,2018-04-18,negative,negative
-S04 00024,2018-04-18,negative,negative
-S13 00001,2018-04-18,negative,negative
-S13 00002,2018-04-18,negative,negative
-S03 00009,2018-04-18,negative,negative
-S03 00010,2018-04-18,negative,negative
-S01 00024,2018-04-18,negative,negative
-S07 00007,2018-04-18,negative,negative
-S08 00007,2018-04-18,positive,positive
-S11 00006,2018-04-18,negative,negative
-K05 00031,2018-04-23,negative,negative
-K05 00032,2018-04-23,negative,negative
-K04 00003,2018-04-23,negative,negative
-M07 00153,2018-04-24,negative,negative
-M07 00154,2018-04-24,negative,positive
-M07 00155,2018-04-24,negative,negative
-M07 00156,2018-04-24,positive,negative
-M09 00092,2018-04-24,negative,NA
-M14 00061,2018-04-24,negative,negative
-M14 00062,2018-04-24,negative,negative
-M05 00028,2018-04-24,negative,negative
-M06 00050,2018-04-24,negative,negative
-M01 00059,2018-04-24,negative,negative
-S04 00025,2018-04-25,NA,negative
-S04 00026,2018-04-25,negative,negative
-S13 00003,2018-04-25,negative,negative
-S13 00004,2018-04-25,negative,negative
-S02 00018,2018-04-25,negative,negative
-S01 00025,2018-04-25,negative,negative
-K13 00022,2018-04-30,positive,positive
-K13 00021,2018-04-30,negative,negative
-K03 00012,2018-04-30,negative,negative
-K03 00013,2018-04-30,negative,negative
-K14 00045,2018-04-30,negative,negative
-K04 00005,2018-04-30,positive,positive
-S02 00019,2018-05-02,negative,negative
-S01 00026,2018-05-02,NA,positive
-S04 00027,2018-05-02,negative,negative
-S04 00028,2018-05-02,negative,negative
-S04 00029,2018-05-02,negative,positive
-S04 00030,2018-05-02,negative,negative
-S04 00031,2018-05-02,negative,negative
-M05 00029,2018-05-03,negative,negative
-M05 00030,2018-05-03,NA,negative
-M05 00031,2018-05-03,negative,negative
-M05 00032,2018-05-03,negative,negative
-M09 00093,2018-05-03,negative,negative
-M09 00094,2018-05-03,negative,negative
-M09 00095,2018-05-03,negative,positive
-M09 00096,2018-05-03,negative,negative
-M09 00097,2018-05-03,negative,negative
-M09 00098,2018-05-03,negative,negative
-M09 00099,2018-05-03,negative,negative
-M09 00100,2018-05-03,negative,negative
-M09 00101,2018-05-03,negative,negative
-M09 00102,2018-05-03,negative,negative
-M09 00103,2018-05-03,positive,positive
-M07 00157,2018-05-03,negative,negative
-M07 00158,2018-05-03,negative,negative
-M07 00159,2018-05-03,negative,negative
-M07 00160,2018-05-03,negative,negative
-M07 00161,2018-05-03,negative,negative
-M15 00071,2018-05-03,negative,negative
-M01 00060,2018-05-03,negative,negative
-M01 00061,2018-05-03,negative,negative
-M01 00062,2018-05-03,negative,negative
-M13 00050,2018-05-03,negative,negative
-K12 00021,2018-05-07,negative,negative
-K14 00046,2018-05-07,positive,positive
-K13 00023,2018-05-07,negative,negative
-K13 00024,2018-05-07,negative,negative
-K09 00012,2018-05-07,negative,negative
-K03 00014,2018-05-07,negative,negative
-K10 00010,2018-05-07,negative,negative
-M01 00063,2018-05-08,negative,negative
-M01 00064,2018-05-08,negative,negative
-M05 00033,2018-05-08,positive,positive
-M05 00034,2018-05-08,negative,negative
-M09 00104,2018-05-08,negative,negative
-M09 00105,2018-05-08,negative,negative
-M09 00106,2018-05-08,negative,negative
-M09 00107,2018-05-08,negative,negative
-M09 00108,2018-05-08,positive,positive
-M09 00109,2018-05-08,negative,negative
-M09 00110,2018-05-08,negative,negative
-M09 00111,2018-05-08,negative,negative
-M13 00051,2018-05-08,negative,negative
-M13 00052,2018-05-08,negative,negative
-M13 00053,2018-05-08,negative,negative
-M06 00051,2018-05-08,negative,negative
-M06 00052,2018-05-08,negative,negative
-M07 00162,2018-05-08,negative,negative
-M07 00163,2018-05-08,negative,negative
-M07 00164,2018-05-08,negative,negative
-M16 00032,2018-05-08,positive,positive
-S02 00020,2018-05-09,negative,negative
-S04 00032,2018-05-09,negative,negative
-S08 00008,2018-05-09,negative,negative
-S07 00008,2018-05-09,NA,negative
-S01 00027,2018-05-09,negative,negative
-S01 00028,2018-05-09,negative,negative
-S01 00029,2018-05-09,negative,negative
-K01 00063,2018-05-14,negative,negative
-K02 00008,2018-05-14,negative,negative
-K02 00009,2018-05-14,negative,negative
-K14 00047,2018-05-14,negative,negative
-K05 00033,2018-05-14,negative,negative
-K05 00034,2018-05-14,NA,negative
-K12 00022,2018-05-14,negative,negative
-K07 00019,2018-05-14,negative,negative
-K07 00020,2018-05-14,negative,negative
-K13 00025,2018-05-14,negative,negative
-M05 00035,2018-05-15,negative,negative
-M05 00036,2018-05-15,negative,positive
-M07 00165,2018-05-15,negative,negative
-M07 00166,2018-05-15,negative,negative
-M07 00167,2018-05-15,negative,negative
-M07 00168,2018-05-15,negative,negative
-M07 00169,2018-05-15,negative,negative
-M07 00170,2018-05-15,negative,negative
-M07 00171,2018-05-15,negative,negative
-M07 00172,2018-05-15,negative,negative
-M07 00173,2018-05-15,negative,negative
-M07 00174,2018-05-15,negative,negative
-M01 00065,2018-05-15,negative,negative
-M13 00054,2018-05-15,negative,negative
-M15 00073,2018-05-15,negative,negative
-M14 00063,2018-05-15,NA,negative
-M14 00064,2018-05-15,negative,negative
-M14 00065,2018-05-15,negative,negative
-M14 00066,2018-05-15,negative,negative
-M14 00067,2018-05-15,negative,negative
-M09 00112,2018-05-15,negative,negative
-M09 00113,2018-05-15,negative,negative
-M09 00114,2018-05-15,negative,negative
-M09 00115,2018-05-15,negative,negative
-M03 00032,2018-05-15,negative,negative
-M06 00053,2018-05-15,negative,negative
-S10 00017,2018-05-16,negative,negative
-S06 00019,2018-05-16,negative,negative
-S06 00020,2018-05-16,negative,NA
-S03 00011,2018-05-16,negative,negative
-K14 00048,2018-05-21,negative,negative
-K13 00026,2018-05-21,negative,negative
-K05 00035,2018-05-21,negative,negative
-K04 00002,2018-05-21,negative,NA
-K10 00011,2018-05-21,negative,negative
-K10 00012,2018-05-21,negative,negative
-K07 00021,2018-05-21,negative,negative
-K07 00022,2018-05-21,negative,negative
-K07 00023,2018-05-21,negative,negative
-K07 00024,2018-05-21,NA,negative
-K07 00025,2018-05-21,negative,negative
-K07 00026,2018-05-21,negative,negative
-K07 00027,2018-05-21,negative,negative
-K03 00015,2018-05-21,negative,negative
-K03 00016,2018-05-21,negative,negative
-M03 00033,2018-05-22,negative,NA
-M06 00054,2018-05-22,negative,negative
-M16 00033,2018-05-22,negative,negative
-M16 00034,2018-05-22,negative,negative
-M16 00035,2018-05-22,negative,negative
-M16 00036,2018-05-22,negative,negative
-M04 00036,2018-05-22,negative,negative
-M07 00175,2018-05-22,negative,negative
-M07 00176,2018-05-22,positive,negative
-M07 00177,2018-05-22,negative,negative
-M07 00178,2018-05-22,negative,negative
-M07 00179,2018-05-22,negative,negative
-M07 00180,2018-05-22,negative,negative
-M07 00181,2018-05-22,negative,negative
-M07 00182,2018-05-22,negative,negative
-M07 00183,2018-05-22,negative,negative
-M07 00184,2018-05-22,negative,negative
-M07 00185,2018-05-22,negative,negative
-M07 00186,2018-05-22,negative,negative
-M07 00187,2018-05-22,negative,negative
-M07 00188,2018-05-22,negative,negative
-M07 00189,2018-05-22,negative,negative
-M05 00037,2018-05-22,positive,positive
-S01 00030,2018-05-23,negative,negative
-S06 00021,2018-05-23,negative,negative
-S10 00018,2018-05-23,negative,negative
-S04 00033,2018-05-23,positive,positive
-K11 00009,2018-05-28,negative,negative
-K01 00064,2018-05-28,negative,negative
-K03 00017,2018-05-28,negative,negative
-K03 00018,2018-05-28,negative,negative
-K13 00027,2018-05-28,negative,negative
-K13 00028,2018-05-28,negative,negative
-K02 00010,2018-05-28,negative,negative
-K07 00028,2018-05-28,negative,negative
-K07 00029,2018-05-28,negative,negative
-K07 00030,2018-05-28,negative,negative
-K07 00031,2018-05-28,negative,negative
-K07 00032,2018-05-28,negative,negative
-K07 00033,2018-05-28,negative,negative
-K07 00034,2018-05-28,negative,negative
-M01 00066,2018-05-29,negative,negative
-M16 00037,2018-05-29,negative,negative
-M16 00038,2018-05-29,negative,negative
-M09 00116,2018-05-29,negative,negative
-M07 00190,2018-05-29,negative,negative
-M12 00013,2018-05-29,positive,negative
-M12 00014,2018-05-29,negative,negative
-M14 00068,2018-05-29,negative,NA
-M14 00069,2018-05-29,negative,negative
-M15 00072,2018-05-29,negative,negative
-M15 00074,2018-05-29,negative,negative
-M15 00075,2018-05-29,negative,negative
-M15 00076,2018-05-29,negative,negative
-M15 00077,2018-05-29,negative,negative
-M15 00078,2018-05-29,negative,negative
-M15 00079,2018-05-29,negative,positive
-M15 00080,2018-05-29,negative,negative
-S01 00031,2018-05-30,negative,negative
-S01 00032,2018-05-30,positive,positive
-S01 00033,2018-05-30,negative,NA
-S01 00034,2018-05-30,negative,negative
-S01 00035,2018-05-30,negative,negative
-S07 00009,2018-05-30,negative,negative
-S05 00018,2018-05-30,negative,negative
-S05 00019,2018-05-30,negative,negative
-S09 00007,2018-05-30,negative,negative
-K02 00011,2018-06-04,negative,negative
-K02 00012,2018-06-04,negative,negative
-K02 00013,2018-06-04,negative,negative
-K04 00007,2018-06-04,negative,negative
-K04 00008,2018-06-04,negative,negative
-K04 00006,2018-06-04,negative,negative
-K11 00010,2018-06-04,negative,negative
-K11 00011,2018-06-04,negative,negative
-K10 00013,2018-06-04,negative,negative
-K10 00014,2018-06-04,negative,negative
-K10 00015,2018-06-04,negative,negative
-K10 00016,2018-06-04,negative,negative
-K07 00035,2018-06-04,negative,negative
-K07 00036,2018-06-04,negative,negative
-K13 00029,2018-06-04,negative,negative
-K09 00013,2018-06-04,negative,negative
-K09 00014,2018-06-04,negative,negative
-K09 00015,2018-06-04,negative,negative
-K09 00016,2018-06-04,negative,negative
-K12 00023,2018-06-04,negative,negative
-K01 00065,2018-06-04,negative,negative
-K03 00019,2018-06-04,negative,negative
-K03 00020,2018-06-04,negative,negative
-M03 00034,2018-06-05,negative,negative
-M16 00039,2018-06-05,negative,negative
-M01 00067,2018-06-05,negative,negative
-M01 00068,2018-06-05,negative,negative
-M01 00069,2018-06-05,negative,negative
-M14 00070,2018-06-05,positive,positive
-M12 00015,2018-06-05,negative,negative
-M06 00055,2018-06-05,negative,negative
-M06 00056,2018-06-05,negative,negative
-M06 00057,2018-06-05,negative,negative
-M06 00058,2018-06-05,negative,negative
-M05 00038,2018-06-05,negative,negative
-M15 00081,2018-06-05,negative,negative
-M15 00082,2018-06-05,negative,negative
-M15 00083,2018-06-05,negative,negative
-M15 00084,2018-06-05,negative,negative
-M15 00085,2018-06-05,negative,negative
-M15 00086,2018-06-05,positive,negative
-M15 00087,2018-06-05,negative,negative
-M15 00088,2018-06-05,negative,negative
-S05 00020,2018-06-06,negative,negative
-S05 00021,2018-06-06,negative,negative
-S01 00036,2018-06-06,positive,negative
-S01 00037,2018-06-06,negative,negative
-S01 00038,2018-06-06,negative,negative
-S01 00039,2018-06-06,negative,negative
-S01 00040,2018-06-06,negative,negative
-S01 00041,2018-06-06,negative,negative
-S11 00007,2018-06-06,negative,negative
-S08 00009,2018-06-06,negative,negative
-S08 00010,2018-06-06,negative,negative
-S06 00022,2018-06-06,negative,positive
-S09 00008,2018-06-06,negative,negative
-K07 00037,2018-06-11,negative,negative
-K07 00038,2018-06-11,negative,negative
-K07 00039,2018-06-11,negative,negative
-K07 00040,2018-06-11,negative,negative
-K10 00017,2018-06-11,negative,negative
-K10 00018,2018-06-11,negative,negative
-K03 00021,2018-06-11,negative,negative
-K01 00066,2018-06-11,negative,negative
-K02 00014,2018-06-11,negative,negative
-K13 00030,2018-06-11,negative,negative
-K13 00031,2018-06-11,negative,negative
-K05 00036,2018-06-11,negative,negative
-K05 00037,2018-06-11,negative,negative
-K09 00017,2018-06-11,negative,negative
-K09 00018,2018-06-11,negative,negative
-K09 00019,2018-06-11,negative,negative
-K12 00024,2018-06-11,negative,negative
-K12 00025,2018-06-11,negative,negative
-K12 00026,2018-06-11,negative,negative
-K12 00027,2018-06-11,negative,negative
-M07 00191,2018-06-12,negative,negative
-M01 00070,2018-06-12,negative,negative
-M01 00071,2018-06-12,negative,negative
-M01 00072,2018-06-12,negative,negative
-M01 00073,2018-06-12,negative,negative
-M15 00089,2018-06-12,positive,positive
-M15 00090,2018-06-12,negative,positive
-M15 00091,2018-06-12,positive,negative
-M13 00055,2018-06-12,negative,negative
-S08 00011,2018-06-13,negative,negative
-S04 00034,2018-06-13,negative,positive
-S04 00035,2018-06-13,negative,positive
-K12 00028,2018-06-18,negative,negative
-K12 00029,2018-06-18,negative,negative
-K05 00038,2018-06-18,negative,negative
-K02 00015,2018-06-18,negative,negative
-K07 00041,2018-06-18,negative,negative
-K07 00042,2018-06-18,negative,negative
-K07 00043,2018-06-18,negative,negative
-K10 00019,2018-06-18,negative,negative
-K10 00020,2018-06-18,negative,negative
-K10 00021,2018-06-18,negative,negative
-M15 00092,2018-06-19,negative,negative
-M15 00093,2018-06-19,negative,positive
-M03 00035,2018-06-19,negative,negative
-M03 00036,2018-06-19,negative,negative
-M12 00016,2018-06-19,negative,negative
-M01 00074,2018-06-19,negative,negative
-M01 00075,2018-06-19,negative,negative
-M01 00076,2018-06-19,negative,negative
-M04 00037,2018-06-19,negative,negative
-M04 00038,2018-06-19,negative,negative
-S06 00023,2018-06-20,negative,negative
-S02 00021,2018-06-20,negative,negative
-S05 00022,2018-06-20,negative,negative
-S01 00042,2018-06-20,negative,negative
-S01 00043,2018-06-20,positive,negative
-S11 00008,2018-06-20,negative,negative
-K10 00022,2018-06-25,negative,negative
-K14 00050,2018-06-25,negative,negative
-K14 00049,2018-06-25,negative,negative
-K11 00012,2018-06-25,negative,negative
-K07 00044,2018-06-25,negative,negative
-K07 00045,2018-06-25,negative,negative
-K07 00046,2018-06-25,negative,negative
-K04 00009,2018-06-25,negative,negative
-K12 00030,2018-06-25,negative,negative
-K12 00031,2018-06-25,negative,negative
-K12 00032,2018-06-25,negative,negative
-K12 00033,2018-06-25,negative,negative
-K13 00032,2018-06-25,negative,negative
-M12 00018,2018-06-26,negative,negative
-M06 00059,2018-06-26,negative,negative
-M06 00060,2018-06-26,negative,negative
-M07 00192,2018-06-26,negative,negative
-M05 00039,2018-06-26,positive,negative
-M03 00037,2018-06-26,negative,negative
-M16 00040,2018-06-26,negative,negative
-M15 00094,2018-06-26,negative,positive
-M01 00077,2018-06-26,negative,negative
-S02 00022,2018-06-27,negative,negative
-S05 00023,2018-06-27,negative,negative
-S04 00036,2018-06-27,negative,negative
-S01 00044,2018-06-27,negative,negative
-K14 00075,2018-07-02,negative,negative
-K14 00076,2018-07-02,negative,negative
-K03 00022,2018-07-02,negative,positive
-K03 00023,2018-07-02,negative,negative
-K10 00023,2018-07-02,negative,negative
-K10 00024,2018-07-02,negative,negative
-K09 00020,2018-07-02,negative,NA
-K12 00034,2018-07-02,negative,negative
-K12 00035,2018-07-02,negative,negative
-K05 00039,2018-07-02,negative,negative
-K05 00040,2018-07-02,negative,negative
-K05 00041,2018-07-02,negative,negative
-K05 00042,2018-07-02,negative,negative
-K02 00016,2018-07-02,negative,negative
-K07 00047,2018-07-02,negative,negative
-K07 00048,2018-07-02,negative,negative
-K07 00049,2018-07-02,positive,negative
-M05 00040,2018-07-03,negative,negative
-M07 00193,2018-07-03,negative,negative
-M14 00071,2018-07-03,negative,negative
-M13 00056,2018-07-03,negative,negative
-M16 00051,2018-07-03,negative,negative
-S05 00024,2018-07-04,negative,negative
-S06 00024,2018-07-04,negative,negative
-K14 00051,2018-07-09,negative,negative
-K07 00050,2018-07-09,negative,negative
-K05 00043,2018-07-09,negative,negative
-K02 00017,2018-07-09,negative,negative
-M14 00072,2018-07-10,negative,negative
-M13 00057,2018-07-10,negative,negative
-S05 00025,2018-07-11,negative,negative
-S01 00045,2018-07-11,positive,negative
-S08 00012,2018-07-11,negative,negative
-K03 00024,2018-07-16,negative,negative
-K02 00018,2018-07-16,negative,negative
-K01 00067,2018-07-16,negative,negative
-K01 00071,2018-07-16,negative,negative
-K01 00072,2018-07-16,negative,negative
-K07 00051,2018-07-16,negative,negative
-M16 00052,2018-07-17,negative,negative
-M05 00041,2018-07-17,negative,negative
-M05 00042,2018-07-17,negative,negative
-M07 00194,2018-07-17,negative,negative
-M07 00195,2018-07-17,negative,negative
-M07 00196,2018-07-17,negative,negative
-M06 00061,2018-07-17,negative,negative
-M06 00062,2018-07-17,negative,negative
-M15 00095,2018-07-17,negative,negative
-M01 00078,2018-07-17,negative,negative
-S02 00023,2018-07-18,NA,negative
-S08 00013,2018-07-18,negative,negative
-K05 00044,2018-07-23,negative,negative
-K05 00045,2018-07-23,negative,negative
-M03 00038,2018-07-24,negative,negative
-M14 00073,2018-07-24,negative,negative
-M14 00074,2018-07-24,negative,negative
-M05 00043,2018-07-24,negative,negative
-M07 00197,2018-07-24,negative,negative
-M07 00198,2018-07-24,negative,negative
-K05 00046,2018-07-30,negative,negative
-K05 00047,2018-07-30,negative,negative
-K03 00025,2018-07-30,negative,negative
-K03 00026,2018-07-30,negative,negative
-K02 00019,2018-07-30,negative,negative
-K02 00020,2018-07-30,negative,negative
+sample_id_mosquito,collection_date,village,pf_pcr_infection_status_sample_level_a,pf_pcr_infection_status_sample_level_h,abdominal_status
+K01 00001,2017-06-19,Village 1,negative,positive,Blood Fed
+K01 00002,2017-06-19,Village 1,negative,negative,Gravid
+K01 00003,2017-06-19,Village 1,negative,negative,Gravid
+K01 00004,2017-06-19,Village 1,negative,negative,Blood Fed
+K01 00005,2017-06-19,Village 1,negative,negative,Blood Fed
+K01 00006,2017-06-19,Village 1,positive,negative,Blood Fed
+K01 00007,2017-06-19,Village 1,positive,negative,Blood Fed
+K01 00008,2017-06-19,Village 1,negative,negative,Blood Fed
+K01 00009,2017-06-19,Village 1,negative,negative,Unfed
+K14 00001,2017-06-19,Village 1,negative,negative,Blood Fed
+K02 00001,2017-06-19,Village 1,negative,negative,Blood Fed
+K02 00002,2017-06-19,Village 1,negative,negative,Half Gravid
+K07 00001,2017-06-19,Village 1,negative,negative,Blood Fed
+K07 00002,2017-06-19,Village 1,negative,negative,Blood Fed
+K07 00003,2017-06-19,Village 1,positive,positive,Blood Fed
+K07 00004,2017-06-19,Village 1,negative,negative,Unfed
+K05 00001,2017-06-19,Village 1,negative,negative,Unfed
+K09 00001,2017-06-19,Village 1,negative,negative,Blood Fed
+K09 00002,2017-06-19,Village 1,negative,negative,Blood Fed
+K12 00001,2017-06-19,Village 1,negative,negative,Blood Fed
+K12 00002,2017-06-19,Village 1,negative,negative,Blood Fed
+K12 00003,2017-06-19,Village 1,negative,negative,Blood Fed
+K12 00004,2017-06-19,Village 1,negative,negative,Blood Fed
+K12 00005,2017-06-19,Village 1,negative,negative,Blood Fed
+K13 00001,2017-06-19,Village 1,negative,negative,Blood Fed
+M13 00001,2017-06-20,Village 2,positive,NA,Blood Fed
+M13 00002,2017-06-20,Village 2,positive,positive,Blood Fed
+M13 00003,2017-06-20,Village 2,positive,positive,Blood Fed
+M13 00004,2017-06-20,Village 2,positive,positive,Blood Fed
+M13 00005,2017-06-20,Village 2,negative,negative,Unfed
+M13 00006,2017-06-20,Village 2,negative,negative,Unfed
+M07 00017,2017-06-20,Village 2,positive,negative,Blood Fed
+M06 00001,2017-06-20,Village 2,negative,negative,Blood Fed
+M06 00002,2017-06-20,Village 2,negative,negative,Blood Fed
+M06 00003,2017-06-20,Village 2,negative,negative,Blood Fed
+M06 00004,2017-06-20,Village 2,negative,negative,Blood Fed
+M06 00005,2017-06-20,Village 2,negative,negative,Half Gravid
+M06 00006,2017-06-20,Village 2,negative,negative,Half Gravid
+M06 00007,2017-06-20,Village 2,negative,negative,Half Gravid
+M06 00008,2017-06-20,Village 2,positive,positive,Blood Fed
+M06 00009,2017-06-20,Village 2,negative,negative,Blood Fed
+M06 00010,2017-06-20,Village 2,negative,negative,Blood Fed
+M07 00001,2017-06-20,Village 2,positive,negative,Unfed
+M07 00002,2017-06-20,Village 2,negative,negative,Unfed
+M07 00003,2017-06-20,Village 2,negative,negative,Unfed
+M07 00004,2017-06-20,Village 2,negative,positive,Blood Fed
+M07 00005,2017-06-20,Village 2,negative,positive,Blood Fed
+M07 00006,2017-06-20,Village 2,negative,negative,Blood Fed
+M07 00007,2017-06-20,Village 2,positive,negative,Blood Fed
+M07 00008,2017-06-20,Village 2,positive,negative,Blood Fed
+M07 00009,2017-06-20,Village 2,negative,negative,Blood Fed
+M07 00010,2017-06-20,Village 2,positive,negative,Blood Fed
+M07 00011,2017-06-20,Village 2,positive,negative,Un-identified
+M07 00012,2017-06-20,Village 2,negative,negative,Blood Fed
+M07 00013,2017-06-20,Village 2,negative,negative,Blood Fed
+M07 00014,2017-06-20,Village 2,negative,negative,Blood Fed
+M07 00015,2017-06-20,Village 2,negative,positive,Blood Fed
+M07 00016,2017-06-20,Village 2,negative,negative,Blood Fed
+M03 00001,2017-06-20,Village 2,negative,negative,Unfed
+M03 00002,2017-06-20,Village 2,negative,negative,Unfed
+M03 00003,2017-06-20,Village 2,NA,negative,Unfed
+M05 00001,2017-06-20,Village 2,negative,negative,Blood Fed
+M05 00003,2017-06-20,Village 2,negative,negative,Blood Fed
+M09 00001,2017-06-20,Village 2,negative,negative,Blood Fed
+M09 00002,2017-06-20,Village 2,positive,negative,Blood Fed
+M09 00003,2017-06-20,Village 2,negative,negative,Gravid
+M09 00004,2017-06-20,Village 2,negative,negative,Half Gravid
+M09 00005,2017-06-20,Village 2,negative,negative,Half Gravid
+M09 00006,2017-06-20,Village 2,positive,negative,Unfed
+M09 00007,2017-06-20,Village 2,negative,negative,Unfed
+M01 00001,2017-06-20,Village 2,NA,NA,Half Gravid
+M01 00002,2017-06-20,Village 2,NA,NA,Blood Fed
+M01 00003,2017-06-20,Village 2,NA,NA,Blood Fed
+M15 00001,2017-06-20,Village 2,negative,negative,Blood Fed
+M15 00002,2017-06-20,Village 2,positive,negative,Blood Fed
+M15 00003,2017-06-20,Village 2,negative,negative,Blood Fed
+M15 00004,2017-06-20,Village 2,negative,negative,Blood Fed
+M15 00005,2017-06-20,Village 2,positive,positive,Unfed
+M15 00006,2017-06-20,Village 2,negative,negative,Half Gravid
+M15 00007,2017-06-20,Village 2,negative,negative,Blood Fed
+M14 00001,2017-06-20,Village 2,negative,positive,Blood Fed
+M14 00002,2017-06-20,Village 2,negative,negative,Blood Fed
+S04 00001,2017-06-21,Village 3,negative,negative,Blood Fed
+S03 00001,2017-06-21,Village 3,negative,negative,Unfed
+S09 00001,2017-06-21,Village 3,negative,negative,Blood Fed
+S02 00001,2017-06-21,Village 3,NA,negative,Un-identified
+S02 00002,2017-06-21,Village 3,negative,negative,Blood Fed
+S02 00003,2017-06-21,Village 3,negative,negative,Gravid
+S02 00004,2017-06-21,Village 3,negative,negative,Blood Fed
+S08 00001,2017-06-21,Village 3,negative,negative,Half Gravid
+S08 00002,2017-06-21,Village 3,positive,negative,Blood Fed
+S05 00001,2017-06-21,Village 3,negative,negative,Half Gravid
+S05 00002,2017-06-21,Village 3,negative,negative,Blood Fed
+S07 00001,2017-06-21,Village 3,negative,negative,Blood Fed
+S11 00001,2017-06-21,Village 3,negative,negative,Blood Fed
+S11 00002,2017-06-21,Village 3,positive,positive,Blood Fed
+S10 00001,2017-06-21,Village 3,negative,negative,Blood Fed
+S01 00001,2017-06-21,Village 3,negative,negative,Blood Fed
+S01 00002,2017-06-21,Village 3,negative,negative,Unfed
+K10 00001,2017-06-27,Village 1,NA,negative,Blood Fed
+K02 00003,2017-06-27,Village 1,negative,negative,Gravid
+K02 00004,2017-06-27,Village 1,negative,NA,Gravid
+K02 00005,2017-06-27,Village 1,positive,negative,Blood Fed
+K02 00006,2017-06-27,Village 1,negative,positive,Blood Fed
+K03 00002,2017-06-27,Village 1,negative,negative,Blood Fed
+K03 00003,2017-06-27,Village 1,negative,negative,Blood Fed
+K01 00010,2017-06-27,Village 1,positive,positive,Blood Fed
+K01 00011,2017-06-27,Village 1,positive,negative,Blood Fed
+K01 00012,2017-06-27,Village 1,positive,positive,Blood Fed
+K01 00013,2017-06-27,Village 1,positive,positive,Blood Fed
+K01 00014,2017-06-27,Village 1,negative,negative,Blood Fed
+K01 00015,2017-06-27,Village 1,negative,negative,Blood Fed
+M14 00003,2017-06-28,Village 2,positive,negative,Blood Fed
+M14 00004,2017-06-28,Village 2,negative,negative,Unfed
+M14 00005,2017-06-28,Village 2,negative,negative,Blood Fed
+M14 00006,2017-06-28,Village 2,positive,negative,Blood Fed
+M14 00007,2017-06-28,Village 2,negative,negative,Blood Fed
+M03 00004,2017-06-28,Village 2,negative,negative,Blood Fed
+M03 00005,2017-06-28,Village 2,negative,negative,Blood Fed
+M03 00006,2017-06-28,Village 2,negative,negative,Blood Fed
+M13 00007,2017-06-28,Village 2,positive,positive,Unfed
+M13 00008,2017-06-28,Village 2,negative,negative,Gravid
+M13 00009,2017-06-28,Village 2,positive,positive,Gravid
+M13 00010,2017-06-28,Village 2,positive,negative,Blood Fed
+M13 00011,2017-06-28,Village 2,negative,negative,Blood Fed
+M13 00012,2017-06-28,Village 2,positive,positive,Blood Fed
+M06 00011,2017-06-28,Village 2,negative,negative,Blood Fed
+M06 00012,2017-06-28,Village 2,negative,negative,Blood Fed
+M06 00013,2017-06-28,Village 2,negative,negative,Half Gravid
+M09 00008,2017-06-28,Village 2,positive,negative,Gravid
+M09 00009,2017-06-28,Village 2,negative,negative,Gravid
+M09 00010,2017-06-28,Village 2,NA,negative,Gravid
+M09 00011,2017-06-28,Village 2,positive,negative,Blood Fed
+M09 00012,2017-06-28,Village 2,positive,negative,Blood Fed
+M09 00013,2017-06-28,Village 2,negative,negative,Blood Fed
+M09 00014,2017-06-28,Village 2,negative,negative,Blood Fed
+M09 00015,2017-06-28,Village 2,negative,negative,Half Gravid
+M09 00016,2017-06-28,Village 2,negative,negative,Half Gravid
+M09 00017,2017-06-28,Village 2,positive,negative,Half Gravid
+M09 00018,2017-06-28,Village 2,positive,negative,Un-identified
+M07 00018,2017-06-28,Village 2,negative,negative,Blood Fed
+M07 00019,2017-06-28,Village 2,negative,negative,Blood Fed
+M07 00020,2017-06-28,Village 2,negative,negative,Blood Fed
+M04 00001,2017-06-28,Village 2,negative,negative,Blood Fed
+M04 00002,2017-06-28,Village 2,positive,negative,Gravid
+M04 00003,2017-06-28,Village 2,negative,positive,Gravid
+M12 00001,2017-06-28,Village 2,negative,negative,Unfed
+M01 00004,2017-06-28,Village 2,NA,NA,Blood Fed
+M01 00005,2017-06-28,Village 2,NA,NA,Blood Fed
+M01 00006,2017-06-28,Village 2,NA,NA,Blood Fed
+M11 00001,2017-06-28,Village 2,negative,negative,Unfed
+S01 00003,2017-06-29,Village 3,negative,negative,Unfed
+S03 00002,2017-06-29,Village 3,negative,negative,Unfed
+S08 00003,2017-06-29,Village 3,negative,negative,Blood Fed
+S06 00001,2017-06-29,Village 3,negative,negative,Unfed
+S06 00002,2017-06-29,Village 3,negative,negative,Half Gravid
+S06 00003,2017-06-29,Village 3,negative,negative,Blood Fed
+S12 00001,2017-06-29,Village 3,negative,negative,Half Gravid
+S12 00002,2017-06-29,Village 3,negative,negative,Blood Fed
+S12 00003,2017-06-29,Village 3,negative,negative,Blood Fed
+S11 00003,2017-06-29,Village 3,negative,negative,Blood Fed
+K05 00003,2017-07-03,Village 1,negative,negative,Unfed
+K05 00004,2017-07-03,Village 1,positive,negative,Blood Fed
+K05 00006,2017-07-03,Village 1,positive,positive,Blood Fed
+K05 00007,2017-07-03,Village 1,negative,negative,Half Gravid
+K05 00005,2017-07-03,Village 1,positive,positive,Blood Fed
+K14 00002,2017-07-03,Village 1,negative,negative,Half Gravid
+K14 00003,2017-07-03,Village 1,positive,positive,Half Gravid
+K14 00004,2017-07-03,Village 1,positive,positive,Blood Fed
+K05 00002,2017-07-03,Village 1,negative,negative,Half Gravid
+K07 00005,2017-07-03,Village 1,negative,negative,Blood Fed
+K07 00006,2017-07-03,Village 1,negative,negative,Half Gravid
+K07 00007,2017-07-03,Village 1,positive,negative,Blood Fed
+K07 00008,2017-07-03,Village 1,negative,negative,Half Gravid
+M11 00002,2017-07-04,Village 2,negative,negative,Half Gravid
+M07 00021,2017-07-04,Village 2,negative,negative,Gravid
+M07 00022,2017-07-04,Village 2,negative,negative,Gravid
+M07 00023,2017-07-04,Village 2,negative,negative,Blood Fed
+M07 00024,2017-07-04,Village 2,negative,negative,Blood Fed
+M07 00025,2017-07-04,Village 2,negative,negative,Blood Fed
+M07 00026,2017-07-04,Village 2,negative,negative,Blood Fed
+M07 00027,2017-07-04,Village 2,negative,negative,Blood Fed
+M07 00028,2017-07-04,Village 2,negative,NA,Blood Fed
+M07 00029,2017-07-04,Village 2,negative,positive,Half Gravid
+M07 00030,2017-07-04,Village 2,negative,negative,Unfed
+M07 00031,2017-07-04,Village 2,negative,negative,Gravid
+M07 00032,2017-07-04,Village 2,negative,negative,Gravid
+M07 00033,2017-07-04,Village 2,negative,negative,Blood Fed
+M07 00034,2017-07-04,Village 2,negative,negative,Blood Fed
+M07 00035,2017-07-04,Village 2,negative,negative,Gravid
+M07 00036,2017-07-04,Village 2,negative,negative,Unfed
+M14 00008,2017-07-04,Village 2,positive,negative,Half Gravid
+M14 00009,2017-07-04,Village 2,positive,positive,Half Gravid
+M14 00010,2017-07-04,Village 2,negative,negative,Unfed
+M14 00011,2017-07-04,Village 2,negative,negative,Gravid
+M14 00012,2017-07-04,Village 2,negative,negative,Gravid
+M14 00013,2017-07-04,Village 2,negative,negative,Gravid
+M14 00014,2017-07-04,Village 2,negative,negative,Half Gravid
+M14 00015,2017-07-04,Village 2,negative,negative,Half Gravid
+M14 00016,2017-07-04,Village 2,negative,negative,Gravid
+M14 00017,2017-07-04,Village 2,negative,negative,Gravid
+M14 00018,2017-07-04,Village 2,positive,negative,Blood Fed
+M14 00019,2017-07-04,Village 2,negative,negative,Blood Fed
+M14 00020,2017-07-04,Village 2,negative,negative,Blood Fed
+M09 00019,2017-07-04,Village 2,negative,negative,Half Gravid
+M09 00020,2017-07-04,Village 2,negative,negative,Gravid
+M09 00021,2017-07-04,Village 2,negative,negative,Gravid
+M09 00022,2017-07-04,Village 2,negative,negative,Gravid
+M09 00023,2017-07-04,Village 2,positive,negative,Gravid
+M09 00024,2017-07-04,Village 2,positive,positive,Unfed
+M09 00025,2017-07-04,Village 2,negative,negative,Gravid
+M09 00026,2017-07-04,Village 2,positive,positive,Blood Fed
+M09 00027,2017-07-04,Village 2,NA,negative,Gravid
+M15 00008,2017-07-04,Village 2,negative,negative,Gravid
+M15 00009,2017-07-04,Village 2,negative,negative,Unfed
+M15 00010,2017-07-04,Village 2,negative,negative,Blood Fed
+M15 00011,2017-07-04,Village 2,negative,negative,Half Gravid
+M15 00012,2017-07-04,Village 2,negative,negative,Half Gravid
+M15 00013,2017-07-04,Village 2,negative,positive,Blood Fed
+M15 00014,2017-07-04,Village 2,negative,negative,Gravid
+M15 00015,2017-07-04,Village 2,negative,negative,Unfed
+M05 00002,2017-07-04,Village 2,negative,negative,Gravid
+M06 00014,2017-07-04,Village 2,negative,negative,Half Gravid
+M06 00015,2017-07-04,Village 2,positive,positive,Blood Fed
+M06 00016,2017-07-04,Village 2,positive,negative,Blood Fed
+M13 00013,2017-07-04,Village 2,negative,negative,Gravid
+M15 00016,2017-07-04,Village 2,negative,negative,Blood Fed
+M04 00004,2017-07-04,Village 2,negative,positive,Blood Fed
+M01 00007,2017-07-04,Village 2,positive,positive,Blood Fed
+M01 00008,2017-07-04,Village 2,negative,negative,Unfed
+M01 00009,2017-07-04,Village 2,negative,positive,Unfed
+M01 00010,2017-07-04,Village 2,negative,positive,Blood Fed
+S01 00004,2017-07-05,Village 3,positive,negative,Gravid
+S12 00004,2017-07-05,Village 3,negative,negative,Gravid
+S05 00003,2017-07-05,Village 3,negative,negative,Half Gravid
+S06 00004,2017-07-05,Village 3,negative,negative,Blood Fed
+S06 00005,2017-07-05,Village 3,negative,negative,Gravid
+S06 00006,2017-07-05,Village 3,negative,negative,Gravid
+S02 00005,2017-07-05,Village 3,negative,negative,Half Gravid
+S02 00006,2017-07-05,Village 3,positive,negative,Gravid
+S02 00007,2017-07-05,Village 3,negative,negative,Half Gravid
+S02 00008,2017-07-05,Village 3,negative,negative,Gravid
+S03 00003,2017-07-05,Village 3,negative,negative,Gravid
+S03 00004,2017-07-05,Village 3,negative,negative,Gravid
+S10 00002,2017-07-05,Village 3,negative,negative,Gravid
+S04 00002,2017-07-05,Village 3,negative,negative,Gravid
+S04 00003,2017-07-05,Village 3,positive,positive,Blood Fed
+K01 00016,2017-07-10,Village 1,positive,positive,Half Gravid
+K01 00017,2017-07-10,Village 1,positive,positive,Half Gravid
+K01 00018,2017-07-10,Village 1,positive,negative,Half Gravid
+K01 00019,2017-07-10,Village 1,positive,positive,Gravid
+K01 00020,2017-07-10,Village 1,negative,negative,Half Gravid
+K01 00021,2017-07-10,Village 1,positive,positive,Blood Fed
+K01 00022,2017-07-10,Village 1,positive,negative,Half Gravid
+K01 00023,2017-07-10,Village 1,positive,positive,Blood Fed
+K01 00024,2017-07-10,Village 1,positive,positive,Half Gravid
+K01 00025,2017-07-10,Village 1,positive,positive,Half Gravid
+K01 00026,2017-07-10,Village 1,negative,positive,Gravid
+K01 00027,2017-07-10,Village 1,negative,positive,Gravid
+K01 00028,2017-07-10,Village 1,positive,positive,Gravid
+K14 00005,2017-07-10,Village 1,positive,positive,Half Gravid
+K14 00006,2017-07-10,Village 1,NA,positive,Half Gravid
+K14 00007,2017-07-10,Village 1,negative,negative,Half Gravid
+K14 00008,2017-07-10,Village 1,negative,negative,Half Gravid
+K14 00009,2017-07-10,Village 1,negative,negative,Gravid
+K07 00009,2017-07-10,Village 1,negative,negative,Gravid
+K11 00001,2017-07-10,Village 1,negative,negative,Gravid
+K02 00007,2017-07-10,Village 1,negative,negative,Unfed
+K05 00008,2017-07-10,Village 1,negative,negative,Gravid
+K05 00009,2017-07-10,Village 1,negative,negative,Half Gravid
+K05 00010,2017-07-10,Village 1,negative,negative,Half Gravid
+K05 00011,2017-07-10,Village 1,negative,negative,Blood Fed
+K05 00012,2017-07-10,Village 1,negative,negative,Gravid
+M14 00021,2017-07-11,Village 2,negative,negative,Half Gravid
+M14 00022,2017-07-11,Village 2,positive,negative,Half Gravid
+M14 00023,2017-07-11,Village 2,negative,negative,Gravid
+M14 00024,2017-07-11,Village 2,negative,negative,Half Gravid
+M14 00025,2017-07-11,Village 2,negative,negative,Half Gravid
+M14 00026,2017-07-11,Village 2,negative,positive,Half Gravid
+M14 00027,2017-07-11,Village 2,negative,negative,Blood Fed
+M14 00028,2017-07-11,Village 2,negative,negative,Blood Fed
+M14 00029,2017-07-11,Village 2,negative,negative,Gravid
+M14 00030,2017-07-11,Village 2,negative,negative,Gravid
+M14 00031,2017-07-11,Village 2,negative,negative,Unfed
+M11 00003,2017-07-11,Village 2,negative,negative,Half Gravid
+M11 00004,2017-07-11,Village 2,negative,negative,Blood Fed
+M11 00005,2017-07-11,Village 2,negative,negative,Unfed
+M11 00006,2017-07-11,Village 2,negative,negative,Half Gravid
+M15 00017,2017-07-11,Village 2,positive,positive,Half Gravid
+M06 00017,2017-07-11,Village 2,negative,negative,Blood Fed
+M05 00004,2017-07-11,Village 2,negative,negative,Half Gravid
+M05 00005,2017-07-11,Village 2,negative,negative,Blood Fed
+M05 00006,2017-07-11,Village 2,negative,negative,Blood Fed
+M05 00007,2017-07-11,Village 2,negative,negative,Blood Fed
+M05 00008,2017-07-11,Village 2,negative,negative,Blood Fed
+M04 00005,2017-07-11,Village 2,negative,negative,Unfed
+M01 00011,2017-07-11,Village 2,negative,NA,Gravid
+M01 00013,2017-07-11,Village 2,NA,negative,Gravid
+M01 00012,2017-07-11,Village 2,positive,negative,Half Gravid
+M13 00014,2017-07-11,Village 2,positive,positive,Half Gravid
+M09 00028,2017-07-11,Village 2,negative,negative,Blood Fed
+M09 00029,2017-07-11,Village 2,negative,negative,Gravid
+M09 00030,2017-07-11,Village 2,positive,negative,Gravid
+M09 00031,2017-07-11,Village 2,negative,negative,Blood Fed
+M09 00032,2017-07-11,Village 2,negative,negative,Blood Fed
+M09 00033,2017-07-11,Village 2,negative,negative,Blood Fed
+M09 00034,2017-07-11,Village 2,negative,negative,Blood Fed
+M09 00035,2017-07-11,Village 2,positive,positive,Blood Fed
+M09 00036,2017-07-11,Village 2,positive,positive,Blood Fed
+M09 00037,2017-07-11,Village 2,positive,positive,Blood Fed
+M09 00038,2017-07-11,Village 2,positive,positive,Blood Fed
+M09 00039,2017-07-11,Village 2,positive,positive,Blood Fed
+M09 00040,2017-07-11,Village 2,positive,positive,Blood Fed
+M07 00037,2017-07-11,Village 2,negative,negative,Half Gravid
+M07 00038,2017-07-11,Village 2,negative,negative,Half Gravid
+M07 00039,2017-07-11,Village 2,negative,negative,Half Gravid
+M07 00040,2017-07-11,Village 2,negative,negative,Half Gravid
+M07 00041,2017-07-11,Village 2,negative,negative,Half Gravid
+M07 00042,2017-07-11,Village 2,negative,negative,Half Gravid
+M07 00043,2017-07-11,Village 2,negative,negative,Half Gravid
+M07 00044,2017-07-11,Village 2,negative,negative,Blood Fed
+M07 00045,2017-07-11,Village 2,negative,negative,Blood Fed
+M07 00046,2017-07-11,Village 2,NA,negative,Blood Fed
+M07 00047,2017-07-11,Village 2,negative,negative,Blood Fed
+M07 00048,2017-07-11,Village 2,negative,negative,Blood Fed
+M07 00049,2017-07-11,Village 2,negative,negative,Blood Fed
+M07 00050,2017-07-11,Village 2,negative,negative,Blood Fed
+M07 00051,2017-07-11,Village 2,negative,negative,Blood Fed
+M03 00008,2017-07-11,Village 2,negative,negative,Half Gravid
+M03 00009,2017-07-11,Village 2,negative,negative,Half Gravid
+M03 00010,2017-07-11,Village 2,negative,negative,Unfed
+M03 00007,2017-07-11,Village 2,NA,NA,Unfed
+S12 00005,2017-07-12,Village 3,negative,negative,Unfed
+S08 00004,2017-07-12,Village 3,negative,negative,Blood Fed
+S10 00003,2017-07-12,Village 3,negative,negative,Half Gravid
+S04 00004,2017-07-12,Village 3,positive,negative,Blood Fed
+S04 00005,2017-07-12,Village 3,negative,negative,Half Gravid
+S04 00006,2017-07-12,Village 3,negative,negative,Half Gravid
+S04 00007,2017-07-12,Village 3,negative,negative,Blood Fed
+S04 00008,2017-07-12,Village 3,negative,negative,Half Gravid
+S04 00009,2017-07-12,Village 3,negative,negative,Half Gravid
+S05 00004,2017-07-12,Village 3,negative,negative,Half Gravid
+S05 00005,2017-07-12,Village 3,negative,negative,Unfed
+S02 00009,2017-07-12,Village 3,positive,positive,Blood Fed
+S02 00010,2017-07-12,Village 3,positive,positive,Blood Fed
+S06 00007,2017-07-12,Village 3,negative,negative,Half Gravid
+K03 00004,2017-07-17,Village 1,negative,negative,Gravid
+K03 00005,2017-07-17,Village 1,negative,negative,Half Gravid
+K03 00006,2017-07-17,Village 1,negative,negative,Gravid
+K11 00002,2017-07-17,Village 1,negative,negative,Half Gravid
+K11 00003,2017-07-17,Village 1,negative,negative,Unfed
+K13 00002,2017-07-17,Village 1,negative,negative,Blood Fed
+K05 00013,2017-07-17,Village 1,negative,negative,Blood Fed
+K01 00029,2017-07-17,Village 1,NA,NA,Blood Fed
+K01 00030,2017-07-17,Village 1,NA,NA,Half Gravid
+K01 00031,2017-07-17,Village 1,NA,NA,Half Gravid
+K14 00010,2017-07-17,Village 1,negative,negative,Half Gravid
+K14 00011,2017-07-17,Village 1,negative,negative,Half Gravid
+K14 00012,2017-07-17,Village 1,negative,negative,Blood Fed
+K14 00013,2017-07-17,Village 1,negative,negative,Gravid
+K07 00010,2017-07-17,Village 1,positive,positive,Gravid
+M05 00009,2017-07-18,Village 2,negative,negative,Unfed
+M13 00015,2017-07-18,Village 2,negative,negative,Blood Fed
+M13 00016,2017-07-18,Village 2,negative,negative,Blood Fed
+M13 00017,2017-07-18,Village 2,positive,negative,Half Gravid
+M13 00018,2017-07-18,Village 2,negative,negative,Blood Fed
+M13 00019,2017-07-18,Village 2,NA,negative,Unfed
+M07 00068,2017-07-18,Village 2,negative,negative,Gravid
+M07 00069,2017-07-18,Village 2,negative,negative,Gravid
+M07 00070,2017-07-18,Village 2,negative,negative,Blood Fed
+M07 00071,2017-07-18,Village 2,negative,negative,Blood Fed
+M12 00002,2017-07-18,Village 2,negative,negative,Blood Fed
+M12 00003,2017-07-18,Village 2,negative,negative,Half Gravid
+M12 00004,2017-07-18,Village 2,negative,negative,Blood Fed
+M12 00005,2017-07-18,Village 2,negative,negative,Blood Fed
+M15 00018,2017-07-18,Village 2,positive,negative,Half Gravid
+M15 00019,2017-07-18,Village 2,negative,positive,Half Gravid
+M15 00020,2017-07-18,Village 2,negative,negative,Gravid
+M15 00021,2017-07-18,Village 2,negative,negative,Gravid
+M15 00022,2017-07-18,Village 2,negative,negative,Half Gravid
+M15 00023,2017-07-18,Village 2,negative,negative,Gravid
+M15 00024,2017-07-18,Village 2,negative,negative,Unfed
+M15 00025,2017-07-18,Village 2,negative,positive,Unfed
+M03 00011,2017-07-18,Village 2,negative,negative,Gravid
+M03 00012,2017-07-18,Village 2,negative,negative,Gravid
+M03 00013,2017-07-18,Village 2,negative,negative,Unfed
+M09 00041,2017-07-18,Village 2,negative,negative,Blood Fed
+M09 00042,2017-07-18,Village 2,NA,NA,Half Gravid
+M09 00043,2017-07-18,Village 2,negative,negative,Gravid
+M09 00044,2017-07-18,Village 2,positive,positive,Blood Fed
+M09 00045,2017-07-18,Village 2,positive,positive,Half Gravid
+M07 00052,2017-07-18,Village 2,negative,negative,Gravid
+M07 00053,2017-07-18,Village 2,negative,negative,Half Gravid
+M07 00054,2017-07-18,Village 2,negative,negative,Gravid
+M07 00055,2017-07-18,Village 2,negative,negative,Half Gravid
+M07 00056,2017-07-18,Village 2,negative,negative,Half Gravid
+M07 00057,2017-07-18,Village 2,negative,negative,Blood Fed
+M07 00058,2017-07-18,Village 2,negative,negative,Half Gravid
+M07 00059,2017-07-18,Village 2,negative,negative,Blood Fed
+M07 00060,2017-07-18,Village 2,negative,negative,Gravid
+M07 00061,2017-07-18,Village 2,negative,negative,Half Gravid
+M07 00062,2017-07-18,Village 2,negative,negative,Half Gravid
+M07 00063,2017-07-18,Village 2,negative,negative,Blood Fed
+M07 00064,2017-07-18,Village 2,negative,negative,Blood Fed
+M07 00065,2017-07-18,Village 2,negative,negative,Blood Fed
+M07 00066,2017-07-18,Village 2,negative,negative,Blood Fed
+M07 00067,2017-07-18,Village 2,negative,negative,Half Gravid
+M06 00018,2017-07-18,Village 2,negative,positive,Gravid
+M06 00019,2017-07-18,Village 2,positive,negative,Half Gravid
+M06 00020,2017-07-18,Village 2,negative,negative,Unfed
+M06 00021,2017-07-18,Village 2,positive,negative,Blood Fed
+M06 00022,2017-07-18,Village 2,negative,negative,Half Gravid
+M06 00023,2017-07-18,Village 2,positive,negative,Gravid
+M06 00024,2017-07-18,Village 2,positive,negative,Blood Fed
+M06 00025,2017-07-18,Village 2,negative,negative,Unfed
+M01 00018,2017-07-18,Village 2,negative,negative,Unfed
+M01 00017,2017-07-18,Village 2,negative,negative,Half Gravid
+M01 00016,2017-07-18,Village 2,positive,negative,Blood Fed
+M01 00015,2017-07-18,Village 2,negative,negative,Blood Fed
+M01 00014,2017-07-18,Village 2,positive,negative,Blood Fed
+S02 00011,2017-07-19,Village 3,negative,negative,Blood Fed
+S04 00010,2017-07-19,Village 3,negative,negative,Half Gravid
+S12 00006,2017-07-19,Village 3,NA,negative,Gravid
+S12 00007,2017-07-19,Village 3,negative,negative,Half Gravid
+S01 00005,2017-07-19,Village 3,negative,negative,Half Gravid
+S01 00006,2017-07-19,Village 3,negative,positive,Half Gravid
+S01 00007,2017-07-19,Village 3,NA,positive,Gravid
+S06 00008,2017-07-19,Village 3,negative,negative,Half Gravid
+S07 00002,2017-07-19,Village 3,negative,negative,Blood Fed
+S10 00004,2017-07-19,Village 3,negative,negative,Unfed
+S03 00005,2017-07-19,Village 3,negative,negative,Half Gravid
+K01 00032,2017-07-24,Village 1,NA,NA,Half Gravid
+K14 00014,2017-07-24,Village 1,negative,negative,Unfed
+K13 00003,2017-07-24,Village 1,negative,negative,Blood Fed
+K03 00007,2017-07-24,Village 1,negative,negative,Blood Fed
+M14 00032,2017-07-25,Village 2,negative,negative,Blood Fed
+M14 00033,2017-07-25,Village 2,negative,negative,Half Gravid
+M09 00046,2017-07-25,Village 2,positive,negative,Blood Fed
+M09 00047,2017-07-25,Village 2,negative,negative,Half Gravid
+M09 00048,2017-07-25,Village 2,negative,negative,Half Gravid
+M15 00026,2017-07-25,Village 2,positive,negative,Blood Fed
+M15 00027,2017-07-25,Village 2,negative,negative,Half Gravid
+M15 00028,2017-07-25,Village 2,positive,negative,Blood Fed
+M15 00029,2017-07-25,Village 2,negative,negative,Half Gravid
+M15 00030,2017-07-25,Village 2,positive,negative,Half Gravid
+M15 00031,2017-07-25,Village 2,negative,negative,Half Gravid
+M01 00020,2017-07-25,Village 2,negative,negative,Half Gravid
+M01 00021,2017-07-25,Village 2,negative,negative,Half Gravid
+M01 00022,2017-07-25,Village 2,negative,negative,Half Gravid
+M01 00023,2017-07-25,Village 2,negative,negative,Half Gravid
+M01 00019,2017-07-25,Village 2,negative,negative,Blood Fed
+M07 00072,2017-07-25,Village 2,negative,negative,Half Gravid
+M07 00073,2017-07-25,Village 2,negative,negative,Blood Fed
+M07 00074,2017-07-25,Village 2,negative,negative,Blood Fed
+M07 00075,2017-07-25,Village 2,negative,negative,Blood Fed
+M07 00076,2017-07-25,Village 2,negative,negative,Blood Fed
+M07 00077,2017-07-25,Village 2,negative,negative,Blood Fed
+M07 00078,2017-07-25,Village 2,negative,negative,Blood Fed
+M07 00079,2017-07-25,Village 2,negative,negative,Half Gravid
+M07 00080,2017-07-25,Village 2,negative,negative,Half Gravid
+M07 00081,2017-07-25,Village 2,negative,negative,Half Gravid
+M03 00014,2017-07-25,Village 2,negative,negative,Unfed
+M03 00015,2017-07-25,Village 2,negative,negative,Half Gravid
+M05 00010,2017-07-25,Village 2,negative,negative,Blood Fed
+M13 00020,2017-07-25,Village 2,negative,negative,Blood Fed
+M13 00021,2017-07-25,Village 2,negative,positive,Half Gravid
+M13 00022,2017-07-25,Village 2,negative,negative,Blood Fed
+M13 00023,2017-07-25,Village 2,negative,negative,Half Gravid
+M13 00024,2017-07-25,Village 2,negative,negative,Gravid
+M13 00025,2017-07-25,Village 2,negative,negative,Half Gravid
+M06 00026,2017-07-25,Village 2,negative,negative,Half Gravid
+M06 00027,2017-07-25,Village 2,negative,negative,Half Gravid
+M06 00028,2017-07-25,Village 2,negative,negative,Gravid
+M06 00029,2017-07-25,Village 2,negative,negative,Half Gravid
+M06 00030,2017-07-25,Village 2,negative,negative,Blood Fed
+M06 00031,2017-07-25,Village 2,negative,negative,Blood Fed
+M06 00032,2017-07-25,Village 2,negative,negative,Gravid
+M06 00033,2017-07-25,Village 2,negative,negative,Half Gravid
+S06 00009,2017-07-26,Village 3,negative,negative,Half Gravid
+S04 00011,2017-07-26,Village 3,negative,negative,Half Gravid
+S04 00012,2017-07-26,Village 3,positive,negative,Blood Fed
+S01 00008,2017-07-26,Village 3,negative,negative,Half Gravid
+S01 00009,2017-07-26,Village 3,negative,negative,Blood Fed
+K01 00033,2017-07-31,Village 1,negative,negative,Half Gravid
+K01 00034,2017-07-31,Village 1,negative,negative,Half Gravid
+K10 00003,2017-07-31,Village 1,negative,negative,Half Gravid
+K05 00014,2017-07-31,Village 1,negative,negative,Blood Fed
+K09 00003,2017-07-31,Village 1,negative,negative,Unfed
+K13 00004,2017-07-31,Village 1,negative,negative,Blood Fed
+K13 00005,2017-07-31,Village 1,negative,negative,Blood Fed
+M03 00016,2017-08-01,Village 2,negative,negative,Unfed
+M07 00082,2017-08-01,Village 2,negative,negative,Half Gravid
+M07 00083,2017-08-01,Village 2,negative,negative,Half Gravid
+M07 00084,2017-08-01,Village 2,negative,negative,Half Gravid
+M07 00085,2017-08-01,Village 2,negative,negative,Gravid
+M07 00086,2017-08-01,Village 2,NA,negative,Half Gravid
+M07 00087,2017-08-01,Village 2,negative,negative,Half Gravid
+M07 00088,2017-08-01,Village 2,negative,negative,Blood Fed
+M07 00089,2017-08-01,Village 2,negative,negative,Half Gravid
+M07 00090,2017-08-01,Village 2,negative,negative,Half Gravid
+M07 00091,2017-08-01,Village 2,negative,negative,Blood Fed
+M07 00092,2017-08-01,Village 2,negative,negative,Blood Fed
+M07 00093,2017-08-01,Village 2,negative,negative,Half Gravid
+M07 00094,2017-08-01,Village 2,negative,negative,Half Gravid
+M07 00095,2017-08-01,Village 2,negative,negative,Blood Fed
+M07 00096,2017-08-01,Village 2,negative,negative,Half Gravid
+M07 00097,2017-08-01,Village 2,negative,negative,Blood Fed
+M04 00006,2017-08-01,Village 2,negative,negative,Half Gravid
+M04 00007,2017-08-01,Village 2,negative,negative,Half Gravid
+M04 00008,2017-08-01,Village 2,negative,negative,Blood Fed
+M04 00009,2017-08-01,Village 2,negative,negative,Half Gravid
+M04 00010,2017-08-01,Village 2,positive,negative,Blood Fed
+M04 00011,2017-08-01,Village 2,negative,negative,Half Gravid
+M04 00012,2017-08-01,Village 2,negative,negative,Half Gravid
+M04 00013,2017-08-01,Village 2,positive,positive,Blood Fed
+M04 00014,2017-08-01,Village 2,positive,negative,Gravid
+M14 00034,2017-08-01,Village 2,negative,negative,Half Gravid
+M14 00035,2017-08-01,Village 2,negative,negative,Half Gravid
+M07 00098,2017-08-01,Village 2,negative,negative,Gravid
+M15 00032,2017-08-01,Village 2,negative,negative,Half Gravid
+M15 00033,2017-08-01,Village 2,negative,negative,Half Gravid
+M15 00034,2017-08-01,Village 2,negative,negative,Gravid
+M15 00035,2017-08-01,Village 2,positive,negative,Blood Fed
+M09 00049,2017-08-01,Village 2,negative,negative,Blood Fed
+M09 00050,2017-08-01,Village 2,negative,negative,Half Gravid
+M09 00051,2017-08-01,Village 2,negative,negative,Half Gravid
+M09 00052,2017-08-01,Village 2,negative,negative,Half Gravid
+M09 00053,2017-08-01,Village 2,negative,negative,Gravid
+M09 00054,2017-08-01,Village 2,negative,negative,Half Gravid
+M09 00055,2017-08-01,Village 2,positive,negative,Half Gravid
+M06 00034,2017-08-01,Village 2,positive,positive,Gravid
+M06 00035,2017-08-01,Village 2,negative,negative,Half Gravid
+M06 00036,2017-08-01,Village 2,negative,negative,Blood Fed
+M06 00037,2017-08-01,Village 2,positive,negative,Blood Fed
+M13 00026,2017-08-01,Village 2,NA,NA,Half Gravid
+M13 00027,2017-08-01,Village 2,NA,NA,Half Gravid
+M01 00024,2017-08-01,Village 2,negative,negative,Blood Fed
+S02 00012,2017-08-02,Village 3,negative,negative,Half Gravid
+S09 00002,2017-08-02,Village 3,NA,negative,Half Gravid
+S01 00010,2017-08-02,Village 3,negative,negative,Half Gravid
+S10 00005,2017-08-02,Village 3,negative,negative,Half Gravid
+S05 00006,2017-08-02,Village 3,negative,negative,Half Gravid
+K03 00008,2017-08-09,Village 1,negative,negative,Blood Fed
+K07 00011,2017-08-09,Village 1,negative,negative,Gravid
+K13 00007,2017-08-09,Village 1,NA,negative,Unfed
+K01 00035,2017-08-09,Village 1,positive,positive,Blood Fed
+K01 00036,2017-08-09,Village 1,positive,negative,Half Gravid
+K01 00037,2017-08-09,Village 1,positive,negative,Gravid
+K01 00038,2017-08-09,Village 1,positive,positive,Half Gravid
+K01 00039,2017-08-09,Village 1,positive,negative,Blood Fed
+K01 00040,2017-08-09,Village 1,positive,positive,Half Gravid
+K02 00051,2017-08-09,Village 1,negative,negative,Blood Fed
+K14 00015,2017-08-09,Village 1,negative,negative,Half Gravid
+K14 00016,2017-08-09,Village 1,positive,positive,Half Gravid
+K14 00017,2017-08-09,Village 1,negative,negative,Blood Fed
+K14 00018,2017-08-09,Village 1,negative,negative,Half Gravid
+K14 00019,2017-08-09,Village 1,positive,negative,Blood Fed
+K14 00020,2017-08-09,Village 1,positive,positive,Blood Fed
+K05 00015,2017-08-09,Village 1,positive,negative,Half Gravid
+M12 00006,2017-08-10,Village 2,negative,negative,Blood Fed
+M12 00007,2017-08-10,Village 2,negative,negative,Blood Fed
+M12 00008,2017-08-10,Village 2,negative,negative,Half Gravid
+M01 00025,2017-08-10,Village 2,negative,negative,Blood Fed
+M07 00099,2017-08-10,Village 2,negative,negative,Half Gravid
+M07 00100,2017-08-10,Village 2,negative,positive,Blood Fed
+M07 00101,2017-08-10,Village 2,negative,negative,Blood Fed
+M07 00102,2017-08-10,Village 2,negative,negative,Blood Fed
+M07 00103,2017-08-10,Village 2,positive,negative,Half Gravid
+M07 00104,2017-08-10,Village 2,negative,negative,Blood Fed
+M07 00105,2017-08-10,Village 2,negative,negative,Half Gravid
+M07 00106,2017-08-10,Village 2,negative,negative,Half Gravid
+M07 00107,2017-08-10,Village 2,negative,negative,Half Gravid
+M07 00108,2017-08-10,Village 2,negative,negative,Blood Fed
+M07 00109,2017-08-10,Village 2,negative,negative,Half Gravid
+M07 00110,2017-08-10,Village 2,positive,negative,Gravid
+M05 00011,2017-08-10,Village 2,negative,negative,Gravid
+M05 00012,2017-08-10,Village 2,negative,negative,Blood Fed
+M05 00013,2017-08-10,Village 2,negative,negative,Half Gravid
+M15 00036,2017-08-10,Village 2,positive,positive,Blood Fed
+M15 00037,2017-08-10,Village 2,positive,negative,Blood Fed
+M15 00038,2017-08-10,Village 2,negative,negative,Gravid
+M15 00039,2017-08-10,Village 2,positive,negative,Half Gravid
+M15 00040,2017-08-10,Village 2,negative,negative,Half Gravid
+M03 00017,2017-08-10,Village 2,negative,negative,Unfed
+M03 00018,2017-08-10,Village 2,negative,negative,Half Gravid
+M03 00019,2017-08-10,Village 2,negative,negative,Half Gravid
+M13 00028,2017-08-10,Village 2,positive,negative,Gravid
+M13 00029,2017-08-10,Village 2,negative,negative,Blood Fed
+M13 00030,2017-08-10,Village 2,positive,positive,Half Gravid
+S03 00006,2017-08-11,Village 3,negative,negative,Half Gravid
+S10 00006,2017-08-11,Village 3,negative,negative,Blood Fed
+S04 00013,2017-08-11,Village 3,negative,negative,Half Gravid
+S04 00014,2017-08-11,Village 3,negative,negative,Half Gravid
+S04 00015,2017-08-11,Village 3,negative,negative,Half Gravid
+K07 00013,2017-08-14,Village 1,negative,negative,Half Gravid
+K07 00012,2017-08-14,Village 1,negative,negative,Gravid
+K13 00008,2017-08-14,Village 1,negative,negative,Half Gravid
+K14 00021,2017-08-14,Village 1,positive,positive,Half Gravid
+K14 00022,2017-08-14,Village 1,positive,negative,Half Gravid
+K05 00016,2017-08-14,Village 1,negative,negative,Gravid
+K05 00017,2017-08-14,Village 1,negative,negative,Half Gravid
+K05 00018,2017-08-14,Village 1,negative,negative,Half Gravid
+K05 00019,2017-08-14,Village 1,negative,negative,Unfed
+K05 00020,2017-08-14,Village 1,negative,negative,Gravid
+K12 00006,2017-08-14,Village 1,negative,negative,Gravid
+K12 00007,2017-08-14,Village 1,negative,negative,Half Gravid
+K12 00008,2017-08-14,Village 1,negative,negative,Blood Fed
+K12 00009,2017-08-14,Village 1,negative,negative,Half Gravid
+K12 00010,2017-08-14,Village 1,negative,negative,Half Gravid
+K01 00041,2017-08-14,Village 1,positive,positive,Half Gravid
+K01 00042,2017-08-14,Village 1,negative,negative,Half Gravid
+K01 00043,2017-08-14,Village 1,positive,positive,Half Gravid
+K01 00044,2017-08-14,Village 1,negative,negative,Gravid
+K01 00045,2017-08-14,Village 1,negative,negative,Half Gravid
+K01 00046,2017-08-14,Village 1,negative,negative,Unfed
+M09 00056,2017-08-15,Village 2,negative,negative,Half Gravid
+M09 00057,2017-08-15,Village 2,positive,negative,Blood Fed
+M09 00058,2017-08-15,Village 2,negative,negative,Half Gravid
+M09 00059,2017-08-15,Village 2,negative,negative,Gravid
+M09 00060,2017-08-15,Village 2,negative,negative,Blood Fed
+M09 00061,2017-08-15,Village 2,positive,negative,Half Gravid
+M09 00062,2017-08-15,Village 2,negative,negative,Gravid
+M09 00063,2017-08-15,Village 2,negative,negative,Gravid
+M12 00009,2017-08-15,Village 2,negative,negative,Blood Fed
+M11 00007,2017-08-15,Village 2,negative,negative,Unfed
+M07 00111,2017-08-15,Village 2,NA,negative,Blood Fed
+M04 00015,2017-08-15,Village 2,negative,negative,Half Gravid
+M01 00026,2017-08-15,Village 2,negative,positive,Half Gravid
+M01 00027,2017-08-15,Village 2,positive,negative,Half Gravid
+M01 00028,2017-08-15,Village 2,negative,negative,Blood Fed
+M15 00041,2017-08-15,Village 2,negative,negative,Half Gravid
+M15 00042,2017-08-15,Village 2,negative,negative,Half Gravid
+M15 00043,2017-08-15,Village 2,negative,negative,Half Gravid
+M15 00044,2017-08-15,Village 2,negative,negative,Gravid
+M15 00045,2017-08-15,Village 2,positive,negative,Blood Fed
+M15 00046,2017-08-15,Village 2,negative,negative,Half Gravid
+M15 00047,2017-08-15,Village 2,negative,negative,Blood Fed
+M15 00048,2017-08-15,Village 2,positive,negative,Blood Fed
+M15 00049,2017-08-15,Village 2,positive,negative,Half Gravid
+S01 00011,2017-08-16,Village 3,negative,negative,Half Gravid
+S12 00008,2017-08-16,Village 3,negative,negative,Blood Fed
+K05 00021,2017-08-21,Village 1,NA,negative,Half Gravid
+K05 00022,2017-08-21,Village 1,negative,negative,Half Gravid
+K05 00023,2017-08-21,Village 1,negative,negative,Half Gravid
+K05 00024,2017-08-21,Village 1,negative,negative,Half Gravid
+K01 00047,2017-08-21,Village 1,NA,NA,Half Gravid
+K01 00048,2017-08-21,Village 1,NA,NA,Blood Fed
+M12 00051,2017-08-22,Village 2,negative,negative,Half Gravid
+M09 00064,2017-08-22,Village 2,negative,negative,Blood Fed
+M09 00065,2017-08-22,Village 2,positive,positive,Half Gravid
+M09 00066,2017-08-22,Village 2,negative,negative,Unfed
+M09 00067,2017-08-22,Village 2,negative,negative,Gravid
+M01 00036,2017-08-22,Village 2,negative,negative,Half Gravid
+M04 00016,2017-08-22,Village 2,positive,negative,Blood Fed
+M04 00017,2017-08-22,Village 2,negative,negative,Gravid
+M04 00018,2017-08-22,Village 2,negative,negative,Half Gravid
+M04 00019,2017-08-22,Village 2,positive,negative,Blood Fed
+M04 00020,2017-08-22,Village 2,positive,negative,Blood Fed
+M04 00021,2017-08-22,Village 2,NA,positive,Gravid
+M04 00022,2017-08-22,Village 2,positive,positive,Half Gravid
+M04 00023,2017-08-22,Village 2,negative,negative,Half Gravid
+M04 00024,2017-08-22,Village 2,negative,negative,Blood Fed
+M07 00112,2017-08-22,Village 2,negative,negative,Half Gravid
+M07 00113,2017-08-22,Village 2,negative,negative,Gravid
+M07 00114,2017-08-22,Village 2,negative,negative,Gravid
+M07 00115,2017-08-22,Village 2,negative,negative,Blood Fed
+M07 00116,2017-08-22,Village 2,negative,negative,Half Gravid
+M07 00117,2017-08-22,Village 2,negative,negative,Half Gravid
+M05 00014,2017-08-22,Village 2,negative,negative,Gravid
+M15 00050,2017-08-22,Village 2,positive,negative,Half Gravid
+M15 00051,2017-08-22,Village 2,negative,negative,Half Gravid
+M15 00052,2017-08-22,Village 2,positive,positive,Half Gravid
+M15 00053,2017-08-22,Village 2,negative,negative,Half Gravid
+M15 00054,2017-08-22,Village 2,negative,negative,Gravid
+M14 00036,2017-08-22,Village 2,negative,negative,Half Gravid
+M14 00037,2017-08-22,Village 2,negative,negative,Gravid
+M14 00038,2017-08-22,Village 2,negative,negative,Half Gravid
+M14 00039,2017-08-22,Village 2,negative,negative,Gravid
+M14 00040,2017-08-22,Village 2,negative,negative,Gravid
+S01 00012,2017-08-23,Village 3,negative,negative,Gravid
+S07 00004,2017-08-23,Village 3,negative,negative,Half Gravid
+K10 00004,2017-08-28,Village 1,negative,negative,Blood Fed
+K14 00023,2017-08-28,Village 1,negative,negative,Half Gravid
+K14 00024,2017-08-28,Village 1,positive,negative,Blood Fed
+K09 00004,2017-08-28,Village 1,negative,negative,Blood Fed
+K01 00049,2017-08-28,Village 1,NA,NA,Half Gravid
+M12 00010,2017-08-29,Village 2,positive,positive,Blood Fed
+M05 00015,2017-08-29,Village 2,negative,negative,Half Gravid
+M14 00041,2017-08-29,Village 2,negative,negative,Half Gravid
+M14 00042,2017-08-29,Village 2,negative,negative,Half Gravid
+M14 00043,2017-08-29,Village 2,negative,negative,Half Gravid
+M15 00055,2017-08-29,Village 2,negative,negative,Blood Fed
+M15 00056,2017-08-29,Village 2,negative,NA,Gravid
+M04 00025,2017-08-29,Village 2,negative,negative,Gravid
+M01 00029,2017-08-29,Village 2,negative,negative,Half Gravid
+M03 00021,2017-08-29,Village 2,negative,negative,Gravid
+M16 00001,2017-08-29,Village 2,negative,negative,Gravid
+M06 00039,2017-08-29,Village 2,positive,negative,Blood Fed
+M06 00040,2017-08-29,Village 2,positive,positive,Half Gravid
+M06 00041,2017-08-29,Village 2,positive,positive,Half Gravid
+M13 00031,2017-08-29,Village 2,negative,negative,Gravid
+M13 00032,2017-08-29,Village 2,negative,negative,Half Gravid
+M13 00033,2017-08-29,Village 2,negative,negative,Blood Fed
+M13 00034,2017-08-29,Village 2,negative,negative,Half Gravid
+M13 00035,2017-08-29,Village 2,negative,negative,Gravid
+M07 00118,2017-08-29,Village 2,negative,negative,Half Gravid
+M07 00119,2017-08-29,Village 2,negative,negative,Gravid
+M07 00120,2017-08-29,Village 2,positive,negative,Blood Fed
+M07 00121,2017-08-29,Village 2,negative,negative,Half Gravid
+M07 00122,2017-08-29,Village 2,negative,negative,Gravid
+M07 00123,2017-08-29,Village 2,negative,negative,Half Gravid
+M07 00124,2017-08-29,Village 2,negative,negative,Half Gravid
+M07 00125,2017-08-29,Village 2,positive,positive,Blood Fed
+M07 00126,2017-08-29,Village 2,positive,negative,Blood Fed
+M07 00127,2017-08-29,Village 2,negative,negative,Half Gravid
+M07 00128,2017-08-29,Village 2,negative,negative,Half Gravid
+M09 00068,2017-08-29,Village 2,negative,negative,Half Gravid
+M09 00069,2017-08-29,Village 2,negative,negative,Half Gravid
+S03 00007,2017-08-30,Village 3,negative,negative,Blood Fed
+S10 00007,2017-08-30,Village 3,negative,negative,Blood Fed
+S06 00010,2017-08-30,Village 3,negative,negative,Half Gravid
+K11 00004,2017-09-04,Village 1,negative,negative,Gravid
+K11 00005,2017-09-04,Village 1,negative,negative,Half Gravid
+K12 00011,2017-09-04,Village 1,negative,negative,Gravid
+K12 00012,2017-09-04,Village 1,negative,positive,Half Gravid
+K12 00013,2017-09-04,Village 1,negative,negative,Gravid
+K12 00014,2017-09-04,Village 1,negative,negative,Unfed
+K01 00050,2017-09-04,Village 1,negative,negative,Half Gravid
+K01 00051,2017-09-04,Village 1,negative,negative,Half Gravid
+K14 00025,2017-09-04,Village 1,negative,NA,Half Gravid
+K13 00009,2017-09-04,Village 1,negative,negative,Half Gravid
+K07 00014,2017-09-04,Village 1,negative,negative,Gravid
+K05 00025,2017-09-04,Village 1,negative,negative,Half Gravid
+K09 00005,2017-09-04,Village 1,negative,negative,Gravid
+M14 00051,2017-09-05,Village 2,negative,negative,Half Gravid
+M14 00052,2017-09-05,Village 2,negative,negative,Half Gravid
+M14 00053,2017-09-05,Village 2,negative,negative,Blood Fed
+M14 00054,2017-09-05,Village 2,negative,negative,Half Gravid
+M07 00129,2017-09-05,Village 2,negative,negative,Half Gravid
+M07 00130,2017-09-05,Village 2,negative,negative,Gravid
+M07 00131,2017-09-05,Village 2,negative,positive,Blood Fed
+M07 00132,2017-09-05,Village 2,negative,negative,Half Gravid
+M07 00133,2017-09-05,Village 2,negative,negative,Gravid
+M07 00134,2017-09-05,Village 2,negative,negative,Gravid
+M07 00135,2017-09-05,Village 2,negative,negative,Gravid
+M07 00136,2017-09-05,Village 2,negative,negative,Blood Fed
+M16 00002,2017-09-05,Village 2,negative,negative,Gravid
+M01 00052,2017-09-05,Village 2,negative,negative,Blood Fed
+M01 00053,2017-09-05,Village 2,negative,negative,Half Gravid
+M01 00054,2017-09-05,Village 2,negative,negative,Half Gravid
+M04 00026,2017-09-05,Village 2,negative,negative,Gravid
+M04 00027,2017-09-05,Village 2,negative,negative,Half Gravid
+M04 00028,2017-09-05,Village 2,positive,negative,Blood Fed
+M04 00029,2017-09-05,Village 2,negative,negative,Blood Fed
+M05 00016,2017-09-05,Village 2,negative,negative,Blood Fed
+M05 00017,2017-09-05,Village 2,negative,negative,Half Gravid
+M09 00070,2017-09-05,Village 2,negative,negative,Gravid
+M09 00071,2017-09-05,Village 2,negative,positive,Blood Fed
+M09 00072,2017-09-05,Village 2,negative,negative,Half Gravid
+M09 00073,2017-09-05,Village 2,negative,negative,Gravid
+M09 00074,2017-09-05,Village 2,negative,negative,Half Gravid
+S07 00003,2017-09-06,Village 3,negative,negative,Blood Fed
+K05 00026,2017-09-11,Village 1,negative,negative,Half Gravid
+K13 00010,2017-09-11,Village 1,negative,negative,Half Gravid
+K13 00011,2017-09-11,Village 1,negative,negative,Half Gravid
+K13 00012,2017-09-11,Village 1,negative,negative,Unfed
+K09 00006,2017-09-11,Village 1,negative,negative,Half Gravid
+K14 00026,2017-09-11,Village 1,negative,negative,Half Gravid
+K14 00027,2017-09-11,Village 1,negative,negative,Half Gravid
+K14 00028,2017-09-11,Village 1,negative,negative,Unfed
+K14 00029,2017-09-11,Village 1,positive,negative,Half Gravid
+K12 00015,2017-09-11,Village 1,negative,negative,Unfed
+K12 00016,2017-09-11,Village 1,negative,negative,Blood Fed
+K12 00017,2017-09-11,Village 1,negative,negative,Blood Fed
+M04 00030,2017-09-12,Village 2,negative,negative,Gravid
+M16 00003,2017-09-12,Village 2,negative,negative,Half Gravid
+M03 00022,2017-09-12,Village 2,negative,negative,Unfed
+M13 00036,2017-09-12,Village 2,negative,negative,Gravid
+M13 00037,2017-09-12,Village 2,negative,negative,Half Gravid
+M14 00044,2017-09-12,Village 2,negative,negative,Gravid
+M14 00048,2017-09-12,Village 2,negative,negative,Blood Fed
+M14 00046,2017-09-12,Village 2,negative,negative,Half Gravid
+M14 00045,2017-09-12,Village 2,negative,negative,Gravid
+M14 00047,2017-09-12,Village 2,negative,negative,Half Gravid
+M09 00076,2017-09-12,Village 2,negative,negative,Blood Fed
+M09 00075,2017-09-12,Village 2,positive,negative,Blood Fed
+M09 00077,2017-09-12,Village 2,negative,negative,Gravid
+M09 00078,2017-09-12,Village 2,positive,negative,Blood Fed
+M01 00030,2017-09-12,Village 2,negative,negative,Half Gravid
+M01 00031,2017-09-12,Village 2,positive,negative,Half Gravid
+M01 00032,2017-09-12,Village 2,negative,negative,Blood Fed
+S07 00005,2017-09-13,Village 3,positive,negative,Gravid
+K05 00027,2017-09-18,Village 1,negative,negative,Gravid
+K05 00028,2017-09-18,Village 1,negative,negative,Half Gravid
+K01 00052,2017-09-18,Village 1,negative,negative,Half Gravid
+K01 00053,2017-09-18,Village 1,NA,negative,Gravid
+K02 00024,2017-09-18,Village 1,positive,positive,Half Gravid
+M01 00033,2017-09-19,Village 2,negative,negative,Half Gravid
+M07 00137,2017-09-19,Village 2,positive,positive,Half Gravid
+M12 00011,2017-09-19,Village 2,negative,negative,Half Gravid
+M05 00018,2017-09-19,Village 2,negative,negative,Half Gravid
+M15 00058,2017-09-19,Village 2,positive,positive,Half Gravid
+M15 00057,2017-09-19,Village 2,negative,negative,Gravid
+M14 00049,2017-09-19,Village 2,negative,negative,Half Gravid
+S12 00009,2017-09-20,Village 3,negative,negative,Half Gravid
+S11 00004,2017-09-20,Village 3,negative,negative,Half Gravid
+S10 00008,2017-09-20,Village 3,negative,negative,Unfed
+K01 00054,2017-09-25,Village 1,negative,negative,Half Gravid
+K01 00055,2017-09-25,Village 1,negative,negative,Half Gravid
+K01 00056,2017-09-25,Village 1,negative,negative,Half Gravid
+K01 00057,2017-09-25,Village 1,negative,negative,Half Gravid
+K01 00058,2017-09-25,Village 1,negative,negative,Half Gravid
+K01 00059,2017-09-25,Village 1,negative,negative,Unfed
+K01 00060,2017-09-25,Village 1,negative,negative,Blood Fed
+K07 00015,2017-09-25,Village 1,negative,negative,Half Gravid
+K13 00014,2017-09-25,Village 1,negative,negative,Half Gravid
+K13 00013,2017-09-25,Village 1,negative,negative,Half Gravid
+K03 00009,2017-09-25,Village 1,negative,negative,Unfed
+K02 00025,2017-09-25,Village 1,negative,negative,Half Gravid
+K02 00026,2017-09-25,Village 1,positive,positive,Gravid
+K02 00027,2017-09-25,Village 1,negative,negative,Half Gravid
+M05 00019,2017-09-26,Village 2,negative,negative,Half Gravid
+M06 00038,2017-09-26,Village 2,negative,negative,Half Gravid
+M09 00079,2017-09-26,Village 2,positive,positive,Half Gravid
+M15 00059,2017-09-26,Village 2,negative,negative,Gravid
+M13 00038,2017-09-26,Village 2,negative,negative,Gravid
+M01 00034,2017-09-26,Village 2,positive,negative,Gravid
+S01 00013,2017-09-27,Village 3,negative,negative,Half Gravid
+S01 00014,2017-09-27,Village 3,negative,negative,Half Gravid
+S05 00007,2017-09-27,Village 3,negative,negative,Half Gravid
+S05 00008,2017-09-27,Village 3,negative,negative,Half Gravid
+S05 00009,2017-09-27,Village 3,negative,negative,Gravid
+S04 00016,2017-09-27,Village 3,negative,negative,Half Gravid
+S04 00017,2017-09-27,Village 3,negative,negative,Half Gravid
+K12 00018,2017-10-02,Village 1,negative,negative,Unfed
+K12 00019,2017-10-02,Village 1,negative,negative,Half Gravid
+K14 00030,2017-10-02,Village 1,negative,negative,Blood Fed
+K14 00031,2017-10-02,Village 1,negative,negative,Half Gravid
+K11 00006,2017-10-02,Village 1,negative,negative,Half Gravid
+K13 00015,2017-10-02,Village 1,negative,negative,Blood Fed
+K04 00001,2017-10-02,Village 1,negative,negative,Half Gravid
+K01 00061,2017-10-02,Village 1,negative,negative,Half Gravid
+K10 00005,2017-10-02,Village 1,negative,negative,Half Gravid
+M01 00035,2017-10-03,Village 2,positive,NA,Half Gravid
+M06 00042,2017-10-03,Village 2,negative,negative,Half Gravid
+M06 00043,2017-10-03,Village 2,negative,negative,Unfed
+M06 00044,2017-10-03,Village 2,negative,negative,Unfed
+M15 00060,2017-10-03,Village 2,positive,negative,Gravid
+M09 00080,2017-10-03,Village 2,negative,negative,Half Gravid
+M09 00081,2017-10-03,Village 2,negative,negative,Unfed
+M14 00050,2017-10-03,Village 2,negative,negative,Blood Fed
+M13 00039,2017-10-03,Village 2,negative,negative,Unfed
+M07 00138,2017-10-03,Village 2,negative,negative,Blood Fed
+S08 00005,2017-10-04,Village 3,negative,negative,Half Gravid
+K01 00068,2017-10-09,Village 1,negative,negative,Half Gravid
+K01 00069,2017-10-09,Village 1,negative,negative,Half Gravid
+K11 00007,2017-10-09,Village 1,negative,negative,Half Gravid
+K14 00032,2017-10-09,Village 1,negative,negative,Blood Fed
+K12 00020,2017-10-09,Village 1,negative,negative,Half Gravid
+M01 00037,2017-10-10,Village 2,negative,negative,Half Gravid
+M01 00038,2017-10-10,Village 2,negative,negative,Half Gravid
+M01 00039,2017-10-10,Village 2,negative,negative,Half Gravid
+M01 00040,2017-10-10,Village 2,negative,negative,Blood Fed
+M07 00139,2017-10-10,Village 2,NA,negative,Half Gravid
+M16 00004,2017-10-10,Village 2,negative,negative,Unfed
+M16 00005,2017-10-10,Village 2,negative,negative,Gravid
+M16 00006,2017-10-10,Village 2,negative,negative,Half Gravid
+M13 00040,2017-10-10,Village 2,negative,negative,Half Gravid
+M13 00041,2017-10-10,Village 2,negative,negative,Un-identified
+M09 00082,2017-10-10,Village 2,negative,negative,Half Gravid
+S05 00010,2017-10-11,Village 3,negative,negative,Half Gravid
+S02 00013,2017-10-11,Village 3,negative,negative,Blood Fed
+S10 00009,2017-10-11,Village 3,negative,negative,Gravid
+K09 00007,2017-10-16,Village 1,negative,negative,Half Gravid
+K11 00008,2017-10-16,Village 1,positive,negative,Half Gravid
+M14 00055,2017-10-17,Village 2,negative,negative,Gravid
+M06 00045,2017-10-17,Village 2,positive,negative,Half Gravid
+M05 00020,2017-10-17,Village 2,negative,negative,Unfed
+M01 00041,2017-10-17,Village 2,negative,negative,Unfed
+M03 00023,2017-10-17,Village 2,negative,negative,Unfed
+M16 00007,2017-10-17,Village 2,negative,negative,Gravid
+S04 00018,2017-10-18,Village 3,negative,negative,Half Gravid
+S10 00010,2017-10-18,Village 3,negative,negative,Gravid
+S10 00011,2017-10-18,Village 3,negative,negative,Unfed
+S02 00014,2017-10-18,Village 3,negative,positive,Blood Fed
+K03 00010,2017-10-23,Village 1,negative,negative,Unfed
+M04 00031,2017-10-24,Village 2,negative,negative,Blood Fed
+M07 00140,2017-10-24,Village 2,positive,negative,Half Gravid
+M13 00042,2017-10-24,Village 2,negative,negative,Blood Fed
+M13 00043,2017-10-24,Village 2,negative,negative,Half Gravid
+M12 00012,2017-10-31,Village 2,negative,negative,Half Gravid
+M06 00046,2017-10-31,Village 2,negative,negative,Half Gravid
+M04 00032,2017-10-31,Village 2,negative,negative,Unfed
+K07 00016,2017-11-02,Village 1,negative,negative,Unfed
+K14 00033,2017-11-02,Village 1,negative,negative,Half Gravid
+K14 00034,2017-11-02,Village 1,positive,positive,Half Gravid
+M09 00083,2017-11-07,Village 2,negative,negative,Half Gravid
+M05 00021,2017-11-07,Village 2,negative,negative,Half Gravid
+S06 00011,2017-11-08,Village 3,negative,negative,Half Gravid
+S06 00012,2017-11-08,Village 3,negative,negative,Blood Fed
+S01 00015,2017-11-15,Village 3,negative,negative,Half Gravid
+S06 00013,2017-11-15,Village 3,negative,negative,Half Gravid
+K14 00035,2017-11-20,Village 1,negative,negative,Gravid
+M15 00061,2017-11-21,Village 2,negative,negative,Blood Fed
+K14 00036,2017-11-27,Village 1,negative,negative,Half Gravid
+K10 00006,2017-11-27,Village 1,negative,negative,Blood Fed
+S01 00016,2017-11-29,Village 3,negative,negative,Unfed
+M06 00047,2017-11-30,Village 2,negative,negative,Gravid
+M16 00008,2017-12-05,Village 2,negative,negative,Blood Fed
+M01 00042,2017-12-05,Village 2,negative,negative,Gravid
+S01 00017,2017-12-06,Village 3,negative,negative,Gravid
+K09 00008,2017-12-11,Village 1,negative,negative,Blood Fed
+S10 00012,2017-12-13,Village 3,negative,negative,Half Gravid
+S04 00019,2017-12-13,Village 3,negative,negative,Blood Fed
+M16 00009,2017-12-14,Village 2,negative,negative,Gravid
+M14 00056,2017-12-14,Village 2,negative,negative,Gravid
+M03 00024,2017-12-14,Village 2,negative,negative,Gravid
+M04 00033,2018-01-02,Village 2,negative,negative,Half Gravid
+K05 00029,2018-01-08,Village 1,negative,negative,Blood Fed
+M16 00010,2018-01-09,Village 2,negative,negative,Half Gravid
+M13 00044,2018-01-09,Village 2,negative,negative,Half Gravid
+M13 00045,2018-01-09,Village 2,negative,negative,Half Gravid
+M03 00025,2018-01-09,Village 2,negative,negative,Half Gravid
+M07 00141,2018-01-09,Village 2,negative,negative,Blood Fed
+M15 00063,2018-01-09,Village 2,negative,negative,Half Gravid
+M15 00062,2018-01-09,Village 2,negative,negative,Gravid
+S07 00006,2018-01-10,Village 3,negative,negative,Gravid
+K10 00007,2018-01-15,Village 1,negative,negative,Blood Fed
+K10 00008,2018-01-15,Village 1,negative,negative,Gravid
+M07 00142,2018-01-16,Village 2,negative,negative,Half Gravid
+M15 00064,2018-01-16,Village 2,negative,negative,Blood Fed
+M14 00057,2018-01-16,Village 2,negative,negative,Half Gravid
+M14 00058,2018-01-16,Village 2,negative,negative,Half Gravid
+M14 00059,2018-01-16,Village 2,negative,negative,Gravid
+M09 00084,2018-01-16,Village 2,negative,negative,Half Gravid
+M05 00022,2018-01-16,Village 2,positive,negative,Gravid
+K01 00070,2018-01-22,Village 1,negative,negative,Half Gravid
+M07 00143,2018-01-23,Village 2,negative,negative,Gravid
+M07 00144,2018-01-23,Village 2,negative,negative,Half Gravid
+M05 00023,2018-01-23,Village 2,negative,negative,Blood Fed
+M09 00085,2018-01-23,Village 2,negative,negative,Half Gravid
+M15 00065,2018-01-23,Village 2,negative,negative,Half Gravid
+M01 00043,2018-01-23,Village 2,negative,negative,Half Gravid
+S04 00020,2018-01-24,Village 3,positive,negative,Half Gravid
+S05 00011,2018-01-24,Village 3,negative,negative,Half Gravid
+K09 00009,2018-01-29,Village 1,negative,negative,Half Gravid
+M03 00026,2018-02-06,Village 2,negative,negative,Blood Fed
+K14 00037,2018-02-12,Village 1,positive,negative,Half Gravid
+M03 00027,2018-02-13,Village 2,negative,negative,Unfed
+M01 00044,2018-02-13,Village 2,negative,negative,Half Gravid
+M06 00048,2018-02-13,Village 2,negative,negative,Half Gravid
+M16 00011,2018-02-13,Village 2,negative,negative,Gravid
+K03 00011,2018-02-19,Village 1,negative,negative,Half Gravid
+M15 00066,2018-02-20,Village 2,negative,negative,Gravid
+M15 00067,2018-02-20,Village 2,negative,negative,Blood Fed
+M09 00086,2018-02-20,Village 2,negative,negative,Half Gravid
+S10 00013,2018-02-21,Village 3,negative,negative,Half Gravid
+S10 00014,2018-02-21,Village 3,negative,negative,Half Gravid
+S05 00012,2018-02-21,Village 3,negative,negative,Half Gravid
+S05 00013,2018-02-21,Village 3,negative,negative,Half Gravid
+S06 00014,2018-02-21,Village 3,negative,positive,Gravid
+K14 00038,2018-02-26,Village 1,positive,negative,Half Gravid
+K14 00039,2018-02-26,Village 1,positive,negative,Half Gravid
+K14 00040,2018-02-26,Village 1,negative,negative,Gravid
+K13 00017,2018-02-26,Village 1,negative,negative,Gravid
+K13 00016,2018-02-26,Village 1,negative,negative,Gravid
+M05 00024,2018-02-27,Village 2,negative,negative,Half Gravid
+M01 00055,2018-02-27,Village 2,negative,negative,Half Gravid
+S05 00014,2018-02-28,Village 3,negative,negative,Half Gravid
+S06 00015,2018-02-28,Village 3,NA,negative,Half Gravid
+S01 00018,2018-02-28,Village 3,negative,negative,Gravid
+K02 00028,2018-03-05,Village 1,negative,negative,Half Gravid
+K07 00017,2018-03-05,Village 1,negative,negative,Blood Fed
+M05 00025,2018-03-06,Village 2,negative,positive,Half Gravid
+M01 00056,2018-03-06,Village 2,negative,negative,Half Gravid
+M16 00012,2018-03-06,Village 2,negative,negative,Blood Fed
+M16 00013,2018-03-06,Village 2,negative,negative,Blood Fed
+M16 00014,2018-03-06,Village 2,negative,negative,Gravid
+S10 00015,2018-03-07,Village 3,negative,negative,Half Gravid
+S03 00008,2018-03-07,Village 3,negative,negative,Half Gravid
+K14 00041,2018-03-12,Village 1,negative,negative,Un-identified
+K13 00018,2018-03-12,Village 1,negative,negative,Half Gravid
+K09 00010,2018-03-12,Village 1,negative,negative,Blood Fed
+M07 00145,2018-03-13,Village 2,negative,negative,Half Gravid
+M13 00046,2018-03-13,Village 2,negative,negative,Gravid
+M13 00047,2018-03-13,Village 2,negative,negative,Gravid
+M04 00034,2018-03-13,Village 2,negative,negative,Gravid
+M16 00015,2018-03-13,Village 2,positive,positive,Blood Fed
+M16 00016,2018-03-13,Village 2,negative,negative,Half Gravid
+M16 00017,2018-03-13,Village 2,negative,negative,Blood Fed
+S02 00015,2018-03-14,Village 3,negative,negative,Blood Fed
+S09 00004,2018-03-14,Village 3,negative,negative,Gravid
+S05 00015,2018-03-14,Village 3,negative,negative,Blood Fed
+S05 00016,2018-03-14,Village 3,negative,negative,Blood Fed
+S01 00019,2018-03-14,Village 3,negative,negative,Half Gravid
+K14 00042,2018-03-19,Village 1,negative,negative,Half Gravid
+K01 00062,2018-03-19,Village 1,negative,negative,Half Gravid
+K13 00019,2018-03-19,Village 1,negative,negative,Half Gravid
+M03 00028,2018-03-20,Village 2,negative,negative,Gravid
+M14 00060,2018-03-20,Village 2,negative,negative,Blood Fed
+M16 00018,2018-03-20,Village 2,negative,negative,Half Gravid
+M09 00087,2018-03-20,Village 2,negative,negative,Half Gravid
+S06 00016,2018-03-21,Village 3,negative,negative,Blood Fed
+S05 00017,2018-03-21,Village 3,negative,negative,Gravid
+K10 00009,2018-03-26,Village 1,negative,negative,Half Gravid
+K07 00018,2018-03-26,Village 1,negative,negative,Half Gravid
+K14 00043,2018-03-26,Village 1,positive,negative,Blood Fed
+M16 00019,2018-03-27,Village 2,negative,negative,Blood Fed
+M16 00020,2018-03-27,Village 2,negative,negative,Half Gravid
+M01 00057,2018-03-27,Village 2,negative,negative,Blood Fed
+M05 00026,2018-03-27,Village 2,negative,negative,Half Gravid
+S06 00017,2018-03-28,Village 3,negative,negative,Half Gravid
+M01 00058,2018-04-03,Village 2,NA,negative,Half Gravid
+M09 00088,2018-04-03,Village 2,negative,negative,Half Gravid
+M09 00089,2018-04-03,Village 2,negative,negative,Gravid
+M16 00021,2018-04-03,Village 2,negative,negative,Blood Fed
+M03 00029,2018-04-03,Village 2,negative,negative,Unfed
+M03 00030,2018-04-03,Village 2,negative,negative,Unfed
+S02 00016,2018-04-04,Village 3,negative,negative,Blood Fed
+S11 00005,2018-04-04,Village 3,negative,negative,Half Gravid
+S09 00005,2018-04-04,Village 3,negative,negative,Blood Fed
+S09 00006,2018-04-04,Village 3,negative,negative,Half Gravid
+S01 00020,2018-04-04,Village 3,negative,negative,Blood Fed
+S01 00021,2018-04-04,Village 3,negative,negative,Half Gravid
+S10 00016,2018-04-04,Village 3,negative,negative,Half Gravid
+S08 00006,2018-04-04,Village 3,negative,negative,Half Gravid
+K13 00020,2018-04-05,Village 1,negative,negative,Half Gravid
+M06 00049,2018-04-10,Village 2,negative,negative,Blood Fed
+M16 00022,2018-04-10,Village 2,positive,positive,Half Gravid
+M04 00035,2018-04-10,Village 2,negative,negative,Gravid
+M15 00068,2018-04-10,Village 2,negative,positive,Blood Fed
+M07 00146,2018-04-10,Village 2,negative,negative,Half Gravid
+M07 00147,2018-04-10,Village 2,negative,negative,Half Gravid
+M03 00031,2018-04-10,Village 2,negative,negative,Gravid
+M09 00090,2018-04-10,Village 2,negative,negative,Blood Fed
+S01 00023,2018-04-11,Village 3,negative,negative,Half Gravid
+S01 00022,2018-04-11,Village 3,negative,negative,Gravid
+S06 00018,2018-04-11,Village 3,negative,negative,Gravid
+S04 00021,2018-04-11,Village 3,negative,negative,Half Gravid
+S04 00022,2018-04-11,Village 3,negative,negative,Half Gravid
+S02 00017,2018-04-11,Village 3,negative,negative,Half Gravid
+K05 00030,2018-04-16,Village 1,negative,negative,Gravid
+K02 00029,2018-04-16,Village 1,negative,negative,Half Gravid
+K09 00011,2018-04-16,Village 1,negative,negative,Half Gravid
+K14 00044,2018-04-16,Village 1,positive,positive,Blood Fed
+M16 00023,2018-04-17,Village 2,positive,positive,Half Gravid
+M16 00024,2018-04-17,Village 2,positive,positive,Blood Fed
+M16 00025,2018-04-17,Village 2,negative,negative,Blood Fed
+M16 00026,2018-04-17,Village 2,negative,negative,Blood Fed
+M16 00027,2018-04-17,Village 2,negative,negative,Blood Fed
+M16 00028,2018-04-17,Village 2,positive,positive,Blood Fed
+M16 00029,2018-04-17,Village 2,positive,negative,Blood Fed
+M16 00030,2018-04-17,Village 2,negative,negative,Blood Fed
+M16 00031,2018-04-17,Village 2,negative,negative,Gravid
+M09 00091,2018-04-17,Village 2,negative,negative,Blood Fed
+M13 00048,2018-04-17,Village 2,negative,negative,Half Gravid
+M13 00049,2018-04-17,Village 2,negative,negative,Gravid
+M05 00027,2018-04-17,Village 2,negative,negative,Blood Fed
+M07 00148,2018-04-17,Village 2,negative,negative,Half Gravid
+M07 00149,2018-04-17,Village 2,negative,negative,Half Gravid
+M07 00150,2018-04-17,Village 2,negative,negative,Blood Fed
+M07 00151,2018-04-17,Village 2,negative,negative,Blood Fed
+M07 00152,2018-04-17,Village 2,negative,negative,Blood Fed
+M15 00069,2018-04-17,Village 2,negative,NA,Half Gravid
+M15 00070,2018-04-17,Village 2,negative,negative,Gravid
+S04 00023,2018-04-18,Village 3,negative,negative,Blood Fed
+S04 00024,2018-04-18,Village 3,negative,negative,Blood Fed
+S13 00001,2018-04-18,Village 3,negative,negative,Half Gravid
+S13 00002,2018-04-18,Village 3,negative,negative,Half Gravid
+S03 00009,2018-04-18,Village 3,negative,negative,Half Gravid
+S03 00010,2018-04-18,Village 3,negative,negative,Half Gravid
+S01 00024,2018-04-18,Village 3,negative,negative,Blood Fed
+S07 00007,2018-04-18,Village 3,negative,negative,Unfed
+S08 00007,2018-04-18,Village 3,positive,positive,Half Gravid
+S11 00006,2018-04-18,Village 3,negative,negative,Half Gravid
+K05 00031,2018-04-23,Village 1,negative,negative,Blood Fed
+K05 00032,2018-04-23,Village 1,negative,negative,Unfed
+K04 00003,2018-04-23,Village 1,negative,negative,Unfed
+M07 00153,2018-04-24,Village 2,negative,negative,Half Gravid
+M07 00154,2018-04-24,Village 2,negative,positive,Blood Fed
+M07 00155,2018-04-24,Village 2,negative,negative,Blood Fed
+M07 00156,2018-04-24,Village 2,positive,negative,Blood Fed
+M09 00092,2018-04-24,Village 2,negative,NA,Half Gravid
+M14 00061,2018-04-24,Village 2,negative,negative,Unfed
+M14 00062,2018-04-24,Village 2,negative,negative,Gravid
+M05 00028,2018-04-24,Village 2,negative,negative,Half Gravid
+M06 00050,2018-04-24,Village 2,negative,negative,Unfed
+M01 00059,2018-04-24,Village 2,negative,negative,Half Gravid
+S04 00025,2018-04-25,Village 3,NA,negative,Blood Fed
+S04 00026,2018-04-25,Village 3,negative,negative,Half Gravid
+S13 00003,2018-04-25,Village 3,negative,negative,Half Gravid
+S13 00004,2018-04-25,Village 3,negative,negative,Unfed
+S02 00018,2018-04-25,Village 3,negative,negative,Blood Fed
+S01 00025,2018-04-25,Village 3,negative,negative,Gravid
+K13 00022,2018-04-30,Village 1,positive,positive,Gravid
+K13 00021,2018-04-30,Village 1,negative,negative,Half Gravid
+K03 00012,2018-04-30,Village 1,negative,negative,Unfed
+K03 00013,2018-04-30,Village 1,negative,negative,Half Gravid
+K14 00045,2018-04-30,Village 1,negative,negative,Blood Fed
+K04 00005,2018-04-30,Village 1,positive,positive,Half Gravid
+S02 00019,2018-05-02,Village 3,negative,negative,Gravid
+S01 00026,2018-05-02,Village 3,NA,positive,Gravid
+S04 00027,2018-05-02,Village 3,negative,negative,Blood Fed
+S04 00028,2018-05-02,Village 3,negative,negative,Blood Fed
+S04 00029,2018-05-02,Village 3,negative,positive,Half Gravid
+S04 00030,2018-05-02,Village 3,negative,negative,Gravid
+S04 00031,2018-05-02,Village 3,negative,negative,Gravid
+M05 00029,2018-05-03,Village 2,negative,negative,Blood Fed
+M05 00030,2018-05-03,Village 2,NA,negative,Blood Fed
+M05 00031,2018-05-03,Village 2,negative,negative,Gravid
+M05 00032,2018-05-03,Village 2,negative,negative,Blood Fed
+M09 00093,2018-05-03,Village 2,negative,negative,Blood Fed
+M09 00094,2018-05-03,Village 2,negative,negative,Half Gravid
+M09 00095,2018-05-03,Village 2,negative,positive,Blood Fed
+M09 00096,2018-05-03,Village 2,negative,negative,Blood Fed
+M09 00097,2018-05-03,Village 2,negative,negative,Half Gravid
+M09 00098,2018-05-03,Village 2,negative,negative,Unfed
+M09 00099,2018-05-03,Village 2,negative,negative,Gravid
+M09 00100,2018-05-03,Village 2,negative,negative,Gravid
+M09 00101,2018-05-03,Village 2,negative,negative,Gravid
+M09 00102,2018-05-03,Village 2,negative,negative,Gravid
+M09 00103,2018-05-03,Village 2,positive,positive,Gravid
+M07 00157,2018-05-03,Village 2,negative,negative,Half Gravid
+M07 00158,2018-05-03,Village 2,negative,negative,Half Gravid
+M07 00159,2018-05-03,Village 2,negative,negative,Blood Fed
+M07 00160,2018-05-03,Village 2,negative,negative,Half Gravid
+M07 00161,2018-05-03,Village 2,negative,negative,Unfed
+M15 00071,2018-05-03,Village 2,negative,negative,Half Gravid
+M01 00060,2018-05-03,Village 2,negative,negative,Half Gravid
+M01 00061,2018-05-03,Village 2,negative,negative,Gravid
+M01 00062,2018-05-03,Village 2,negative,negative,Unfed
+M13 00050,2018-05-03,Village 2,negative,negative,Half Gravid
+K12 00021,2018-05-07,Village 1,negative,negative,Unfed
+K14 00046,2018-05-07,Village 1,positive,positive,Blood Fed
+K13 00023,2018-05-07,Village 1,negative,negative,Gravid
+K13 00024,2018-05-07,Village 1,negative,negative,Gravid
+K09 00012,2018-05-07,Village 1,negative,negative,Gravid
+K03 00014,2018-05-07,Village 1,negative,negative,Half Gravid
+K10 00010,2018-05-07,Village 1,negative,negative,Half Gravid
+M01 00063,2018-05-08,Village 2,negative,negative,Half Gravid
+M01 00064,2018-05-08,Village 2,negative,negative,Gravid
+M05 00033,2018-05-08,Village 2,positive,positive,Blood Fed
+M05 00034,2018-05-08,Village 2,negative,negative,Gravid
+M09 00104,2018-05-08,Village 2,negative,negative,Half Gravid
+M09 00105,2018-05-08,Village 2,negative,negative,Blood Fed
+M09 00106,2018-05-08,Village 2,negative,negative,Gravid
+M09 00107,2018-05-08,Village 2,negative,negative,Blood Fed
+M09 00108,2018-05-08,Village 2,positive,positive,Gravid
+M09 00109,2018-05-08,Village 2,negative,negative,Half Gravid
+M09 00110,2018-05-08,Village 2,negative,negative,Blood Fed
+M09 00111,2018-05-08,Village 2,negative,negative,Blood Fed
+M13 00051,2018-05-08,Village 2,negative,negative,Blood Fed
+M13 00052,2018-05-08,Village 2,negative,negative,Blood Fed
+M13 00053,2018-05-08,Village 2,negative,negative,Unfed
+M06 00051,2018-05-08,Village 2,negative,negative,Gravid
+M06 00052,2018-05-08,Village 2,negative,negative,Unfed
+M07 00162,2018-05-08,Village 2,negative,negative,Gravid
+M07 00163,2018-05-08,Village 2,negative,negative,Half Gravid
+M07 00164,2018-05-08,Village 2,negative,negative,Unfed
+M16 00032,2018-05-08,Village 2,positive,positive,Gravid
+S02 00020,2018-05-09,Village 3,negative,negative,Gravid
+S04 00032,2018-05-09,Village 3,negative,negative,Gravid
+S08 00008,2018-05-09,Village 3,negative,negative,Gravid
+S07 00008,2018-05-09,Village 3,NA,negative,Un-identified
+S01 00027,2018-05-09,Village 3,negative,negative,Blood Fed
+S01 00028,2018-05-09,Village 3,negative,negative,Half Gravid
+S01 00029,2018-05-09,Village 3,negative,negative,Unfed
+K01 00063,2018-05-14,Village 1,negative,negative,Unfed
+K02 00008,2018-05-14,Village 1,negative,negative,Half Gravid
+K02 00009,2018-05-14,Village 1,negative,negative,Unfed
+K14 00047,2018-05-14,Village 1,negative,negative,Unfed
+K05 00033,2018-05-14,Village 1,negative,negative,Blood Fed
+K05 00034,2018-05-14,Village 1,NA,negative,Un-identified
+K12 00022,2018-05-14,Village 1,negative,negative,Blood Fed
+K07 00019,2018-05-14,Village 1,negative,negative,Unfed
+K07 00020,2018-05-14,Village 1,negative,negative,Blood Fed
+K13 00025,2018-05-14,Village 1,negative,negative,Unfed
+M05 00035,2018-05-15,Village 2,negative,negative,Gravid
+M05 00036,2018-05-15,Village 2,negative,positive,Half Gravid
+M07 00165,2018-05-15,Village 2,negative,negative,Half Gravid
+M07 00166,2018-05-15,Village 2,negative,negative,Blood Fed
+M07 00167,2018-05-15,Village 2,negative,negative,Blood Fed
+M07 00168,2018-05-15,Village 2,negative,negative,Half Gravid
+M07 00169,2018-05-15,Village 2,negative,negative,Half Gravid
+M07 00170,2018-05-15,Village 2,negative,negative,Blood Fed
+M07 00171,2018-05-15,Village 2,negative,negative,Half Gravid
+M07 00172,2018-05-15,Village 2,negative,negative,Gravid
+M07 00173,2018-05-15,Village 2,negative,negative,Half Gravid
+M07 00174,2018-05-15,Village 2,negative,negative,Un-identified
+M01 00065,2018-05-15,Village 2,negative,negative,Half Gravid
+M13 00054,2018-05-15,Village 2,negative,negative,Unfed
+M15 00073,2018-05-15,Village 2,negative,negative,Half Gravid
+M14 00063,2018-05-15,Village 2,NA,negative,Half Gravid
+M14 00064,2018-05-15,Village 2,negative,negative,Gravid
+M14 00065,2018-05-15,Village 2,negative,negative,Gravid
+M14 00066,2018-05-15,Village 2,negative,negative,Gravid
+M14 00067,2018-05-15,Village 2,negative,negative,Gravid
+M09 00112,2018-05-15,Village 2,negative,negative,Blood Fed
+M09 00113,2018-05-15,Village 2,negative,negative,Blood Fed
+M09 00114,2018-05-15,Village 2,negative,negative,Half Gravid
+M09 00115,2018-05-15,Village 2,negative,negative,Unfed
+M03 00032,2018-05-15,Village 2,negative,negative,Half Gravid
+M06 00053,2018-05-15,Village 2,negative,negative,Gravid
+S10 00017,2018-05-16,Village 3,negative,negative,Unfed
+S06 00019,2018-05-16,Village 3,negative,negative,Half Gravid
+S06 00020,2018-05-16,Village 3,negative,NA,Unfed
+S03 00011,2018-05-16,Village 3,negative,negative,Half Gravid
+K14 00048,2018-05-21,Village 1,negative,negative,Gravid
+K13 00026,2018-05-21,Village 1,negative,negative,Gravid
+K05 00035,2018-05-21,Village 1,negative,negative,Blood Fed
+K04 00002,2018-05-21,Village 1,negative,NA,Unfed
+K10 00011,2018-05-21,Village 1,negative,negative,Half Gravid
+K10 00012,2018-05-21,Village 1,negative,negative,Unfed
+K07 00021,2018-05-21,Village 1,negative,negative,Blood Fed
+K07 00022,2018-05-21,Village 1,negative,negative,Gravid
+K07 00023,2018-05-21,Village 1,negative,negative,Half Gravid
+K07 00024,2018-05-21,Village 1,NA,negative,Unfed
+K07 00025,2018-05-21,Village 1,negative,negative,Unfed
+K07 00026,2018-05-21,Village 1,negative,negative,Half Gravid
+K07 00027,2018-05-21,Village 1,negative,negative,Half Gravid
+K03 00015,2018-05-21,Village 1,negative,negative,Half Gravid
+K03 00016,2018-05-21,Village 1,negative,negative,Unfed
+M03 00033,2018-05-22,Village 2,negative,NA,Half Gravid
+M06 00054,2018-05-22,Village 2,negative,negative,Gravid
+M16 00033,2018-05-22,Village 2,negative,negative,Half Gravid
+M16 00034,2018-05-22,Village 2,negative,negative,Half Gravid
+M16 00035,2018-05-22,Village 2,negative,negative,Blood Fed
+M16 00036,2018-05-22,Village 2,negative,negative,Blood Fed
+M04 00036,2018-05-22,Village 2,negative,negative,Blood Fed
+M07 00175,2018-05-22,Village 2,negative,negative,Half Gravid
+M07 00176,2018-05-22,Village 2,positive,negative,Half Gravid
+M07 00177,2018-05-22,Village 2,negative,negative,Blood Fed
+M07 00178,2018-05-22,Village 2,negative,negative,Gravid
+M07 00179,2018-05-22,Village 2,negative,negative,Half Gravid
+M07 00180,2018-05-22,Village 2,negative,negative,Blood Fed
+M07 00181,2018-05-22,Village 2,negative,negative,Unfed
+M07 00182,2018-05-22,Village 2,negative,negative,Gravid
+M07 00183,2018-05-22,Village 2,negative,negative,Half Gravid
+M07 00184,2018-05-22,Village 2,negative,negative,Gravid
+M07 00185,2018-05-22,Village 2,negative,negative,Unfed
+M07 00186,2018-05-22,Village 2,negative,negative,Unfed
+M07 00187,2018-05-22,Village 2,negative,negative,Half Gravid
+M07 00188,2018-05-22,Village 2,negative,negative,Half Gravid
+M07 00189,2018-05-22,Village 2,negative,negative,Half Gravid
+M05 00037,2018-05-22,Village 2,positive,positive,Blood Fed
+S01 00030,2018-05-23,Village 3,negative,negative,Blood Fed
+S06 00021,2018-05-23,Village 3,negative,negative,Half Gravid
+S10 00018,2018-05-23,Village 3,negative,negative,Blood Fed
+S04 00033,2018-05-23,Village 3,positive,positive,Half Gravid
+K11 00009,2018-05-28,Village 1,negative,negative,Unfed
+K01 00064,2018-05-28,Village 1,negative,negative,Blood Fed
+K03 00017,2018-05-28,Village 1,negative,negative,Unfed
+K03 00018,2018-05-28,Village 1,negative,negative,Blood Fed
+K13 00027,2018-05-28,Village 1,negative,negative,Blood Fed
+K13 00028,2018-05-28,Village 1,negative,negative,Half Gravid
+K02 00010,2018-05-28,Village 1,negative,negative,Gravid
+K07 00028,2018-05-28,Village 1,negative,negative,Blood Fed
+K07 00029,2018-05-28,Village 1,negative,negative,Unfed
+K07 00030,2018-05-28,Village 1,negative,negative,Unfed
+K07 00031,2018-05-28,Village 1,negative,negative,Unfed
+K07 00032,2018-05-28,Village 1,negative,negative,Gravid
+K07 00033,2018-05-28,Village 1,negative,negative,Unfed
+K07 00034,2018-05-28,Village 1,negative,negative,Unfed
+M01 00066,2018-05-29,Village 2,negative,negative,Blood Fed
+M16 00037,2018-05-29,Village 2,negative,negative,Unfed
+M16 00038,2018-05-29,Village 2,negative,negative,Blood Fed
+M09 00116,2018-05-29,Village 2,negative,negative,Gravid
+M07 00190,2018-05-29,Village 2,negative,negative,Half Gravid
+M12 00013,2018-05-29,Village 2,positive,negative,Half Gravid
+M12 00014,2018-05-29,Village 2,negative,negative,Unfed
+M14 00068,2018-05-29,Village 2,negative,NA,Half Gravid
+M14 00069,2018-05-29,Village 2,negative,negative,Half Gravid
+M15 00072,2018-05-29,Village 2,negative,negative,Blood Fed
+M15 00074,2018-05-29,Village 2,negative,negative,Blood Fed
+M15 00075,2018-05-29,Village 2,negative,negative,Half Gravid
+M15 00076,2018-05-29,Village 2,negative,negative,Half Gravid
+M15 00077,2018-05-29,Village 2,negative,negative,Gravid
+M15 00078,2018-05-29,Village 2,negative,negative,Blood Fed
+M15 00079,2018-05-29,Village 2,negative,positive,Unfed
+M15 00080,2018-05-29,Village 2,negative,negative,Half Gravid
+S01 00031,2018-05-30,Village 3,negative,negative,Half Gravid
+S01 00032,2018-05-30,Village 3,positive,positive,Blood Fed
+S01 00033,2018-05-30,Village 3,negative,NA,Blood Fed
+S01 00034,2018-05-30,Village 3,negative,negative,Blood Fed
+S01 00035,2018-05-30,Village 3,negative,negative,Half Gravid
+S07 00009,2018-05-30,Village 3,negative,negative,Unfed
+S05 00018,2018-05-30,Village 3,negative,negative,Blood Fed
+S05 00019,2018-05-30,Village 3,negative,negative,Blood Fed
+S09 00007,2018-05-30,Village 3,negative,negative,Gravid
+K02 00011,2018-06-04,Village 1,negative,negative,Half Gravid
+K02 00012,2018-06-04,Village 1,negative,negative,Blood Fed
+K02 00013,2018-06-04,Village 1,negative,negative,Unfed
+K04 00007,2018-06-04,Village 1,negative,negative,Unfed
+K04 00008,2018-06-04,Village 1,negative,negative,Unfed
+K04 00006,2018-06-04,Village 1,negative,negative,Half Gravid
+K11 00010,2018-06-04,Village 1,negative,negative,Half Gravid
+K11 00011,2018-06-04,Village 1,negative,negative,Half Gravid
+K10 00013,2018-06-04,Village 1,negative,negative,Half Gravid
+K10 00014,2018-06-04,Village 1,negative,negative,Blood Fed
+K10 00015,2018-06-04,Village 1,negative,negative,Unfed
+K10 00016,2018-06-04,Village 1,negative,negative,Unfed
+K07 00035,2018-06-04,Village 1,negative,negative,Blood Fed
+K07 00036,2018-06-04,Village 1,negative,negative,Half Gravid
+K13 00029,2018-06-04,Village 1,negative,negative,Gravid
+K09 00013,2018-06-04,Village 1,negative,negative,Blood Fed
+K09 00014,2018-06-04,Village 1,negative,negative,Blood Fed
+K09 00015,2018-06-04,Village 1,negative,negative,Blood Fed
+K09 00016,2018-06-04,Village 1,negative,negative,Unfed
+K12 00023,2018-06-04,Village 1,negative,negative,Half Gravid
+K01 00065,2018-06-04,Village 1,negative,negative,Half Gravid
+K03 00019,2018-06-04,Village 1,negative,negative,Unfed
+K03 00020,2018-06-04,Village 1,negative,negative,Blood Fed
+M03 00034,2018-06-05,Village 2,negative,negative,Half Gravid
+M16 00039,2018-06-05,Village 2,negative,negative,Blood Fed
+M01 00067,2018-06-05,Village 2,negative,negative,Half Gravid
+M01 00068,2018-06-05,Village 2,negative,negative,Half Gravid
+M01 00069,2018-06-05,Village 2,negative,negative,Blood Fed
+M14 00070,2018-06-05,Village 2,positive,positive,Blood Fed
+M12 00015,2018-06-05,Village 2,negative,negative,Half Gravid
+M06 00055,2018-06-05,Village 2,negative,negative,Blood Fed
+M06 00056,2018-06-05,Village 2,negative,negative,Blood Fed
+M06 00057,2018-06-05,Village 2,negative,negative,Half Gravid
+M06 00058,2018-06-05,Village 2,negative,negative,Unfed
+M05 00038,2018-06-05,Village 2,negative,negative,Half Gravid
+M15 00081,2018-06-05,Village 2,negative,negative,Blood Fed
+M15 00082,2018-06-05,Village 2,negative,negative,Half Gravid
+M15 00083,2018-06-05,Village 2,negative,negative,Gravid
+M15 00084,2018-06-05,Village 2,negative,negative,Half Gravid
+M15 00085,2018-06-05,Village 2,negative,negative,Blood Fed
+M15 00086,2018-06-05,Village 2,positive,negative,Half Gravid
+M15 00087,2018-06-05,Village 2,negative,negative,Blood Fed
+M15 00088,2018-06-05,Village 2,negative,negative,Half Gravid
+S05 00020,2018-06-06,Village 3,negative,negative,Half Gravid
+S05 00021,2018-06-06,Village 3,negative,negative,Unfed
+S01 00036,2018-06-06,Village 3,positive,negative,Half Gravid
+S01 00037,2018-06-06,Village 3,negative,negative,Half Gravid
+S01 00038,2018-06-06,Village 3,negative,negative,Blood Fed
+S01 00039,2018-06-06,Village 3,negative,negative,Half Gravid
+S01 00040,2018-06-06,Village 3,negative,negative,Half Gravid
+S01 00041,2018-06-06,Village 3,negative,negative,Half Gravid
+S11 00007,2018-06-06,Village 3,negative,negative,Half Gravid
+S08 00009,2018-06-06,Village 3,negative,negative,Unfed
+S08 00010,2018-06-06,Village 3,negative,negative,Half Gravid
+S06 00022,2018-06-06,Village 3,negative,positive,Half Gravid
+S09 00008,2018-06-06,Village 3,negative,negative,Half Gravid
+K07 00037,2018-06-11,Village 1,negative,negative,Blood Fed
+K07 00038,2018-06-11,Village 1,negative,negative,Unfed
+K07 00039,2018-06-11,Village 1,negative,negative,Gravid
+K07 00040,2018-06-11,Village 1,negative,negative,Unfed
+K10 00017,2018-06-11,Village 1,negative,negative,Unfed
+K10 00018,2018-06-11,Village 1,negative,negative,Blood Fed
+K03 00021,2018-06-11,Village 1,negative,negative,Unfed
+K01 00066,2018-06-11,Village 1,negative,negative,Blood Fed
+K02 00014,2018-06-11,Village 1,negative,negative,Unfed
+K13 00030,2018-06-11,Village 1,negative,negative,Half Gravid
+K13 00031,2018-06-11,Village 1,negative,negative,Half Gravid
+K05 00036,2018-06-11,Village 1,negative,negative,Blood Fed
+K05 00037,2018-06-11,Village 1,negative,negative,Unfed
+K09 00017,2018-06-11,Village 1,negative,negative,Gravid
+K09 00018,2018-06-11,Village 1,negative,negative,Unfed
+K09 00019,2018-06-11,Village 1,negative,negative,Unfed
+K12 00024,2018-06-11,Village 1,negative,negative,Half Gravid
+K12 00025,2018-06-11,Village 1,negative,negative,Half Gravid
+K12 00026,2018-06-11,Village 1,negative,negative,Half Gravid
+K12 00027,2018-06-11,Village 1,negative,negative,Gravid
+M07 00191,2018-06-12,Village 2,negative,negative,Half Gravid
+M01 00070,2018-06-12,Village 2,negative,negative,Blood Fed
+M01 00071,2018-06-12,Village 2,negative,negative,Blood Fed
+M01 00072,2018-06-12,Village 2,negative,negative,Blood Fed
+M01 00073,2018-06-12,Village 2,negative,negative,Blood Fed
+M15 00089,2018-06-12,Village 2,positive,positive,Blood Fed
+M15 00090,2018-06-12,Village 2,negative,positive,Blood Fed
+M15 00091,2018-06-12,Village 2,positive,negative,Half Gravid
+M13 00055,2018-06-12,Village 2,negative,negative,Half Gravid
+S08 00011,2018-06-13,Village 3,negative,negative,Blood Fed
+S04 00034,2018-06-13,Village 3,negative,positive,Half Gravid
+S04 00035,2018-06-13,Village 3,negative,positive,Blood Fed
+K12 00028,2018-06-18,Village 1,negative,negative,Gravid
+K12 00029,2018-06-18,Village 1,negative,negative,Gravid
+K05 00038,2018-06-18,Village 1,negative,negative,Un-identified
+K02 00015,2018-06-18,Village 1,negative,negative,Blood Fed
+K07 00041,2018-06-18,Village 1,negative,negative,Half Gravid
+K07 00042,2018-06-18,Village 1,negative,negative,Half Gravid
+K07 00043,2018-06-18,Village 1,negative,negative,Unfed
+K10 00019,2018-06-18,Village 1,negative,negative,Half Gravid
+K10 00020,2018-06-18,Village 1,negative,negative,Unfed
+K10 00021,2018-06-18,Village 1,negative,negative,Half Gravid
+M15 00092,2018-06-19,Village 2,negative,negative,Gravid
+M15 00093,2018-06-19,Village 2,negative,positive,Half Gravid
+M03 00035,2018-06-19,Village 2,negative,negative,Half Gravid
+M03 00036,2018-06-19,Village 2,negative,negative,Unfed
+M12 00016,2018-06-19,Village 2,negative,negative,Gravid
+M01 00074,2018-06-19,Village 2,negative,negative,Blood Fed
+M01 00075,2018-06-19,Village 2,negative,negative,Half Gravid
+M01 00076,2018-06-19,Village 2,negative,negative,Half Gravid
+M04 00037,2018-06-19,Village 2,negative,negative,Half Gravid
+M04 00038,2018-06-19,Village 2,negative,negative,Gravid
+S06 00023,2018-06-20,Village 3,negative,negative,Blood Fed
+S02 00021,2018-06-20,Village 3,negative,negative,Gravid
+S05 00022,2018-06-20,Village 3,negative,negative,Unfed
+S01 00042,2018-06-20,Village 3,negative,negative,Blood Fed
+S01 00043,2018-06-20,Village 3,positive,negative,Blood Fed
+S11 00008,2018-06-20,Village 3,negative,negative,Half Gravid
+K10 00022,2018-06-25,Village 1,negative,negative,Blood Fed
+K14 00050,2018-06-25,Village 1,negative,negative,Unfed
+K14 00049,2018-06-25,Village 1,negative,negative,Gravid
+K11 00012,2018-06-25,Village 1,negative,negative,Blood Fed
+K07 00044,2018-06-25,Village 1,negative,negative,Half Gravid
+K07 00045,2018-06-25,Village 1,negative,negative,Half Gravid
+K07 00046,2018-06-25,Village 1,negative,negative,Half Gravid
+K04 00009,2018-06-25,Village 1,negative,negative,Gravid
+K12 00030,2018-06-25,Village 1,negative,negative,Blood Fed
+K12 00031,2018-06-25,Village 1,negative,negative,Blood Fed
+K12 00032,2018-06-25,Village 1,negative,negative,Blood Fed
+K12 00033,2018-06-25,Village 1,negative,negative,Half Gravid
+K13 00032,2018-06-25,Village 1,negative,negative,Unfed
+M12 00018,2018-06-26,Village 2,negative,negative,Blood Fed
+M06 00059,2018-06-26,Village 2,negative,negative,Half Gravid
+M06 00060,2018-06-26,Village 2,negative,negative,Half Gravid
+M07 00192,2018-06-26,Village 2,negative,negative,Blood Fed
+M05 00039,2018-06-26,Village 2,positive,negative,Half Gravid
+M03 00037,2018-06-26,Village 2,negative,negative,Half Gravid
+M16 00040,2018-06-26,Village 2,negative,negative,Unfed
+M15 00094,2018-06-26,Village 2,negative,positive,Blood Fed
+M01 00077,2018-06-26,Village 2,negative,negative,Unfed
+S02 00022,2018-06-27,Village 3,negative,negative,Gravid
+S05 00023,2018-06-27,Village 3,negative,negative,Blood Fed
+S04 00036,2018-06-27,Village 3,negative,negative,Unfed
+S01 00044,2018-06-27,Village 3,negative,negative,Half Gravid
+K14 00075,2018-07-02,Village 1,negative,negative,Half Gravid
+K14 00076,2018-07-02,Village 1,negative,negative,Unfed
+K03 00022,2018-07-02,Village 1,negative,positive,Blood Fed
+K03 00023,2018-07-02,Village 1,negative,negative,Blood Fed
+K10 00023,2018-07-02,Village 1,negative,negative,Blood Fed
+K10 00024,2018-07-02,Village 1,negative,negative,Unfed
+K09 00020,2018-07-02,Village 1,negative,NA,Half Gravid
+K12 00034,2018-07-02,Village 1,negative,negative,Half Gravid
+K12 00035,2018-07-02,Village 1,negative,negative,Half Gravid
+K05 00039,2018-07-02,Village 1,negative,negative,Gravid
+K05 00040,2018-07-02,Village 1,negative,negative,Gravid
+K05 00041,2018-07-02,Village 1,negative,negative,Blood Fed
+K05 00042,2018-07-02,Village 1,negative,negative,Half Gravid
+K02 00016,2018-07-02,Village 1,negative,negative,Unfed
+K07 00047,2018-07-02,Village 1,negative,negative,Blood Fed
+K07 00048,2018-07-02,Village 1,negative,negative,Gravid
+K07 00049,2018-07-02,Village 1,positive,negative,Blood Fed
+M05 00040,2018-07-03,Village 2,negative,negative,Unfed
+M07 00193,2018-07-03,Village 2,negative,negative,Half Gravid
+M14 00071,2018-07-03,Village 2,negative,negative,Half Gravid
+M13 00056,2018-07-03,Village 2,negative,negative,Half Gravid
+M16 00051,2018-07-03,Village 2,negative,negative,Unfed
+S05 00024,2018-07-04,Village 3,negative,negative,Half Gravid
+S06 00024,2018-07-04,Village 3,negative,negative,Gravid
+K14 00051,2018-07-09,Village 1,negative,negative,Half Gravid
+K07 00050,2018-07-09,Village 1,negative,negative,Unfed
+K05 00043,2018-07-09,Village 1,negative,negative,Gravid
+K02 00017,2018-07-09,Village 1,negative,negative,Half Gravid
+M14 00072,2018-07-10,Village 2,negative,negative,Unfed
+M13 00057,2018-07-10,Village 2,negative,negative,Blood Fed
+S05 00025,2018-07-11,Village 3,negative,negative,Blood Fed
+S01 00045,2018-07-11,Village 3,positive,negative,Blood Fed
+S08 00012,2018-07-11,Village 3,negative,negative,Half Gravid
+K03 00024,2018-07-16,Village 1,negative,negative,Half Gravid
+K02 00018,2018-07-16,Village 1,negative,negative,Half Gravid
+K01 00067,2018-07-16,Village 1,negative,negative,Unfed
+K01 00071,2018-07-16,Village 1,negative,negative,Half Gravid
+K01 00072,2018-07-16,Village 1,negative,negative,Half Gravid
+K07 00051,2018-07-16,Village 1,negative,negative,Blood Fed
+M16 00052,2018-07-17,Village 2,negative,negative,Blood Fed
+M05 00041,2018-07-17,Village 2,negative,negative,Blood Fed
+M05 00042,2018-07-17,Village 2,negative,negative,Unfed
+M07 00194,2018-07-17,Village 2,negative,negative,Half Gravid
+M07 00195,2018-07-17,Village 2,negative,negative,Half Gravid
+M07 00196,2018-07-17,Village 2,negative,negative,Half Gravid
+M06 00061,2018-07-17,Village 2,negative,negative,Blood Fed
+M06 00062,2018-07-17,Village 2,negative,negative,Unfed
+M15 00095,2018-07-17,Village 2,negative,negative,Half Gravid
+M01 00078,2018-07-17,Village 2,negative,negative,Unfed
+S02 00023,2018-07-18,Village 3,NA,negative,Half Gravid
+S08 00013,2018-07-18,Village 3,negative,negative,Half Gravid
+K05 00044,2018-07-23,Village 1,negative,negative,Half Gravid
+K05 00045,2018-07-23,Village 1,negative,negative,Half Gravid
+M03 00038,2018-07-24,Village 2,negative,negative,Unfed
+M14 00073,2018-07-24,Village 2,negative,negative,Half Gravid
+M14 00074,2018-07-24,Village 2,negative,negative,Blood Fed
+M05 00043,2018-07-24,Village 2,negative,negative,Half Gravid
+M07 00197,2018-07-24,Village 2,negative,negative,Blood Fed
+M07 00198,2018-07-24,Village 2,negative,negative,Blood Fed
+K05 00046,2018-07-30,Village 1,negative,negative,Blood Fed
+K05 00047,2018-07-30,Village 1,negative,negative,Unfed
+K03 00025,2018-07-30,Village 1,negative,negative,Blood Fed
+K03 00026,2018-07-30,Village 1,negative,negative,Half Gravid
+K02 00019,2018-07-30,Village 1,negative,negative,Half Gravid
+K02 00020,2018-07-30,Village 1,negative,negative,Blood Fed
