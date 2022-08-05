@@ -28,11 +28,18 @@ theme_set(theme_bw() +
             theme(text = element_text(size = 15),
                   strip.background = element_rect(fill = 'white', color = 'white')))
 
+# set seed for reproducibility
+set.seed(0)
+
 # mosquito pcr data
 mosq_dat <- read_csv('data/mosquito-pcr-data.csv')
 
 # human pcr data
-human_dat <- read_csv('data/human-pcr-data.csv') %>% mutate(sample_type = 'Human')
+human_dat <- read_csv('data/human-pcr-data.csv') %>% mutate(sample_type = 'Human') %>% 
+  mutate(inf_type = ifelse(pf_pcr_infection_status == 'positive' & had_at_least_1_symptom == 'yes',
+                           'symptomatic', NA),
+         inf_type = ifelse(pf_pcr_infection_status == 'positive' & had_at_least_1_symptom == 'no',
+                           'asymptomatic', inf_type))
 
 # haplotype reads
 ama_reads <- read_csv('data/ama-reads.csv') %>% select(-haplotype) %>% data.frame()
@@ -70,12 +77,19 @@ pcr_results <- bind_rows(human_dat,
          pcr_seq = paste(pf_pcr_infection_status, seq),
          seq = factor(seq, levels = c('neither', 'ama only', 'csp only', 'both'))) 
 
+# add human data to haplotype summary
+csp_haplotype_summary <- csp_haplotype_summary %>% 
+  left_join(human_dat)
+ama_haplotype_summary <- ama_haplotype_summary %>% 
+  left_join(human_dat)
+
 # create combined version of dataset
 all_haps_summary <- bind_rows(csp_haplotype_summary %>% 
                                 mutate(marker='*csp*', haplotype_list = gsub('H','csp_H',haplotype_list)), 
                               ama_haplotype_summary %>% 
                                 mutate(marker='*ama1*', haplotype_list = gsub('H','ama_H',haplotype_list))) %>% 
-  mutate(hh_id = gsub(' .*|-.*', '', sample_name_dbs)) %>% 
+  mutate(hh_id = gsub(' .*|-.*', '', sample_name_dbs),
+         month = gsub('-..$', '', date)) %>% 
   filter(sample_name_dbs %in% pcr_results$sample_name_dbs[pcr_results$pf_pcr_infection_status == 'Positive']) # only keep ones that were pcr+
 
 all_haps_long <- all_haps_summary %>% 
@@ -102,7 +116,6 @@ pop_prev <- bind_rows(all_haps_summary, all_haps_summary %>% filter(sample_type 
     unique() %>% 
     group_by(sample_type, marker) 
 
-set.seed(0)
 pop_prev_boot <- lapply(1:100, function(x){
   bind_rows(all_haps_summary, all_haps_summary %>% filter(sample_type != 'Human') %>% mutate(sample_type = 'Mosquito')) %>% 
     group_by(sample_type, marker) %>%
@@ -226,15 +239,19 @@ ah_ama <- all_haps_summary %>% filter(sample_type != 'Human') %>%
   filter(marker == '*ama1*') %>% 
   pivot_wider(names_from = sample_type, values_from = haplotype_list) 
 
-ah_pairs <- bind_rows(ah_csp, ah_ama) %>% filter(!is.na(Abdomen) & !is.na(Head))
+ah_pairs <- bind_rows(ah_csp, ah_ama)
 
 ah_hap_cts <- sapply(1:nrow(ah_pairs), function(x){
   h <- strsplit(ah_pairs$Head, ',')[[x]]
   a <- strsplit(ah_pairs$Abdomen, ',')[[x]]
+  length_h <- length(h)
+  length_a <- length(a)
+  if(all(is.na(h))) length_h <- NA
+  if(all(is.na(a))) length_a <- NA
   marker <- ah_pairs$marker[[x]]
   sample_name_dbs <- ah_pairs$sample_name_dbs[[x]]
   c(sample_name_dbs = sample_name_dbs, marker = marker, 
-    n_abd = length(a), n_head = length(h), 
+    n_abd = length_a, n_head = length_h, 
     n_both = length(intersect(h,a)), 
     n_union = length(union(a, h)), 
     prop_both = length(intersect(h,a))/length(union(a, h)))
@@ -247,9 +264,14 @@ ah_hap_cts <- sapply(1:nrow(ah_pairs), function(x){
          prop_head_only = n_head_only/as.numeric(n_union)) %>% 
   left_join(mosq_dat, by = c(sample_name_dbs = 'sample_id_mosquito'))
 
-all_ah_hap_props <- sapply(ah_pairs$Abdomen, function(a){
+ah_hap_cts_full <- ah_hap_cts
+ah_hap_cts <- ah_hap_cts_full %>% filter(!is.na(n_abd) & !is.na(n_head)) 
+
+ah_pairs_both <- bind_rows(ah_csp, ah_ama) %>% filter(!is.na(Abdomen) & !is.na(Head))
+
+all_ah_hap_props <- sapply(ah_pairs_both$Abdomen, function(a){
   a <- strsplit(a, ',')[[1]]
-  jaccards <- sapply(ah_pairs$Head, function(h){
+  jaccards <- sapply(ah_pairs_both$Head, function(h){
     h <- strsplit(h, ',')[[1]]
     length(intersect(a, h))/length(union(a, h))
   })
@@ -271,6 +293,13 @@ mosq_pcr_summary %>%
          percent = round(count/tot*100, 1))
 ```
 
+```{r}
+all_haps_summary %>% 
+  group_by(sample_type, marker) %>% 
+  summarize(med_moi = median(haplotype_number),
+            mean_moi = mean(haplotype_number))
+```
+
 ### Figure 1: Mosquito abdomens and heads do not contain similar infections
 
 ```{r}
@@ -282,7 +311,19 @@ pcr_compare <- mosq_pcr_summary %>% ungroup() %>%
   geom_col(fill = 'grey90', col = 'grey50') + 
   geom_text(aes(y = count - c(8, 10, 8), label = count), col = 'grey15', size = 5) +
   labs(x = 'Infected parts', y = 'Number of infected\nmosquitoes') + 
+  facet_grid(~'') +
   coord_flip()
+
+abd_head_mois <- ah_hap_cts_full %>% 
+  pivot_longer(c(n_abd, n_head)) %>%
+  mutate(name = recode(name, n_abd = 'Abdomen', n_head = 'Head')) %>% 
+  ggplot(aes(x = name, y = value)) +
+  geom_boxplot()  +
+  # geom_point(aes(group = sample_name_dbs)) +
+  geom_line(aes(group = sample_name_dbs), col = 'darkgrey', alpha = 0.5) +
+  facet_grid(~marker) +
+  labs(x = 'Mosquito part\n', y = 'Multiplicity of infection') +
+  theme(strip.text = element_markdown())
 
 mosq_comp_compare <- ah_hap_cts %>% 
   group_by(marker) %>% 
@@ -297,7 +338,7 @@ mosq_comp_compare <- ah_hap_cts %>%
          marker = factor(marker, levels = c('*csp*', '*ama1*'))) %>% 
   ggplot(aes(y = marker, x = value, fill = name)) +
   geom_col() +
-  labs(y = 'Marker', x = 'Mean proportion of haplotypes in\nabdomens and heads from the same mosquito', 
+  labs(y = 'Marker', x = 'Mean proportion of haplotypes\nin each mosquito', 
        fill = 'Haplotype\npresent in:') +
   scale_fill_manual(values = (c(unname(compartment_colors['Head']), 'grey50', unname(compartment_colors['Abdomen'])))) +
   guides(fill = guide_legend(rev = TRUE)) +
@@ -324,13 +365,17 @@ mosq_pop_compare <- pop_prev_boot_summary %>%
        shape = 'Marker') +
   theme(legend.text = element_markdown())
 
-f1 <- plot_grid(pcr_compare, mosq_comp_compare, mosq_pop_compare, 
-                labels = 'AUTO',  nrow = 1, rel_widths = c(0.75, 1, 1)) 
+f1 <- plot_grid(pcr_compare, abd_head_mois, 
+                mosq_comp_compare + theme(legend.position = 'bottom', 
+                                          legend.box.margin = margin(r = 40)), 
+                mosq_pop_compare + theme(legend.position = 'bottom'),
+                labels = 'AUTO',  nrow = 2, rel_heights = c(0.8, 1)) #, rel_widths = c(1, 0.8))
 
-ggsave(plot = f1, filename = 'figures/Fig1.png', width = 13, height = 3.5)
+ggsave(plot = f1, filename = 'figures/Fig1.png', width = 8, height = 7)
 ```
 
 ### Figure S2: Summary of haplotypes found in the mosquito abdomen, mosquito head, or both compartments
+
 
 ```{r}
 mosq_hap_union <- ah_hap_cts %>% 
@@ -458,7 +503,7 @@ hap_abundance_plot <- compartments_present %>%
   ggplot(aes(x = marker, y = count, fill = compartments_present)) +
   geom_col(position = 'fill') +
   geom_text(aes(y = 1.05, label = round(n)), check_overlap = T) +
-  scale_fill_manual(values = c('Human\nonly' = host_colors['Human'], Both = '#999999', 'Mosquito\nonly' = host_colors['Mosquito']) ) +
+  scale_fill_manual(values = c('Human\nonly' = unname(host_colors['Human']), Both = '#999999', 'Mosquito\nonly' = unname(host_colors['Mosquito'])) ) +
   facet_grid(~type, scales = 'free', space = 'free') +
   labs(x = '\n', y = 'Relative haplotype abundance', fill = 'Haplotype\npresent in:') +
   theme(axis.text.x = element_markdown())
@@ -486,12 +531,11 @@ plot_rmst_tr <- function(seqs, marker){
   rmst_plot <- ggtree(mst_phylo) + 
     geom_nodepoint(aes(size = count, col = color), alpha = 0.75) +
     geom_tippoint(aes(size = count, col = color), alpha = 0.75) +
-    scale_color_manual(values = c('Human only' = host_colors['Human'], Both = '#999999', 'Mosquito only' = host_colors['Mosquito'])) +
+    scale_color_manual(values = c('Human only' = unname(host_colors['Human']), Both = '#999999', 'Mosquito only' = unname(host_colors['Mosquito']))) +
     labs(size = 'Prevalence', col = 'Haplotype\npresent in:', title = marker) +
     theme(plot.title = element_markdown(hjust = 0.1))
 }
 
-set.seed(0)
 ama_rmst <- plot_rmst_tr(ama_seqs, '*ama1*')
 csp_rmst <- plot_rmst_tr(csp_seqs, '*csp*')
 
@@ -499,7 +543,7 @@ ggsave(plot_grid(ama_rmst, csp_rmst, labels = 'AUTO'), filename = 'figures/FigS4
 ```
 
 
-### Figure 2 & S6: The mosquito _P. falciparum_ population is more diverse than the human P. falciparum population.
+### Figure 2, S6, S7: The mosquito _P. falciparum_ population is more diverse than the human _P. falciparum_ population.
 
 ```{r}
 pop_freq_plot <- pop_prev_boot_summary %>% 
@@ -603,7 +647,6 @@ ama_inc_dat <- all_haps_long %>% get_inc_dat(marker_hap = '*ama1*')
 csp_inc_dat <- all_haps_long %>% get_inc_dat(marker_hap = '*csp*') 
 
 # one sample from each person
-set.seed(0)
 all_haps_long_subsamp <- all_haps_summary %>%
   mutate(unq_memID = ifelse(is.na(unq_memID), gsub(' H| A', '', sample_name_dbs), unq_memID)) %>% 
   group_by(marker, unq_memID) %>% 
@@ -627,7 +670,6 @@ all_haps_summary_sub <- all_haps_summary %>% left_join(week_df) %>%
   mutate(min_count = min(sum(sample_type == 'Human'), sum(sample_type == 'Mosquito')),
          unq_memID = ifelse(is.na(unq_memID), gsub(' H| A', '', sample_name_dbs), unq_memID))
 
-set.seed(0)
 all_haps_sub_long <- lapply(unique(all_haps_summary_sub$marker), function(x){
   lapply(unique(all_haps_summary_sub$week), function(y){
     all_haps_summary_sub_tmp <- all_haps_summary_sub %>% filter(marker == !!x & week == y) 
@@ -636,7 +678,7 @@ all_haps_sub_long <- lapply(unique(all_haps_summary_sub$marker), function(x){
     }else if(min_count < 1){ return(NULL)
     }else{ all_haps_summary_sub_tmp %>% group_by(sample_type) %>% slice_sample(n = min_count) }
   }) %>% bind_rows() %>% mutate(marker = x)
-}) %>% bind_rows()  %>% 
+}) %>% bind_rows() %>% 
   separate_rows(haplotype_list, sep = ',') %>% 
   rename(haplotype = haplotype_list)
 
@@ -646,12 +688,43 @@ csp_inc_dat_subsamp2 <- all_haps_sub_long %>% get_inc_dat(marker_hap = '*csp*')
 # haplotypes corresponding to rows in ama_inc_dat and csp_inc_dat
 ama_inc_dat_haps <- all_haps_long %>% get_inc_dat(marker_hap = '*ama1*', return_haps = TRUE)
 csp_inc_dat_haps <- all_haps_long %>% get_inc_dat(marker_hap = '*csp*', return_haps = TRUE)
+
+# asymptomatics only
+all_haps_long_asymp <- all_haps_summary %>% 
+  mutate(sample_type = ifelse(sample_type == 'Human', 'Human', 'Mosquito')) %>%
+  filter(sample_type == 'Mosquito' | (sample_type == 'Human' & inf_type == 'asymptomatic')) %>% 
+  separate_rows(haplotype_list, sep = ',') %>% 
+  rename(haplotype = haplotype_list)
+
+ama_inc_dat_asymp <- all_haps_long_asymp %>% get_inc_dat(marker_hap = '*ama1*')
+csp_inc_dat_asymp <- all_haps_long_asymp %>% get_inc_dat(marker_hap = '*csp*')
+
+# same number of samples per host
+all_haps_long_min <- all_haps_summary %>% 
+  mutate(sample_type = ifelse(sample_type == 'Human', 'Human', 'Mosquito'),
+         unq_memID = ifelse(is.na(unq_memID), gsub(' H| A', '', sample_name_dbs), unq_memID)) %>% 
+  group_by(unq_memID) %>% 
+  sample_n(1) %>% 
+  group_by(marker, sample_type) %>% 
+  mutate(count = n()) %>% 
+  sample_n(min(count)) %>% 
+  separate_rows(haplotype_list, sep = ',') %>%
+  rename(haplotype = haplotype_list) 
+
+ama_inc_dat_min <- all_haps_long_min %>% get_inc_dat(marker_hap = '*ama1*')
+csp_inc_dat_min <- all_haps_long_min %>% get_inc_dat(marker_hap = '*csp*')
 ```
+
 
 ```{r}
 get_div <- function(dat, datatype = 'incidence_freq', nboot = 100, estimate = TRUE){
   if(estimate){ estimate3D(dat, diversity = 'TD', q = seq(0, 2, by = 0.25), datatype, base = "coverage", level = NULL, nboot = nboot)}
   else{ asy3D(dat, diversity = 'TD', q = seq(0, 2, by = 0.25), datatype, nboot = 100) }
+}
+
+get_even <- function(dat, q = c(1, 2), datatype = 'incidence_freq', 
+                         method = "Estimated", nboot = 100, conf = 0.95, E.class = 3){
+  Evenness(dat, q = q, datatype = datatype, method = method, nboot = nboot, conf = conf, E.class = E.class)
 }
 
 ama_est3D <- get_div(ama_inc_dat)
@@ -672,21 +745,49 @@ csp_est3D_both_vars <- get_div(csp_inc_dat[!csp_inc_dat_haps %in% haps_w_var_at_
 ama_asy3D <- get_div(ama_inc_dat, estimate = FALSE)
 csp_asy3D <- get_div(csp_inc_dat, estimate = FALSE)
 
+ama_est3D_asymp <- get_div(ama_inc_dat_asymp)
+csp_est3D_asymp <- get_div(csp_inc_dat_asymp)
+
+ama_est3D_min <- get_div(ama_inc_dat_min)
+csp_est3D_min <- get_div(csp_inc_dat_min)
+
+
 ama_iNEXT <- iNEXT3D(ama_inc_dat, diversity = 'TD', q = seq(0, 2, by = 0.25), 'incidence_freq', nboot = 100)
 csp_iNEXT <- iNEXT3D(csp_inc_dat, diversity = 'TD', q = seq(0, 2, by = 0.25), 'incidence_freq', nboot = 100)
 
-ama_evenness <- Evenness(ama_inc_dat, q = seq(0, 2, by = 0.25), datatype = 'incidence_freq', 
-                         method = "Estimated", nboot = 100, conf = 0.95, E.class = 3)
+ama_evenness <- get_even(ama_inc_dat)
 ama_Cmax = ama_evenness$Coverage
-csp_evenness <- Evenness(csp_inc_dat, q = seq(0, 2, by = 0.25), datatype = 'incidence_freq', 
-                         method = "Estimated", nboot = 100, conf = 0.95, E.class = 3)
+csp_evenness <- get_even(csp_inc_dat)
 csp_Cmax = csp_evenness$Coverage
+
+ama_even_subsamp <- get_even(ama_inc_dat_subsamp, method = 'Estimated')
+csp_even_subsamp <- get_even(csp_inc_dat_subsamp, method = 'Estimated')
+
+ama_even_subsamp2 <- get_even(ama_inc_dat_subsamp2, method = 'Estimated')
+csp_even_subsamp2 <- get_even(csp_inc_dat_subsamp2, method = 'Estimated')
+
+ama_even_abund <- get_even(ama_inc_dat %>% slice(-1), datatype = 'abundance', method = 'Estimated')
+csp_even_abund <- get_even(csp_inc_dat %>% slice(-1), datatype = 'abundance', method = 'Estimated')
+
+ama_even_both_vars <- get_even(ama_inc_dat[!ama_inc_dat_haps %in% haps_w_var_at_pos_in_one_host,], method = 'Estimated')
+csp_even_both_vars <- get_even(csp_inc_dat[!csp_inc_dat_haps %in% haps_w_var_at_pos_in_one_host,], method = 'Estimated')
+
+ama_even_emp <- get_even(ama_inc_dat, method = 'Empirical')
+csp_even_emp <- get_even(csp_inc_dat, method = 'Empirical')
+
+ama_even_asymp <- get_even(ama_inc_dat_asymp, method = 'Estimated')
+csp_even_asymp <- get_even(csp_inc_dat_asymp, method = 'Estimated')
+
+ama_even_min <- get_even(ama_inc_dat_min, method = 'Estimated')
+csp_even_min <- get_even(csp_inc_dat_min, method = 'Estimated')
+
 
 ama_Cmax
 csp_Cmax
 ```
 
 ```{r}
+# village sensitivity analysis
 get_inc_dat_village <- function(haps_long, marker_hap, return_haps = FALSE){
   haps_long <- haps_long %>% filter(marker == marker_hap) %>% 
     mutate(sample_type = ifelse(sample_type == 'Human', 'Human', 'Mosquito'))
@@ -709,9 +810,13 @@ csp_inc_dat_v <- all_haps_long %>% get_inc_dat_village(marker_hap = '*csp*')
 
 ama_est3D_v <- get_div(ama_inc_dat_v)
 csp_est3D_v <- get_div(csp_inc_dat_v)
+
+ama_even_v <- get_even(ama_inc_dat_v)
+csp_even_v <- get_even(csp_inc_dat_v)
 ```
 
 ```{r}
+# season sensitivity analysis
 get_inc_dat_season <- function(haps_long, marker_hap, return_haps = FALSE){
   haps_long <- haps_long %>% filter(marker == marker_hap) %>% 
     mutate(sample_type = ifelse(sample_type == 'Human', 'Human', 'Mosquito')) %>% 
@@ -738,9 +843,53 @@ csp_inc_dat_s <- all_haps_long %>% get_inc_dat_season(marker_hap = '*csp*')
 
 ama_est3D_s <- get_div(ama_inc_dat_s)
 csp_est3D_s <- get_div(csp_inc_dat_s)
+
+ama_even_s <- get_even(ama_inc_dat_s)
+csp_even_s <- get_even(csp_inc_dat_s)
 ```
 
+```{r}
+# separate mosquito abdomen and head
+ama_ah_inc <- bind_rows(all_haps_long %>% filter(marker == '*ama1*') %>% 
+  filter(sample_type != 'Human') %>% 
+  group_by(sample_type) %>% 
+  summarize(count = n_distinct(sample_name_dbs)) %>% 
+  pivot_wider(names_from = sample_type, values_from = count, values_fill = 0),
+all_haps_long %>% filter(marker == '*ama1*') %>% 
+  filter(sample_type != 'Human') %>% 
+  group_by(sample_type, haplotype) %>% 
+  summarize(count = n()) %>% 
+  pivot_wider(names_from = sample_type, values_from = count, values_fill = 0) %>% 
+  select(-haplotype)) %>% data.frame()
 
+csp_ah_inc <- bind_rows(all_haps_long %>% filter(marker == '*csp*') %>% 
+  filter(sample_type != 'Human') %>% 
+  group_by(sample_type) %>% 
+  summarize(count = n_distinct(sample_name_dbs)) %>% 
+  pivot_wider(names_from = sample_type, values_from = count, values_fill = 0),
+all_haps_long %>% filter(marker == '*csp*') %>% 
+  filter(sample_type != 'Human') %>% 
+  group_by(sample_type, haplotype) %>% 
+  summarize(count = n()) %>% 
+  pivot_wider(names_from = sample_type, values_from = count, values_fill = 0) %>% 
+  select(-haplotype)) %>% data.frame()
+
+get_div <- function(dat, datatype = 'incidence_freq', nboot = 100, estimate = TRUE){
+  if(estimate){ estimate3D(dat, diversity = 'TD', q = seq(0, 2, by = 0.25), datatype, base = "coverage", level = NULL, nboot = nboot)}
+  else{ asy3D(dat, diversity = 'TD', q = seq(0, 2, by = 0.25), datatype, nboot = 100) }
+}
+
+ama_ah_est3D <- get_div(ama_ah_inc)
+csp_ah_est3D <- get_div(csp_ah_inc)
+
+get_even <- function(dat, q = c(1, 2), datatype = 'incidence_freq', 
+                         method = "Estimated", nboot = 100, conf = 0.95, E.class = 3){
+  Evenness(dat, q = q, datatype = datatype, method = method, nboot = nboot, conf = conf, E.class = E.class)
+}
+
+ama_ah_even <- get_even(ama_ah_inc)
+csp_ah_even <- get_even(csp_ah_inc)
+```
 
 ```{r}
 diversity_plot <- bind_rows(ama_est3D %>% mutate(marker = '*ama1*'), csp_est3D %>% mutate(marker = '*csp*')) %>% 
@@ -768,6 +917,7 @@ evenness_plot <- bind_rows(ama_evenness$E3 %>% mutate(marker = '*ama1*'), csp_ev
   theme(axis.title.y = element_markdown(), strip.text.y = element_markdown()) +
   labs(x = 'Order (q)', y = 'Population-level haplotype evenness (^q E)', fill = 'Host', col = 'Host', shape = 'Marker') 
 ```
+
 
 ```{r}
 raref_dat <- bind_rows(ama_iNEXT$iNextEst$size_based %>% mutate(marker = '*ama1*'), 
@@ -804,9 +954,15 @@ diversity_plot_supp <- bind_rows(
   bind_rows(ama_est3D_both_vars %>% mutate(marker = '*ama1*'), 
             csp_est3D_both_vars %>% mutate(marker = '*csp*')) %>% 
     mutate(samp_set = 'Haplotypes with variant positions common to both hosts'),
+  bind_rows(ama_est3D_asymp %>% mutate(marker = '*ama1*'), 
+            csp_est3D_asymp %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'Excluding symptomatic human cases'),
+  bind_rows(ama_est3D_min %>% mutate(marker = '*ama1*'), 
+            csp_est3D_min %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'Same number of each'),  
   bind_rows(ama_asy3D %>% mutate(marker = '*ama1*'), 
             csp_asy3D %>% mutate(marker = '*csp*')) %>% 
-    mutate(samp_set = 'True diversity (asymptotic)') %>% 
+    mutate(samp_set = 'Full dataset (asymptotic)') %>% 
     filter(Order.q >= 1)) %>% 
     ggplot(aes(x = Order.q, y = qD, col = Assemblage, fill = Assemblage, shape = samp_set)) +
     geom_point(size = 2) +
@@ -814,10 +970,12 @@ diversity_plot_supp <- bind_rows(
     geom_ribbon(aes(ymin = qD.LCL, ymax = qD.UCL), alpha = 0.2, linetype = 0) +
     scale_fill_manual(values = host_colors) +
     scale_color_manual(values = host_colors) +
+    scale_shape_manual(values=c(3, 8, 1, 15, 17, 7, 16)) +
     scale_y_log10() +
     facet_grid(''~marker) +
     theme(axis.title.y = element_markdown(), strip.text.x = element_markdown()) +
-    labs(x = 'Order (q)', y = 'Population-level<br>haplotype diversity (^q D)', fill = 'Host', col = 'Host', shape = 'Sample set')
+    labs(x = 'Order (q)', y = 'Population-level<br>haplotype diversity (^q D)', 
+         fill = 'Host', col = 'Host', shape = 'Sample set')
 
 diversity_village <- bind_rows(ama_est3D_v %>% mutate(marker = '*ama1*'), csp_est3D_v %>% mutate(marker = '*csp*')) %>% 
   mutate(village = gsub('.*_','', Assemblage), Assemblage = gsub('_.*', '', Assemblage),
@@ -829,7 +987,7 @@ diversity_village <- bind_rows(ama_est3D_v %>% mutate(marker = '*ama1*'), csp_es
   scale_fill_manual(values = host_colors) +
   scale_color_manual(values = host_colors) +
   scale_y_log10() +
-  facet_grid(~marker) +
+  facet_grid(marker~.) +
   theme(axis.title.y = element_markdown(), strip.text = element_markdown()) +
   labs(x = 'Order (q)', y = 'Population-level<br>haplotype diversity (^q D)', 
        fill = 'Host', col = 'Host', shape = 'Village')
@@ -844,12 +1002,25 @@ diversity_season <- bind_rows(ama_est3D_s %>% mutate(marker = '*ama1*'), csp_est
   scale_fill_manual(values = host_colors) +
   scale_color_manual(values = host_colors) +
   scale_y_log10() +
-  facet_grid(~marker) +
+  facet_grid(marker~.) +
   theme(axis.title.y = element_markdown(), strip.text = element_markdown()) +
   labs(x = 'Order (q)', y = 'Population-level<br>haplotype diversity (^q D)', 
        fill = 'Host', col = 'Host', shape = 'Season')
-```
 
+diversity_ah <- bind_rows(full_join(ama_ah_est3D %>% mutate(marker = '*ama1*'), ama_est3D %>% mutate(marker = '*ama1*')), 
+          full_join(csp_ah_est3D %>% mutate(marker = '*csp*'), csp_est3D %>% mutate(marker = '*csp*'))) %>% 
+  ggplot(aes(x = Order.q, y = qD, col = Assemblage, fill = Assemblage, shape = marker)) +
+  geom_point(size = 3) +
+  geom_line() +
+  geom_ribbon(aes(ymin = qD.LCL, ymax = qD.UCL), alpha = 0.2, linetype = 0) +
+  scale_fill_manual(values = c(host_colors, Abdomen = 'lightblue', Head = 'cadetblue')) +
+  scale_color_manual(values = c(host_colors, Abdomen = 'lightblue', Head = 'cadetblue')) +
+  scale_y_log10() +
+  scale_shape_manual(values = c(17, 19), guide = 'none') +
+  facet_grid(marker~.) +
+  theme(axis.title.y = element_markdown(), strip.text.y = element_markdown()) +
+  labs(x = 'Order (q)', y = 'Population-level<br>haplotype diversity (^q D)', fill = 'Host', col = 'Host', shape = 'Marker')
+```
 
 ```{r}
 fig_div <- plot_grid(pop_freq_plot, diversity_plot, evenness_plot + theme(legend.position = 'none'),
@@ -858,15 +1029,127 @@ ggsave(plot = fig_div, filename = 'figures/Fig2.png', width = 15, height = 5)
 ```
 
 ```{r}
-fig_div_supp <- plot_grid(plot_grid(raref_plot, diversity_plot_supp, labels = c('A', 'B'), nrow = 2),
-                          plot_grid(diversity_village, diversity_season, labels = c('C', 'D', nrow = 1)),
-                          nrow = 2, rel_heights = c(1, 0.5))
-ggsave(plot = fig_div_supp, filename = 'figures/FigS6.png', width = 12, height = 12)
+fig_div_supp <- plot_grid(plot_grid(raref_plot + 
+                                      guides(col = guide_legend(ncol = 1,
+                                                                title.position="top"),
+                                             fill = guide_legend(ncol = 1,
+                                                                title.position="top"),
+                                             linetype = guide_legend(ncol = 1,
+                                                                     title.position="top")) +
+                                      theme(legend.position = 'bottom'), 
+                                    diversity_plot_supp +
+                                      guides(col = 'none',
+                                             fill = 'none',
+                                             shape = guide_legend(ncol = 1,
+                                                                  title.position="top")) + 
+                                      theme(legend.position = 'bottom'), 
+                                    labels = c('A', 'B'), nrow = 1, 
+                                    rel_widths = c(1, 1), rel_heights = c(1, 0.5)),
+                          plot_grid(diversity_village, diversity_season, diversity_ah,
+                                    labels = c('C', 'D', 'E'), nrow = 1),
+                          rel_heights = c(1, 0.75),
+                          nrow = 2)
+ggsave(plot = fig_div_supp, filename = 'figures/FigS6.png', width = 12, height = 8)
+```
+
+
+```{r}
+evenness_sens <- bind_rows(
+  bind_rows(ama_even_subsamp$E3 %>% mutate(marker = '*ama1*'), 
+            csp_even_subsamp$E3 %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'One sample per individual'),
+  bind_rows(ama_even_subsamp2$E3 %>% mutate(marker = '*ama1*'), 
+            csp_even_subsamp2$E3 %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'Same number of weekly samples per host'),
+  bind_rows(ama_even_abund$E3 %>% mutate(marker = '*ama1*'), 
+            csp_even_abund$E3 %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'Accounting for differences in MOI'),
+  bind_rows(ama_even_both_vars$E3 %>% mutate(marker = '*ama1*'), 
+            csp_even_both_vars$E3 %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'Haplotypes with variant positions common to both hosts'),
+  bind_rows(ama_even_asymp$E3 %>% mutate(marker = '*ama1*'), 
+            csp_even_asymp$E3 %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'Excluding symptomatic human cases'),
+  bind_rows(ama_even_min$E3 %>% mutate(marker = '*ama1*'), 
+            csp_even_min$E3 %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'Same number of each'),  
+  bind_rows(ama_even_emp$E3 %>% mutate(marker = '*ama1*'), 
+            csp_even_emp$E3 %>% mutate(marker = '*csp*')) %>% 
+    mutate(samp_set = 'Full dataset (asymptotic)')) %>% 
+  filter(Order.q %in% c(1, 2))
+
+evenness_ah <- bind_rows(full_join(ama_ah_even$E3 %>% mutate(marker = '*ama1*'), ama_evenness$E3 %>% mutate(marker = '*ama1*')), 
+          full_join(csp_ah_even$E3 %>% mutate(marker = '*csp*'), csp_evenness$E3 %>% mutate(marker = '*csp*'))) %>% 
+  filter(Order.q %in% c(1, 2)) %>% 
+  mutate(Assemblage = factor(Assemblage, levels = c('Human', 'Mosquito', 'Abdomen', 'Head'))) %>% 
+  ggplot(aes(x = as.character(Order.q), y = Evenness, ymin = Even.LCL, ymax = Even.UCL, 
+             col = Assemblage, fill = Assemblage, shape = marker)) +
+  geom_pointrange(position = position_dodge(width = 0.5), size = 0.75) +
+  scale_color_manual(values = c(host_colors, Abdomen = 'lightblue', Head = 'cadetblue')) +
+  scale_shape_manual(values = c(17, 19), guide = 'none') +
+  facet_grid(marker~.) +
+  theme(axis.title.y = element_markdown(), strip.text.y = element_markdown()) +
+  labs(x = 'Order (q)', y = 'Population-level<br>haplotype evenness (^q E)', fill = 'Host', col = 'Host', shape = 'Marker')
+
+evenness_sens_plot <- evenness_sens %>% 
+  filter(Order.q %in% c(1, 2)) %>% 
+  ggplot(aes(x = as.character(Order.q), y = Evenness, ymin = Even.LCL, ymax = Even.UCL, 
+             shape = as.character(samp_set), col = Assemblage)) +
+  geom_point(position = position_dodge(width = 0.5)) +
+  geom_errorbar(position = position_dodge(width = 0.5)) +
+  scale_color_manual(values = host_colors) +
+  scale_shape_manual(values=c(3, 8, 1, 15, 17, 7, 16)) +
+  facet_grid(~marker) +
+  theme(axis.title.y = element_markdown(), strip.text = element_markdown()) +
+  labs(x = 'Sample set', y = 'Population-level<br>haplotype evenness (^q E)', 
+       col = 'Host', shape = 'Order (q)')
+```
+
+```{r}
+evenness_v_s <- plot_grid(bind_rows(ama_even_v$E3 %>% mutate(marker = '*ama1*'), csp_even_v$E3 %>% mutate(marker = '*csp*')) %>%
+  mutate(village = gsub('.*_', '', Assemblage) %>% gsub('\\.', ' ', .),
+         Assemblage = gsub('_.*', '', Assemblage)) %>% 
+  filter(Order.q %in% c(1, 2)) %>% 
+  ggplot(aes(x = as.character(Order.q), y = Evenness, ymin = Even.LCL, ymax = Even.UCL, 
+             col = Assemblage, fill = Assemblage, shape = village)) +
+  geom_pointrange(position = position_dodge(width = 0.5), size = 0.75) +
+  scale_color_manual(values = host_colors) +
+  # scale_shape_manual(values = c(17, 19), guide = 'none') +
+  facet_grid(marker~.) +
+  theme(axis.title.y = element_markdown(), strip.text.y = element_markdown()) +
+  labs(x = 'Order (q)', y = 'Population-level<br>haplotype evenness (^q E)', fill = 'Host', col = 'Host', shape = 'Marker'),
+
+bind_rows(ama_even_s$E3 %>% mutate(marker = '*ama1*'), csp_even_s$E3 %>% mutate(marker = '*csp*')) %>%
+  mutate(season = gsub('.*_', '', Assemblage) %>% gsub('\\.', ' ', .),
+         Assemblage = gsub('_.*', '', Assemblage)) %>% 
+  filter(Order.q %in% c(1, 2)) %>% 
+  ggplot(aes(x = as.character(Order.q), y = Evenness, ymin = Even.LCL, ymax = Even.UCL, 
+             col = Assemblage, fill = Assemblage, shape = season)) +
+  geom_pointrange(position = position_dodge(width = 0.5), size = 0.75) +
+  scale_color_manual(values = host_colors) +
+  # scale_shape_manual(values = c(17, 19), guide = 'none') +
+  facet_grid(marker~.) +
+  theme(axis.title.y = element_markdown(), strip.text.y = element_markdown()) +
+  labs(x = 'Order (q)', y = 'Population-level<br>haplotype evenness (^q E)', fill = 'Host', col = 'Host', shape = 'Marker'), labels = c('C', 'D'))
+```
+
+```{r}
+evenness_sens_supp <- plot_grid(plot_grid(evenness_ah, 
+                                          evenness_sens_plot + 
+                                      guides(col = 'none',
+                                             fill = 'none',
+                                             shape = guide_legend(ncol = 1,
+                                                                     title.position="top")) +
+                                      theme(legend.position = 'bottom'),
+                                      labels = c('A', 'B'), nrow = 1),
+          evenness_v_s, rel_heights = c(1, 0.6),
+          ncol = 1) 
+ggsave(plot = evenness_sens_supp, filename = 'figures/FigS7.png', width = 11, height = 8)
 ```
 
 ## Haplotype evenness within samples
 
-### Figure 3, S5 & S7 
+### Figure 3, S5 & S8 
 
 ```{r}
 ama_reads_est3D <- get_div(ama_reads,  'abundance', nboot = 0)
@@ -881,6 +1164,11 @@ ama_reads_evenness_raw <- Evenness(ama_reads_raw, q = 1, datatype = 'abundance',
 ama_reads_Cmax_raw = ama_reads_evenness_raw$Coverage
 csp_reads_evenness_raw <- Evenness(csp_reads_raw, q = 1, datatype = 'abundance', method = "Estimated", nboot = 0, E.class = 3)
 csp_reads_Cmax_raw = csp_reads_evenness_raw$Coverage
+
+ama_reads_evenness <- Evenness(ama_reads, q = 1, datatype = 'abundance', method = "Estimated", nboot = 0, E.class = 3)
+ama_reads_Cmax = ama_reads_evenness$Coverage
+csp_reads_evenness <- Evenness(csp_reads, q = 1, datatype = 'abundance', method = "Estimated", nboot = 0, E.class = 3)
+csp_reads_Cmax = csp_reads_evenness$Coverage
 ```
 
 ```{r}
@@ -996,7 +1284,7 @@ f_within <- plot_grid(moi_bin, read_dominance_plot, labels = 'AUTO', rel_widths 
 ggsave(plot = f_within, filename = 'figures/Fig3.png', width = 10, height = 3.5)
 
 ggsave(plot = plot_grid(read_dominance_plot_comb, read_dominance_plot_raw, rel_widths = c(0.6, 1), labels = 'AUTO'), 
-       filename = 'figures/FigS7.png', width = 8, height = 4)
+       filename = 'figures/FigS8.png', width = 8, height = 4)
 ```
 
 ```{r}
