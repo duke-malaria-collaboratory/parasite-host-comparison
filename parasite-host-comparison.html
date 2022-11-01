@@ -299,8 +299,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -308,16 +308,9 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -454,11 +447,12 @@ pcr_results &lt;- bind_rows(human_dat,
                                   gsub(&#39; &#39;, &#39; H&#39;, sample_id_mosquito))) %&gt;% 
   select(sample_name_dbs, collection_date, sample_type, pf_pcr_infection_status)) %&gt;% 
   mutate(pf_pcr_infection_status = str_to_sentence(pf_pcr_infection_status)) %&gt;% 
+  select(-village_name) %&gt;% 
   left_join(csp_haplotype_summary) %&gt;% 
   rename(csp_haplotype_number = haplotype_number, csp_haplotype_list = haplotype_list,
          csp_haplotype_reads = haplotype_reads) %&gt;% 
   select(-c(date, unq_memID)) %&gt;% #, month)) %&gt;% 
-  left_join(ama_haplotype_summary) %&gt;% 
+  left_join(ama_haplotype_summary %&gt;% select(-village_name)) %&gt;% 
   rename(ama_haplotype_number = haplotype_number, ama_haplotype_list = haplotype_list,
          ama_haplotype_reads = haplotype_reads) %&gt;% 
   filter(!is.na(pf_pcr_infection_status)) %&gt;% 
@@ -468,7 +462,7 @@ pcr_results &lt;- bind_rows(human_dat,
          seq = ifelse(csp_seq == &#39;csp only&#39; &amp; ama_seq == &#39;&#39;, &#39;csp only&#39;, seq),
          seq = ifelse(csp_seq == &#39;&#39; &amp; ama_seq == &#39;ama only&#39;, &#39;ama only&#39;, seq),
          pcr_seq = paste(pf_pcr_infection_status, seq),
-         seq = factor(seq, levels = c(&#39;neither&#39;, &#39;ama only&#39;, &#39;csp only&#39;, &#39;both&#39;))) 
+         seq = factor(seq, levels = c(&#39;neither&#39;, &#39;ama only&#39;, &#39;csp only&#39;, &#39;both&#39;)))
 
 # add human data to haplotype summary
 csp_haplotype_summary &lt;- csp_haplotype_summary %&gt;% 
@@ -573,14 +567,16 @@ pcr_results %&gt;% filter(pf_pcr_infection_status != &#39;Negative&#39;) %&gt;%
   group_by(sample_type, seq != &#39;neither&#39;) %&gt;% summarize(count = n()) %&gt;% 
   group_by(sample_type) %&gt;% 
   mutate(tot = sum(count), perc_pos = round(count/sum(count), 3)*100)
-## # A tibble: 4 × 5
+## # A tibble: 6 × 5
 ## # Groups:   sample_type [3]
 ##   sample_type `seq != &quot;neither&quot;` count   tot perc_pos
 ##   &lt;chr&gt;       &lt;lgl&gt;              &lt;int&gt; &lt;int&gt;    &lt;dbl&gt;
-## 1 Abdomen     FALSE                199   199    100  
-## 2 Head        FALSE                134   134    100  
-## 3 Human       FALSE                162  1175     13.8
-## 4 Human       TRUE                1013  1175     86.2
+## 1 Abdomen     FALSE                  9   199      4.5
+## 2 Abdomen     TRUE                 190   199     95.5
+## 3 Head        FALSE                  2   134      1.5
+## 4 Head        TRUE                 132   134     98.5
+## 5 Human       FALSE                162  1175     13.8
+## 6 Human       TRUE                1013  1175     86.2
 
 all_haps_summary %&gt;% 
   mutate(unq_memID = ifelse(is.na(unq_memID), gsub(&#39; A| H&#39;, &#39;&#39;, sample_name_dbs), unq_memID)) %&gt;% 
@@ -605,8 +601,11 @@ length(unique(all_haps_summary$hh_id))
          pcr_seq = gsub(&#39;ama&#39;, &#39;*ama1*&#39;, pcr_seq),
          pcr_seq = gsub(&#39;both&#39;,&#39;*ama1* and *csp*&#39;, pcr_seq),
          pcr_seq = ifelse(grepl(&#39;Infected&#39;, pcr_seq), paste0(pcr_seq, &#39;)&#39;), pcr_seq),
-         pcr_seq = factor(pcr_seq, levels = c(&#39;Uninfected&#39;,&#39;Infected (neither)&#39;, &#39;Infected (*ama1* only)&#39;,
-                                              &#39;Infected (*csp* only)&#39;, &#39;Infected (*ama1* and *csp*)&#39;)),
+         pcr_seq = factor(pcr_seq, levels = c(&#39;Uninfected&#39;,
+         &#39;Infected (neither)&#39;, 
+         &#39;Infected (*ama1* only)&#39;,
+         &#39;Infected (*csp* only)&#39;, 
+         &#39;Infected (*ama1* and *csp*)&#39;)),
          sample_type = ifelse(sample_type == &#39;Human&#39;, paste0(sample_type), paste0(&#39;Mosquito\n&#39;, tolower(sample_type)))) %&gt;% 
   ggplot(aes(x = sample_type, fill = pcr_seq)) +
   geom_bar(fill = &#39;white&#39;, col = &#39;darkgrey&#39;, alpha = 1) +
@@ -619,7 +618,8 @@ length(unique(all_haps_summary$hh_id))
 
 pcr_plot &lt;- plot_panel_cols(pcr_plot, adjustcolor(compartment_colors, alpha.f = 0.5))
 
-ggsave(plot = pcr_plot, filename = &#39;figures/FigS1.png&#39;, width = 6, height = 4)</code></pre>
+ggsave(plot = pcr_plot, filename = &#39;figures/FigS1.png&#39;, width = 6, height = 4)
+ggsave(plot = pcr_plot, filename = &#39;figures/FigS1.pdf&#39;, width = 6, height = 4)</code></pre>
 </div>
 </div>
 <div id="mosquito-abdomen-head-comparison" class="section level2">
@@ -697,11 +697,13 @@ mosq_pcr_summary %&gt;%
   mutate(tot = sum(count), 
          percent = round(count/tot*100, 1))
 ## # A tibble: 3 × 6
-##   pf_pcr_infection_status_sampl… pf_pcr_infectio… count pcr_status   tot percent
-##   &lt;chr&gt;                          &lt;chr&gt;            &lt;int&gt; &lt;fct&gt;      &lt;int&gt;   &lt;dbl&gt;
-## 1 negative                       positive            41 A-/H+        238    17.2
-## 2 positive                       negative           108 A+/H-        238    45.4
-## 3 positive                       positive            89 A+/H+        238    37.4</code></pre>
+##   pf_pcr_infection_status_sample_level_a pf_pcr_in…¹ count pcr_s…²   tot percent
+##   &lt;chr&gt;                                  &lt;chr&gt;       &lt;int&gt; &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;
+## 1 negative                               positive       41 A-/H+     238    17.2
+## 2 positive                               negative      108 A+/H-     238    45.4
+## 3 positive                               positive       89 A+/H+     238    37.4
+## # … with abbreviated variable names ¹​pf_pcr_infection_status_sample_level_h,
+## #   ²​pcr_status</code></pre>
 <pre class="r"><code>all_haps_summary %&gt;% 
   group_by(sample_type, marker) %&gt;% 
   summarize(med_moi = median(haplotype_number),
@@ -787,7 +789,8 @@ f1 &lt;- plot_grid(pcr_compare, abd_head_mois,
                 mosq_pop_compare + theme(legend.position = &#39;bottom&#39;),
                 labels = &#39;AUTO&#39;,  nrow = 2, rel_heights = c(0.8, 1)) #, rel_widths = c(1, 0.8))
 
-ggsave(plot = f1, filename = &#39;figures/Fig1.png&#39;, width = 8, height = 7)</code></pre>
+ggsave(plot = f1, filename = &#39;figures/Fig1.png&#39;, width = 8, height = 7)
+ggsave(plot = f1, filename = &#39;figures/Fig1.pdf&#39;, width = 8, height = 7)</code></pre>
 </div>
 <div id="figure-s2-summary-of-haplotypes-found-in-the-mosquito-abdomen-mosquito-head-or-both-compartments" class="section level3">
 <h3>Figure S2: Summary of haplotypes found in the mosquito abdomen,
@@ -845,7 +848,8 @@ compare_fed &lt;- ah_hap_cts %&gt;%
 
 fs2 &lt;- plot_grid(mosq_hap_union, jaccard_plot, jaccard_compare, compare_fed, labels = &#39;AUTO&#39;)
 
-ggsave(plot = fs2, filename = &#39;figures/FigS2.png&#39;, width = 11, height = 7)</code></pre>
+ggsave(plot = fs2, filename = &#39;figures/FigS2.png&#39;, width = 11, height = 7)
+ggsave(plot = fs2, filename = &#39;figures/FigS2.pdf&#39;, width = 11, height = 7)</code></pre>
 <pre class="r"><code>cat(&#39;KS test p for ama1 comparison\n&#39;)
 ## KS test p for ama1 comparison
 ks.test(all_ah_hap_props %&gt;% reshape2::melt() %&gt;% filter(marker == &#39;*ama1*&#39; &amp; !grepl(&#39;p&#39;, value)) %&gt;% mutate(value = as.numeric(value)) %&gt;% pull(value), 
@@ -929,7 +933,8 @@ compartments</h3>
   labs(x = &#39;\n&#39;, y = &#39;Relative haplotype abundance&#39;, fill = &#39;Haplotype\npresent in:&#39;) +
   theme(axis.text.x = element_markdown())
 
-ggsave(plot = hap_abundance_plot, filename = &#39;figures/FigS3.png&#39;, width = 7, height = 5)</code></pre>
+ggsave(plot = hap_abundance_plot, filename = &#39;figures/FigS3.png&#39;, width = 7, height = 5)
+ggsave(plot = hap_abundance_plot, filename = &#39;figures/FigS3.pdf&#39;, width = 7, height = 5)</code></pre>
 </div>
 <div id="figure-s4-randomized-minimum-spanning-trees-for-nucleotide-haplotype-sequences" class="section level3">
 <h3>Figure S4: Randomized minimum spanning trees for nucleotide
@@ -959,7 +964,8 @@ plot_rmst_tr &lt;- function(seqs, marker){
 ama_rmst &lt;- plot_rmst_tr(ama_seqs, &#39;*ama1*&#39;)
 csp_rmst &lt;- plot_rmst_tr(csp_seqs, &#39;*csp*&#39;)
 
-ggsave(plot_grid(ama_rmst, csp_rmst, labels = &#39;AUTO&#39;), filename = &#39;figures/FigS4.png&#39;, width = 15, height = 10)</code></pre>
+ggsave(plot_grid(ama_rmst, csp_rmst, labels = &#39;AUTO&#39;), filename = &#39;figures/FigS4.png&#39;, width = 15, height = 10)
+ggsave(plot_grid(ama_rmst, csp_rmst, labels = &#39;AUTO&#39;), filename = &#39;figures/FigS4.pdf&#39;, width = 15, height = 10)</code></pre>
 </div>
 <div id="figure-2-s6-s7-the-mosquito-p.-falciparum-population-is-more-diverse-than-the-human-p.-falciparum-population." class="section level3">
 <h3>Figure 2, S6, S7: The mosquito <em>P. falciparum</em> population is
@@ -1416,7 +1422,8 @@ diversity_ah &lt;- bind_rows(full_join(ama_ah_est3D %&gt;% mutate(marker = &#39;
   labs(x = &#39;Order (q)&#39;, y = &#39;Population-level&lt;br&gt;haplotype diversity (^q D)&#39;, fill = &#39;Host&#39;, col = &#39;Host&#39;, shape = &#39;Marker&#39;)</code></pre>
 <pre class="r"><code>fig_div &lt;- plot_grid(pop_freq_plot, diversity_plot, evenness_plot + theme(legend.position = &#39;none&#39;),
                      labels = &#39;AUTO&#39;, nrow = 1, rel_widths = c(1, 0.75, 0.3))
-ggsave(plot = fig_div, filename = &#39;figures/Fig2.png&#39;, width = 15, height = 5)</code></pre>
+ggsave(plot = fig_div, filename = &#39;figures/Fig2.png&#39;, width = 15, height = 5)
+ggsave(plot = fig_div, filename = &#39;figures/Fig2.pdf&#39;, width = 15, height = 5)</code></pre>
 <pre class="r"><code>fig_div_supp &lt;- plot_grid(plot_grid(raref_plot + 
                                       guides(col = guide_legend(ncol = 1,
                                                                 title.position=&quot;top&quot;),
@@ -1437,7 +1444,8 @@ ggsave(plot = fig_div, filename = &#39;figures/Fig2.png&#39;, width = 15, height
                                     labels = c(&#39;C&#39;, &#39;D&#39;, &#39;E&#39;), nrow = 1),
                           rel_heights = c(1, 0.75),
                           nrow = 2)
-ggsave(plot = fig_div_supp, filename = &#39;figures/FigS6.png&#39;, width = 12, height = 8)</code></pre>
+ggsave(plot = fig_div_supp, filename = &#39;figures/FigS6.png&#39;, width = 12, height = 8)
+ggsave(plot = fig_div_supp, filename = &#39;figures/FigS6.pdf&#39;, width = 12, height = 8)</code></pre>
 <pre class="r"><code>evenness_sens &lt;- bind_rows(
   bind_rows(ama_even_subsamp$E3 %&gt;% mutate(marker = &#39;*ama1*&#39;), 
             csp_even_subsamp$E3 %&gt;% mutate(marker = &#39;*csp*&#39;)) %&gt;% 
@@ -1522,7 +1530,8 @@ bind_rows(ama_even_s$E3 %&gt;% mutate(marker = &#39;*ama1*&#39;), csp_even_s$E3 
                                       labels = c(&#39;A&#39;, &#39;B&#39;), nrow = 1),
           evenness_v_s, rel_heights = c(1, 0.6),
           ncol = 1) 
-ggsave(plot = evenness_sens_supp, filename = &#39;figures/FigS7.png&#39;, width = 11, height = 8)</code></pre>
+ggsave(plot = evenness_sens_supp, filename = &#39;figures/FigS7.png&#39;, width = 11, height = 8)
+ggsave(plot = evenness_sens_supp, filename = &#39;figures/FigS7.pdf&#39;, width = 11, height = 8)</code></pre>
 </div>
 </div>
 <div id="haplotype-evenness-within-samples" class="section level2">
@@ -1646,13 +1655,17 @@ read_dominance_plot_raw &lt;-
   labs(x = &#39;Host&#39;, y = &#39;Pre-censored within-sample&lt;br&gt;haplotype evenness (^1 E)&#39;) +
   theme(legend.position = &#39;none&#39;, strip.text.x = element_markdown(), axis.title.y = element_markdown())</code></pre>
 <pre class="r"><code>ggsave(plot = within_div, filename = &#39;figures/FigS5.png&#39;, width = 7, height = 5)
+ggsave(plot = within_div, filename = &#39;figures/FigS5.pdf&#39;, width = 7, height = 5)
 
 f_within &lt;- plot_grid(moi_bin, read_dominance_plot, labels = &#39;AUTO&#39;, rel_widths = c(1, 0.8)) #, rel_heights = c(0.75, 1))
 
 ggsave(plot = f_within, filename = &#39;figures/Fig3.png&#39;, width = 10, height = 3.5)
+ggsave(plot = f_within, filename = &#39;figures/Fig3.pdf&#39;, width = 10, height = 3.5)
 
 ggsave(plot = plot_grid(read_dominance_plot_comb, read_dominance_plot_raw, rel_widths = c(0.6, 1), labels = &#39;AUTO&#39;), 
-       filename = &#39;figures/FigS8.png&#39;, width = 8, height = 4)</code></pre>
+       filename = &#39;figures/FigS8.png&#39;, width = 8, height = 4)
+ggsave(plot = plot_grid(read_dominance_plot_comb, read_dominance_plot_raw, rel_widths = c(0.6, 1), labels = &#39;AUTO&#39;), 
+       filename = &#39;figures/FigS8.pdf&#39;, width = 8, height = 4)</code></pre>
 <pre class="r"><code>moi_dat &lt;- all_haps_summary %&gt;% 
   mutate(moi1 = haplotype_number == 1,
          sample_type = ifelse(sample_type == &#39;Human&#39;, &#39;Human&#39;, &#39;Mosquito&#39;)) %&gt;% 

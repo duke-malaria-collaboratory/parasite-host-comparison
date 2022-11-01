@@ -61,11 +61,12 @@ pcr_results <- bind_rows(human_dat,
                                   gsub(' ', ' H', sample_id_mosquito))) %>% 
   select(sample_name_dbs, collection_date, sample_type, pf_pcr_infection_status)) %>% 
   mutate(pf_pcr_infection_status = str_to_sentence(pf_pcr_infection_status)) %>% 
+  select(-village_name) %>% 
   left_join(csp_haplotype_summary) %>% 
   rename(csp_haplotype_number = haplotype_number, csp_haplotype_list = haplotype_list,
          csp_haplotype_reads = haplotype_reads) %>% 
   select(-c(date, unq_memID)) %>% #, month)) %>% 
-  left_join(ama_haplotype_summary) %>% 
+  left_join(ama_haplotype_summary %>% select(-village_name)) %>% 
   rename(ama_haplotype_number = haplotype_number, ama_haplotype_list = haplotype_list,
          ama_haplotype_reads = haplotype_reads) %>% 
   filter(!is.na(pf_pcr_infection_status)) %>% 
@@ -75,7 +76,7 @@ pcr_results <- bind_rows(human_dat,
          seq = ifelse(csp_seq == 'csp only' & ama_seq == '', 'csp only', seq),
          seq = ifelse(csp_seq == '' & ama_seq == 'ama only', 'ama only', seq),
          pcr_seq = paste(pf_pcr_infection_status, seq),
-         seq = factor(seq, levels = c('neither', 'ama only', 'csp only', 'both'))) 
+         seq = factor(seq, levels = c('neither', 'ama only', 'csp only', 'both')))
 
 # add human data to haplotype summary
 csp_haplotype_summary <- csp_haplotype_summary %>% 
@@ -196,8 +197,11 @@ pcr_plot <- pcr_results %>%
          pcr_seq = gsub('ama', '*ama1*', pcr_seq),
          pcr_seq = gsub('both','*ama1* and *csp*', pcr_seq),
          pcr_seq = ifelse(grepl('Infected', pcr_seq), paste0(pcr_seq, ')'), pcr_seq),
-         pcr_seq = factor(pcr_seq, levels = c('Uninfected','Infected (neither)', 'Infected (*ama1* only)',
-                                              'Infected (*csp* only)', 'Infected (*ama1* and *csp*)')),
+         pcr_seq = factor(pcr_seq, levels = c('Uninfected',
+         'Infected (neither)', 
+         'Infected (*ama1* only)',
+         'Infected (*csp* only)', 
+         'Infected (*ama1* and *csp*)')),
          sample_type = ifelse(sample_type == 'Human', paste0(sample_type), paste0('Mosquito\n', tolower(sample_type)))) %>% 
   ggplot(aes(x = sample_type, fill = pcr_seq)) +
   geom_bar(fill = 'white', col = 'darkgrey', alpha = 1) +
@@ -211,6 +215,7 @@ pcr_plot <- pcr_results %>%
 pcr_plot <- plot_panel_cols(pcr_plot, adjustcolor(compartment_colors, alpha.f = 0.5))
 
 ggsave(plot = pcr_plot, filename = 'figures/FigS1.png', width = 6, height = 4)
+ggsave(plot = pcr_plot, filename = 'figures/FigS1.pdf', width = 6, height = 4)
 ```
 
 ## Mosquito abdomen head comparison
@@ -372,6 +377,7 @@ f1 <- plot_grid(pcr_compare, abd_head_mois,
                 labels = 'AUTO',  nrow = 2, rel_heights = c(0.8, 1)) #, rel_widths = c(1, 0.8))
 
 ggsave(plot = f1, filename = 'figures/Fig1.png', width = 8, height = 7)
+ggsave(plot = f1, filename = 'figures/Fig1.pdf', width = 8, height = 7)
 ```
 
 ### Figure S2: Summary of haplotypes found in the mosquito abdomen, mosquito head, or both compartments
@@ -432,6 +438,7 @@ compare_fed <- ah_hap_cts %>%
 fs2 <- plot_grid(mosq_hap_union, jaccard_plot, jaccard_compare, compare_fed, labels = 'AUTO')
 
 ggsave(plot = fs2, filename = 'figures/FigS2.png', width = 11, height = 7)
+ggsave(plot = fs2, filename = 'figures/FigS2.pdf', width = 11, height = 7)
 ```
 
 ```{r}
@@ -509,6 +516,7 @@ hap_abundance_plot <- compartments_present %>%
   theme(axis.text.x = element_markdown())
 
 ggsave(plot = hap_abundance_plot, filename = 'figures/FigS3.png', width = 7, height = 5)
+ggsave(plot = hap_abundance_plot, filename = 'figures/FigS3.pdf', width = 7, height = 5)
 ```
 
 ### Figure S4: Randomized minimum spanning trees for nucleotide haplotype sequences
@@ -540,6 +548,7 @@ ama_rmst <- plot_rmst_tr(ama_seqs, '*ama1*')
 csp_rmst <- plot_rmst_tr(csp_seqs, '*csp*')
 
 ggsave(plot_grid(ama_rmst, csp_rmst, labels = 'AUTO'), filename = 'figures/FigS4.png', width = 15, height = 10)
+ggsave(plot_grid(ama_rmst, csp_rmst, labels = 'AUTO'), filename = 'figures/FigS4.pdf', width = 15, height = 10)
 ```
 
 
@@ -1026,6 +1035,7 @@ diversity_ah <- bind_rows(full_join(ama_ah_est3D %>% mutate(marker = '*ama1*'), 
 fig_div <- plot_grid(pop_freq_plot, diversity_plot, evenness_plot + theme(legend.position = 'none'),
                      labels = 'AUTO', nrow = 1, rel_widths = c(1, 0.75, 0.3))
 ggsave(plot = fig_div, filename = 'figures/Fig2.png', width = 15, height = 5)
+ggsave(plot = fig_div, filename = 'figures/Fig2.pdf', width = 15, height = 5)
 ```
 
 ```{r}
@@ -1050,6 +1060,7 @@ fig_div_supp <- plot_grid(plot_grid(raref_plot +
                           rel_heights = c(1, 0.75),
                           nrow = 2)
 ggsave(plot = fig_div_supp, filename = 'figures/FigS6.png', width = 12, height = 8)
+ggsave(plot = fig_div_supp, filename = 'figures/FigS6.pdf', width = 12, height = 8)
 ```
 
 
@@ -1145,6 +1156,8 @@ evenness_sens_supp <- plot_grid(plot_grid(evenness_ah,
           evenness_v_s, rel_heights = c(1, 0.6),
           ncol = 1) 
 ggsave(plot = evenness_sens_supp, filename = 'figures/FigS7.png', width = 11, height = 8)
+ggsave(plot = evenness_sens_supp, filename = 'figures/FigS7.pdf', width = 11, height = 8)
+
 ```
 
 ## Haplotype evenness within samples
@@ -1278,13 +1291,17 @@ read_dominance_plot_raw <-
 
 ```{r}
 ggsave(plot = within_div, filename = 'figures/FigS5.png', width = 7, height = 5)
+ggsave(plot = within_div, filename = 'figures/FigS5.pdf', width = 7, height = 5)
 
 f_within <- plot_grid(moi_bin, read_dominance_plot, labels = 'AUTO', rel_widths = c(1, 0.8)) #, rel_heights = c(0.75, 1))
 
 ggsave(plot = f_within, filename = 'figures/Fig3.png', width = 10, height = 3.5)
+ggsave(plot = f_within, filename = 'figures/Fig3.pdf', width = 10, height = 3.5)
 
 ggsave(plot = plot_grid(read_dominance_plot_comb, read_dominance_plot_raw, rel_widths = c(0.6, 1), labels = 'AUTO'), 
        filename = 'figures/FigS8.png', width = 8, height = 4)
+ggsave(plot = plot_grid(read_dominance_plot_comb, read_dominance_plot_raw, rel_widths = c(0.6, 1), labels = 'AUTO'), 
+       filename = 'figures/FigS8.pdf', width = 8, height = 4)
 ```
 
 ```{r}
